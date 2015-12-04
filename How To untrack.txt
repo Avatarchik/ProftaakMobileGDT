@@ -1,0 +1,5 @@
+git update-index --assume-unchanged "Proftaak GDT Mobile\Proftaak GDT Mobile.CSharp.csproj"
+
+
+TO TRACK AGAIN:
+git update-index --no-assume-unchanged "Proftaak GDT Mobile\Proftaak GDT Mobile.CSharp.csproj"
