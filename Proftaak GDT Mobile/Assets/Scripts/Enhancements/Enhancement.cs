@@ -23,6 +23,7 @@
         private readonly List<Enhancement> _unlockableEnhancements = new List<Enhancement>();
 
         private Button _unlockButton;
+        private Image _buttonImage;
 
         public bool Orderable { get; set; }
 
@@ -30,6 +31,7 @@
         public void Awake()
         {
             this._unlockButton = this.GetComponent<Button>();
+            this._buttonImage = this.GetComponent<Image>();
             this.GetComponentInChildren<Text>().text = this.NameAsString;
             foreach (Enhancement eh in this._requiredEnhancements)
                 eh._unlockableEnhancements.Add(this);
@@ -43,22 +45,22 @@
             if (this.Unlocked)
             {
                 this._unlockButton.interactable = true;
-                this._unlockButton.image.sprite = EnhancementData.Instance.UnlockedImg;
+                this._buttonImage.sprite = EnhancementData.Instance.UnlockedImg;
             }
             else if (this._requiredEnhancements.Count == 0)
             {
                 this._unlockButton.interactable = true;
-                this._unlockButton.image.sprite = EnhancementData.Instance.RegularImg;
+                this._buttonImage.sprite = EnhancementData.Instance.RegularImg;
             }
             else if (this._requiredEnhancements.TrueForAll(x => x.Unlocked))
             {
                 this._unlockButton.interactable = true;
-                this._unlockButton.image.sprite = EnhancementData.Instance.RegularImg;
+                this._buttonImage.sprite = EnhancementData.Instance.RegularImg;
             }
             else
             {
                 this._unlockButton.interactable = false;
-                this._unlockButton.image.sprite = EnhancementData.Instance.LockedImg;
+                this._buttonImage.sprite = EnhancementData.Instance.LockedImg;
             }
 
         }
@@ -71,7 +73,7 @@
             this.Unlocked = true;
             Player.Instance.UnusedSkillPoints -= this.RequiredPoints;
             Player.Instance.UnlockedEnhancements.Add(this);
-            this._unlockButton.image.sprite = EnhancementData.Instance.UnlockedImg;
+            this._buttonImage.sprite = EnhancementData.Instance.UnlockedImg;
             foreach (Enhancement eh in this._unlockableEnhancements)
                 eh.UpdateStatus();
         }
