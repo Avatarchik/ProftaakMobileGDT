@@ -13,9 +13,11 @@
 
         // Category { get; set; }
 
-        public int KnowledgeSkills { get; set; }
-        public int PresentationSkills { get; set; }
-        public int MediaSkills { get; set; }
+        public uint UnusedSkillPoints { get; set; }
+
+        public uint KnowledgeSkills { get; set; }
+        public uint PresentationSkills { get; set; }
+        public uint MediaSkills { get; set; }
 
         public List<Enhancement> UnlockedEnhancements { get; set; }
 
