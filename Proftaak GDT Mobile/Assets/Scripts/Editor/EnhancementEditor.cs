@@ -4,8 +4,8 @@
     using UnityEditor;
     using UnityEngine;
 
-    [CustomEditor(typeof(Skill))]
-    public class SkillEditor : Editor
+    [CustomEditor(typeof(Enhancement))]
+    public class EnhancementEditor : Editor
     {
         private bool showBtn = false;
 
@@ -19,20 +19,28 @@
                 this.DrawDefaultInspector();
                 EditorGUILayout.Separator();
             }
-
-            Skill skillScript = (Skill)this.target;
-
-            this.serializedObject.Update();
-            show1item(this.serializedObject.FindProperty("upgradeObj"));
-
+            
             EditorGUILayout.Separator();
 
-            show(this.serializedObject.FindProperty("requiredSkills"));
+            ShowList(this.serializedObject.FindProperty("_requiredEnhancements"));
+
+            EditorGUILayout.Separator();
+            
+            if (GUILayout.Button("Update status"))
+            {
+                Enhancement eh = (Enhancement)this.target;
+                eh.UpdateStatus();
+            }
 
             this.serializedObject.ApplyModifiedProperties();
         }
 
-        private static void show(SerializedProperty list)
+        private static void ShowItem(SerializedProperty item)
+        {
+            EditorGUILayout.PropertyField(item);
+        }
+
+        private static void ShowList(SerializedProperty list)
         {
             EditorGUILayout.PropertyField(list);
             for (int i = 0; i < list.arraySize; i++)
@@ -58,9 +66,5 @@
             }
         }
 
-        private static void show1item(SerializedProperty item)
-        {
-            EditorGUILayout.PropertyField(item);
-        }
     }
 }

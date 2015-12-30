@@ -19,6 +19,7 @@
         public uint PresentationSkills { get; set; }
         public uint MediaSkills { get; set; }
 
+        // kan eigenlijk ook alleen de naam zijn ( EnhancementType )
         public List<Enhancement> UnlockedEnhancements { get; set; }
 
         public Player()
