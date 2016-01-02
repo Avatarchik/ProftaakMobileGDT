@@ -52,7 +52,7 @@
                 EditorGUILayout.EndHorizontal();
             }
 
-            if (GUILayout.Button("Add required skill"))
+            if (GUILayout.Button("Add required Skill"))
             {
                 list.arraySize += 1;
             }

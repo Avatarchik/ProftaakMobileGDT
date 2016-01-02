@@ -1,0 +1,166 @@
+﻿namespace Assets.Scripts.Managers
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Runtime.CompilerServices;
+    using Assets.Scripts.Helpers;
+    using Assets.Scripts.RandomEvents;
+    using UnityEngine;
+    using UnityEngine.UI;
+
+    internal class RandomEventsManager : MonoBehaviour
+    {
+        [SerializeField]
+        private Canvas _randomEventsCanvas;
+
+        [SerializeField]
+        private readonly List<RandomEvent> _randomEvents;
+
+        [SerializeField]
+        private Button _button1;
+        [SerializeField]
+        private Button _button2;
+        [SerializeField]
+        private Button _button3;
+        [SerializeField]
+        private Button _button4;
+        [SerializeField]
+        private Text _descText;
+
+        public RandomEvent CurrentRandomEvent { get; private set; }
+
+        // ReSharper disable once UnusedMember.Local
+        private void Awake()
+        {
+            // read randomEvents from JSON file.
+            this._randomEvents.Shuffle();
+            List<RandomEvent.Choice> choices = new List<RandomEvent.Choice>
+                                                   {                               // wordt niet afgerond dus kans op 4 is extreem klein, eigenlijk gewoon 1t/m3.
+                                                       new RandomEvent.Choice("Presentatie oefenen", RandomEvent.ChoiceType.SkillIncrease, 1, 4, PlayerSkill.Presentation),
+                                                                                  // wordt niet afgerond dus kans op 4 is extreem klein, eigenlijk gewoon 1t/m3.
+                                                       new RandomEvent.Choice("VLOG maken", RandomEvent.ChoiceType.SkillIncrease, 1, 4, PlayerSkill.Media)
+                                                   };
+            this.CurrentRandomEvent = new RandomEvent() { Choices = choices };
+            this._randomEvents.Add(this.CurrentRandomEvent);
+        }
+
+        // TODO: Setup RandomEventCanvas using CurrentRandomEvent -> Show buttons and change button text, description etc.
+        private void UpdateToGUITopcurrentRandomEvent()
+        {
+            this._descText.text = string.Empty;
+            this.DeactivateAllButtons();
+            if (this.CurrentRandomEvent == null) return;
+            this._descText.text = this.CurrentRandomEvent.Description;
+            for (int i = 0; i < this.CurrentRandomEvent.Choices.Count; i++)
+                switch (i)
+                {
+                    case 0:
+                        this._button1.gameObject.SetActive(true);
+                        this._button1.GetComponentInChildren<Text>().text = this.CurrentRandomEvent.Choices[i].Text;
+                        break;
+                    case 1:
+                        this._button2.gameObject.SetActive(true);
+                        this._button2.GetComponentInChildren<Text>().text = this.CurrentRandomEvent.Choices[i].Text;
+                        break;
+                    case 2:
+                        this._button3.gameObject.SetActive(true);
+                        this._button3.GetComponentInChildren<Text>().text = this.CurrentRandomEvent.Choices[i].Text;
+                        break;
+                    case 3:
+                        this._button4.gameObject.SetActive(true);
+                        this._button4.GetComponentInChildren<Text>().text = this.CurrentRandomEvent.Choices[i].Text;
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException("Meer dan 4 keuzes, hoe kan dit?");
+                }
+        }
+
+        private void DeactivateAllButtons()
+        {
+            this._button1.gameObject.SetActive(false);
+            this._button2.gameObject.SetActive(false);
+            this._button3.gameObject.SetActive(false);
+            this._button4.gameObject.SetActive(false);
+        }
+
+        public void ShowRandomEventsCanvas()
+        {
+            this._randomEventsCanvas.gameObject.SetActive(true);
+            this.UpdateToGUITopcurrentRandomEvent();
+        }
+
+        public void HideRandomEventsCanvas()
+        {
+            this._randomEventsCanvas.gameObject.SetActive(false);
+        }
+
+        public void Button1Click()
+        {
+            if (!this.CheckButtonClickIsValid(1)) return;
+            this.DoChoice(this.CurrentRandomEvent.Choices[0]);
+        }
+        public void Button2Click()
+        {
+            if (!this.CheckButtonClickIsValid(2)) return;
+            this.DoChoice(this.CurrentRandomEvent.Choices[1]);
+        }
+        public void Button3Click()
+        {
+            if (!this.CheckButtonClickIsValid(3)) return;
+            this.DoChoice(this.CurrentRandomEvent.Choices[2]);
+        }
+        public void Button4Click()
+        {
+            if (!this.CheckButtonClickIsValid(4)) return;
+            this.DoChoice(this.CurrentRandomEvent.Choices[3]);
+        }
+        private bool CheckButtonClickIsValid(int number)
+        {
+            if (this.CurrentRandomEvent == null) return false;
+            return this.CurrentRandomEvent.Choices.Count >= number;
+        }
+
+        private void DoChoice(RandomEvent.Choice choice)
+        {
+            float value = 0;
+            // ReSharper disable once CompareOfFloatsByEqualityOperator
+            value = choice.Min == choice.Max ? choice.Max : UnityEngine.Random.Range(choice.Min, choice.Max);
+            Debug.Log("RandomEventsManager: value = " + value);
+            switch (choice.Type)
+            {
+                case RandomEvent.ChoiceType.SkillIncrease:
+                    IncreasePlayerSkill(choice.Skill, value);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            if (this.CurrentRandomEvent.FollowUpRandomEvents == null || this.CurrentRandomEvent.FollowUpRandomEvents[choice] == null)
+            {
+                this.HideRandomEventsCanvas();
+                this.CurrentRandomEvent = null;
+                return;
+            }
+            // show new random event;
+            this.CurrentRandomEvent = this.CurrentRandomEvent.FollowUpRandomEvents[choice];
+            this.UpdateToGUITopcurrentRandomEvent();
+        }
+
+        private static void IncreasePlayerSkill(PlayerSkill pSkill, float value)
+        {
+            switch (pSkill)
+            {
+                case PlayerSkill.Knowledge:
+                    Player.Instance.KnowledgeSkills += (int)value;
+                    break;
+                case PlayerSkill.Presentation:
+                    Player.Instance.PresentationSkills += (int)value;
+                    break;
+                case PlayerSkill.Media:
+                    Player.Instance.MediaSkills += (int)value;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+    }
+}

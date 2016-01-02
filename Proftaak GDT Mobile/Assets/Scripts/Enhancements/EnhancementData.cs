@@ -15,12 +15,14 @@
 
         public bool Orderable { get; set; }
 
-        public void Awake()
+        // ReSharper disable once UnusedMember.Local
+        private void Awake()
         {
             if (Instance == null)
                 Instance = this;
         }
 
+        // ReSharper disable once UnusedMember.Local
         private void Start()
         {
             this.UpdateStatuses();

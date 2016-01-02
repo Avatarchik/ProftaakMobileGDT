@@ -2,40 +2,55 @@
 {
     using Assets.Scripts.Enhancements;
     using UnityEngine;
+    using UnityEngine.UI;
+
     internal class UIManager : MonoBehaviour
     {
-        [SerializeField]
-        private Canvas UpgradeCanvas;
-
-        [SerializeField]
-        private Canvas UICanvas;
-
         public static UIManager Instance;
 
+        [SerializeField]
+        private Canvas _upgradeCanvas;
+        [SerializeField]
+        private Canvas _UICanvas;
+        [SerializeField]
+        private Text _attributesText;
 
-        public void GoToUpgradeCanvas()
+
+
+        // ReSharper disable once UnusedMember.Local
+        private void Awake()
         {
-            this.UpgradeCanvas.gameObject.SetActive(true);
-            this.UICanvas.gameObject.SetActive(false);
+            if (Instance == null)
+                Instance = this;
+        }
+
+
+        // Misschien niet in de update doen?
+        // ReSharper disable once UnusedMember.Local
+        private void Update()
+        {
+            this._attributesText.text = string.Format("Attributen:   <color=lime>P:{0}</color>/<color=aqua>M:{1}</color>/<color=orange>K:{2}</color>",
+                Player.Instance.PresentationSkills, Player.Instance.MediaSkills, Player.Instance.KnowledgeSkills);
+        }
+
+        public void ShowUpgradeCanvas()
+        {
+            this._upgradeCanvas.gameObject.SetActive(true);
+            this._UICanvas.gameObject.SetActive(false);
             this.Invoke("UpdateStatus", 0.1f);
         }
-
-        public void LeaveUpgradeCanvas()
-        {
-            this.UICanvas.gameObject.SetActive(true);
-            this.UpgradeCanvas.gameObject.SetActive(false);
-        }
-
         // ReSharper disable once UnusedMember.Local
         private void UpdateStatus()
         {
             EnhancementData.Instance.UpdateStatuses();
         }
 
-        private void Awake()
+        public void LeaveUpgradeCanvas()
         {
-            if (Instance == null)
-                Instance = this;
+            this._UICanvas.gameObject.SetActive(true);
+            this._upgradeCanvas.gameObject.SetActive(false);
         }
+
+
     }
 }

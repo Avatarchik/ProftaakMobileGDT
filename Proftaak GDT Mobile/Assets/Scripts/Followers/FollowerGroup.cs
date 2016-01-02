@@ -15,9 +15,8 @@ namespace Assets.Scripts.Followers
         public float DevideBy = 10000f;
         public float StartSize = 1f;
 
-        
-
-        void Update()
+        // ReSharper disable once UnusedMember.Local
+        private void Update()
         {
             if (this._targetFollowers == this.Followers) return;
             if (this._targetFollowers > this.Followers)

@@ -4,6 +4,8 @@
 
     using Assets.Scripts.Enhancements;
 
+    public enum PlayerSkill { Knowledge, Presentation, Media };
+
     public class Player
     {
         public static Player Instance = new Player();
@@ -15,9 +17,9 @@
 
         public uint UnusedSkillPoints { get; set; }
 
-        public uint KnowledgeSkills { get; set; }
-        public uint PresentationSkills { get; set; }
-        public uint MediaSkills { get; set; }
+        public int KnowledgeSkills { get; set; }
+        public int PresentationSkills { get; set; }
+        public int MediaSkills { get; set; }
 
         // kan eigenlijk ook alleen de naam zijn ( EnhancementType )
         public List<Enhancement> UnlockedEnhancements { get; set; }

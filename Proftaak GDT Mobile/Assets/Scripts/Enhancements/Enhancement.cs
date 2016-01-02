@@ -1,5 +1,6 @@
 ﻿namespace Assets.Scripts.Enhancements
 {
+    using System;
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.UI;
@@ -76,9 +77,41 @@
             this._buttonImage.sprite = EnhancementData.Instance.UnlockedImg;
             foreach (Enhancement eh in this._unlockableEnhancements)
                 eh.UpdateStatus();
+            this.DoEnhancement();
         }
 
-        public void Setup() { /* Unused, but added for OrderManager, but in project settings you can change Script Execution Order*/ }
+        private void DoEnhancement()
+        {
+            switch (this.Name)
+            {
+                case EnhancementType.Houding:
+                case EnhancementType.Stem:
+                case EnhancementType.Handgebaren:
+                    Player.Instance.PresentationSkills++;
+                    break;
+                case EnhancementType.Video:
+                case EnhancementType.Camera:
+                case EnhancementType.Microfoon:
+                    Player.Instance.MediaSkills++;
+                    break;
+                case EnhancementType.Papieren:
+                case EnhancementType.Onderzoek:
+                case EnhancementType.Experiment:
+                    Player.Instance.KnowledgeSkills++;
+                    break;
+                case EnhancementType.TEDx:
+                    Player.Instance.KnowledgeSkills += 5;
+                    Player.Instance.MediaSkills += 5;
+                    Player.Instance.PresentationSkills += 5;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
 
+        public void Setup()
+        {
+            /* Unused, but added for OrderManager, but in project settings you can change Script Execution Order*/
+        }
     }
 }

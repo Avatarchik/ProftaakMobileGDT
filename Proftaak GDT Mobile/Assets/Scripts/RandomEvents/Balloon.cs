@@ -8,8 +8,7 @@
         public static float MinTimeToDestroy = 3f;
         public static float MaxTimeToDestroy = 6f;
 
-
-        private bool _LOG = true;
+        private const bool _LOG = true;
 
         [SerializeField]
         private Image _image;
@@ -23,7 +22,7 @@
         // ReSharper disable once UnusedMember.Local
         private void Destroy()
         {
-            if (this._LOG)
+            if (_LOG)
                 Debug.Log("Destroying wolkje");
             GameObject.Destroy(this);
         }
