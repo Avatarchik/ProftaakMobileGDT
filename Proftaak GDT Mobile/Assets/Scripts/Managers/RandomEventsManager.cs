@@ -14,16 +14,24 @@
         private Canvas _randomEventsCanvas;
 
         [SerializeField]
-        private readonly List<RandomEvent> _randomEvents;
+        private readonly List<RandomEvent> _randomEvents = new List<RandomEvent>();
 
         [SerializeField]
         private Button _button1;
         [SerializeField]
+        private Text _button1Text;
+        [SerializeField]
         private Button _button2;
+        [SerializeField]
+        private Text _button2Text;
         [SerializeField]
         private Button _button3;
         [SerializeField]
+        private Text _button3Text;
+        [SerializeField]
         private Button _button4;
+        [SerializeField]
+        private Text _button4Text;
         [SerializeField]
         private Text _descText;
 
@@ -41,7 +49,13 @@
                                                        new RandomEvent.Choice("VLOG maken", RandomEvent.ChoiceType.SkillIncrease, 1, 4, PlayerSkill.Media)
                                                    };
             this.CurrentRandomEvent = new RandomEvent() { Choices = choices };
-            this._randomEvents.Add(this.CurrentRandomEvent);
+            List<RandomEvent.Choice> choices1 = new List<RandomEvent.Choice>
+                                                   {                               // wordt niet afgerond dus kans op 4 is extreem klein, eigenlijk gewoon 1t/m3.
+                                                       new RandomEvent.Choice("Presentatie oefenen1", RandomEvent.ChoiceType.SkillIncrease, 1, 14, PlayerSkill.Presentation),
+                                                                                  // wordt niet afgerond dus kans op 4 is extreem klein, eigenlijk gewoon 1t/m3.
+                                                       new RandomEvent.Choice("VLOG maken2", RandomEvent.ChoiceType.SkillIncrease, 1, 14, PlayerSkill.Media)
+                                                   };
+            this._randomEvents.Add(new RandomEvent() { Choices = choices1, Description = "test123" });
         }
 
         // TODO: Setup RandomEventCanvas using CurrentRandomEvent -> Show buttons and change button text, description etc.
@@ -56,19 +70,22 @@
                 {
                     case 0:
                         this._button1.gameObject.SetActive(true);
-                        this._button1.GetComponentInChildren<Text>().text = this.CurrentRandomEvent.Choices[i].Text;
+                        // KUT UNITY WAAROM NULL REFERENCE EXCEPTION BIJ text.text :(
+                        Transform child = this._button1.transform.GetChild(0);
+                        Text text = child.GetComponent<Text>();
+                        this._button1Text.text = this.CurrentRandomEvent.Choices[i].Text;
                         break;
                     case 1:
                         this._button2.gameObject.SetActive(true);
-                        this._button2.GetComponentInChildren<Text>().text = this.CurrentRandomEvent.Choices[i].Text;
+                        this._button2Text.text = this.CurrentRandomEvent.Choices[i].Text;
                         break;
                     case 2:
                         this._button3.gameObject.SetActive(true);
-                        this._button3.GetComponentInChildren<Text>().text = this.CurrentRandomEvent.Choices[i].Text;
+                        this._button3Text.text = this.CurrentRandomEvent.Choices[i].Text;
                         break;
                     case 3:
                         this._button4.gameObject.SetActive(true);
-                        this._button4.GetComponentInChildren<Text>().text = this.CurrentRandomEvent.Choices[i].Text;
+                        this._button4Text.text = this.CurrentRandomEvent.Choices[i].Text;
                         break;
                     default:
                         throw new ArgumentOutOfRangeException("Meer dan 4 keuzes, hoe kan dit?");
@@ -83,6 +100,18 @@
             this._button4.gameObject.SetActive(false);
         }
 
+        public bool NewRandomEvent()
+        {
+            if (this._randomEvents.Count == 0)
+            {
+                this.CurrentRandomEvent = null;
+                return false;
+            }
+
+            this.CurrentRandomEvent = this._randomEvents[0];
+            this._randomEvents.RemoveAt(0);
+            return true;
+        }
         public void ShowRandomEventsCanvas()
         {
             this._randomEventsCanvas.gameObject.SetActive(true);
@@ -137,10 +166,11 @@
             if (this.CurrentRandomEvent.FollowUpRandomEvents == null || this.CurrentRandomEvent.FollowUpRandomEvents[choice] == null)
             {
                 this.HideRandomEventsCanvas();
-                this.CurrentRandomEvent = null;
+                this.NewRandomEvent();
+                this.UpdateToGUITopcurrentRandomEvent();
                 return;
             }
-            // show new random event;
+            // show following random event;
             this.CurrentRandomEvent = this.CurrentRandomEvent.FollowUpRandomEvents[choice];
             this.UpdateToGUITopcurrentRandomEvent();
         }
