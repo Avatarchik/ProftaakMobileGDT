@@ -23,10 +23,14 @@
 
         private void Start()
         {
+            this.UpdateStatuses();
+        }
+
+        public void UpdateStatuses()
+        {
             foreach (Enhancement eh in this.Enhancements)
                 eh.UpdateStatus();
         }
-
 
         public void Setup()
         {
