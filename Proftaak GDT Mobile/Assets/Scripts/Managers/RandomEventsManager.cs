@@ -73,6 +73,7 @@
                         // KUT UNITY WAAROM NULL REFERENCE EXCEPTION BIJ text.text :(
                         Transform child = this._button1.transform.GetChild(0);
                         Text text = child.GetComponent<Text>();
+                        text.text = "Test123";
                         this._button1Text.text = this.CurrentRandomEvent.Choices[i].Text;
                         break;
                     case 1:

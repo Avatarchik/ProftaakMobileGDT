@@ -2,5 +2,9 @@
 {
     public class RandomEventBalloon : Balloon
     {
+        protected override void OnMouseDownEvent()
+        {
+            
+        }
     }
 }

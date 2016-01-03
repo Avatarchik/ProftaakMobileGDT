@@ -20,7 +20,7 @@
                 EditorGUILayout.Separator();
             }
 
-            Skill skillScript = (Skill)this.target;
+            //Skill skillScript = (Skill)this.target;
 
             this.serializedObject.Update();
             show1item(this.serializedObject.FindProperty("upgradeObj"));

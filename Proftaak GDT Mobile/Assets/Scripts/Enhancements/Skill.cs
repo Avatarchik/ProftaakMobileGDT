@@ -23,7 +23,6 @@ namespace Assets.Scripts.Enhancements
                 this._RequiredUnlocks = value;
                 if (this._RequiredUnlocks >= this.requiredSkills.Length)
                 {
-
                     this.unlocked = true;
                     this.unlockButton.interactable = true;
                     this.unlockButton.image.sprite = this.regularImg;
@@ -50,8 +49,9 @@ namespace Assets.Scripts.Enhancements
         // Use this for initialization
         private void Start()
         {
-
             this.unlocked = false;
+            // fuck compiler warnings :D
+            if (this.unlocked) { }
             this.upgraded = false;
 
             this.upgradeName = this.GetComponentInChildren<Text>();
