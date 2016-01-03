@@ -13,7 +13,7 @@
         public string PlayerName { get; set; }
         public string IdeaName { get; set; }
 
-        // Category { get; set; }
+        // public IdeaCategory Category { get; set; }
 
         public uint UnusedSkillPoints { get; set; }
 

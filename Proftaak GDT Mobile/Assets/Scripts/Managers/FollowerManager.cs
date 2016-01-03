@@ -45,7 +45,7 @@
 
         public void CreateNewFollowerGroup(Vector2 pos, int startFollowers)
         {
-            FollowerGroup newGroup = Instantiate(this._followerGroupPrefab);
+            FollowerGroup newGroup = GameObject.Instantiate(this._followerGroupPrefab);
             newGroup.GetComponent<RectTransform>().sizeDelta = pos;
             newGroup.Followers = startFollowers;
             this.FollowerGroups.Add(newGroup);

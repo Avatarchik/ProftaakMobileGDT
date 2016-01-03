@@ -1,10 +1,13 @@
 ﻿namespace Assets.Scripts.RandomEvents
 {
+    using UnityEngine;
+
     public class RandomEventBalloon : Balloon
     {
-        protected override void OnMouseDownEvent()
+        public override void OnButtonClicked()
         {
-            
+            Debug.Log("Button clicked on RandomEventBalloon");
         }
+        
     }
 }

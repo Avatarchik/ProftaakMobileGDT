@@ -63,16 +63,9 @@
             this.transform.localScale = new Vector3(this._startSizeX, this.startSizeY, this.transform.localScale.z);
             this.gameObject.SetActive(false);
         }
-
-        // ReSharper disable once UnusedMember.Local
-        private void OnMouseDown()
-        {
-            Debug.Log("Mouse down on balloon");
-            // OnMouseDown never called
-            this.OnMouseDownEvent();
-        }
-
-        protected abstract void OnMouseDownEvent();
+        
+        public abstract void OnButtonClicked();
+        
 
     }
 }

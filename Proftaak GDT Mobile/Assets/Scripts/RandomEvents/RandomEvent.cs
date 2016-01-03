@@ -5,6 +5,7 @@
     public class RandomEvent
     {
         public enum RandomEventType { Info, Feitje, Keuze, Link }
+        public RandomEventType EventType;
 
         public string Title { get; set; }
         public string Description { get; set; }
@@ -13,18 +14,18 @@
         public List<Choice> Choices;
 
 
-        public RandomEventType EventType;
 
         public Dictionary<Choice, RandomEvent> FollowUpRandomEvents;
 
         // TODO: Choices
 
-        public enum ChoiceType { SkillIncrease };
 
         public class Choice
         {
-            public string Text { get; private set; }
+            public enum ChoiceType { SkillIncrease };
             public ChoiceType Type { get; private set; }
+
+            public string Text { get; private set; }
             public float Percentage { get; private set; }
             public float Min { get; private set; }
             public float Max { get; private set; }

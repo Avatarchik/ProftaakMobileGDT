@@ -44,16 +44,16 @@
             this._randomEvents.Shuffle();
             List<RandomEvent.Choice> choices = new List<RandomEvent.Choice>
                                                    {                               // wordt niet afgerond dus kans op 4 is extreem klein, eigenlijk gewoon 1t/m3.
-                                                       new RandomEvent.Choice("Presentatie oefenen", RandomEvent.ChoiceType.SkillIncrease, 1, 4, PlayerSkill.Presentation),
+                                                       new RandomEvent.Choice("Presentatie oefenen", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 4, PlayerSkill.Presentation),
                                                                                   // wordt niet afgerond dus kans op 4 is extreem klein, eigenlijk gewoon 1t/m3.
-                                                       new RandomEvent.Choice("VLOG maken", RandomEvent.ChoiceType.SkillIncrease, 1, 4, PlayerSkill.Media)
+                                                       new RandomEvent.Choice("VLOG maken", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 4, PlayerSkill.Media)
                                                    };
             this.CurrentRandomEvent = new RandomEvent() { Choices = choices };
             List<RandomEvent.Choice> choices1 = new List<RandomEvent.Choice>
                                                    {                               // wordt niet afgerond dus kans op 4 is extreem klein, eigenlijk gewoon 1t/m3.
-                                                       new RandomEvent.Choice("Presentatie oefenen1", RandomEvent.ChoiceType.SkillIncrease, 1, 14, PlayerSkill.Presentation),
+                                                       new RandomEvent.Choice("Presentatie oefenen1", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 14, PlayerSkill.Presentation),
                                                                                   // wordt niet afgerond dus kans op 4 is extreem klein, eigenlijk gewoon 1t/m3.
-                                                       new RandomEvent.Choice("VLOG maken2", RandomEvent.ChoiceType.SkillIncrease, 1, 14, PlayerSkill.Media)
+                                                       new RandomEvent.Choice("VLOG maken2", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 14, PlayerSkill.Media)
                                                    };
             this._randomEvents.Add(new RandomEvent() { Choices = choices1, Description = "test123" });
         }
@@ -158,7 +158,7 @@
             Debug.Log("RandomEventsManager: value = " + value);
             switch (choice.Type)
             {
-                case RandomEvent.ChoiceType.SkillIncrease:
+                case RandomEvent.Choice.ChoiceType.SkillIncrease:
                     IncreasePlayerSkill(choice.Skill, value);
                     break;
                 default:
