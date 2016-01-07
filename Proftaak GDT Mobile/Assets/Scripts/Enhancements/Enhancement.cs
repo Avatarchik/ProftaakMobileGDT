@@ -42,7 +42,6 @@
 
         public void UpdateStatus()
         {
-            Debug.Log("Status updated");
             if (this.Unlocked)
             {
                 this._unlockButton.interactable = true;
