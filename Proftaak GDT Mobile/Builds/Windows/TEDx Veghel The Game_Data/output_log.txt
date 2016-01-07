@@ -14,35 +14,87 @@ Platform assembly: E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Wi
 Loading E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.087 seconds
+- Completed reload, in  0.068 seconds
 desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\System.dll (this message is harmless)
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 29b4 -> priority: 1 
-  Thread -> id: 1de8 -> priority: 1 
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1649)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1649)
-
+  Thread -> id: 499c -> priority: 1 
+  Thread -> id: 380 -> priority: 1 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.189195 ms
+UnloadTime: 5.395414 ms
 
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 710.
-Total: 0.836020 ms (FindLiveObjects: 0.045253 ms CreateObjectMapping: 0.032190 ms MarkObjects: 0.733384 ms  DeleteObjects: 0.023793 ms)
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 712.
+Total: 1.963156 ms (FindLiveObjects: 0.097504 ms CreateObjectMapping: 0.080243 ms MarkObjects: 1.720560 ms  DeleteObjects: 0.062981 ms)
+
+Button clicked on Lightbulb balloon
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Disabling balloon
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Button clicked on RandomEventBalloon
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Status updated
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Status updated
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Status updated
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Status updated
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Status updated
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Status updated
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Status updated
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Status updated
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Status updated
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Status updated
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Status updated
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Status updated
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Disabling balloon
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
