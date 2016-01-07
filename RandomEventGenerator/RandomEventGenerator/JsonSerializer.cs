@@ -63,6 +63,7 @@ namespace RandomEventGenerator
         public static List<RandomEvent> ReadFromFile(string filePath, string filename)
         {
             string totalPath = Path.Combine(filePath, filename);
+
             if (string.IsNullOrEmpty(filePath))
             {
                 throw new Exception("Cannot read from empty directory");
@@ -98,7 +99,7 @@ namespace RandomEventGenerator
         {
             if (string.IsNullOrEmpty(filePath))
             {
-                throw new Exception("Cannot write to empty directory");
+                throw new Exception("Cannot write to empty file");
             }
 
             string path = Path.GetDirectoryName(filePath);
