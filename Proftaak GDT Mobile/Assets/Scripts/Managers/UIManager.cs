@@ -12,8 +12,15 @@
         private Canvas _upgradeCanvas;
         [SerializeField]
         private Canvas _UICanvas;
+        //[SerializeField]
+        //private Text _attributesText;
+        
         [SerializeField]
-        private Text _attributesText;
+        private Text _presentationText;
+        [SerializeField]
+        private Text _mediaText;
+        [SerializeField]
+        private Text _knowledgeText;
 
 
 
@@ -29,8 +36,17 @@
         // ReSharper disable once UnusedMember.Local
         private void Update()
         {
-            this._attributesText.text = string.Format("Attributen:   <color=lime>P:{0}</color>/<color=aqua>M:{1}</color>/<color=orange>K:{2}</color>",
-                Player.Instance.PresentationSkills, Player.Instance.MediaSkills, Player.Instance.KnowledgeSkills);
+            this.UpdateAttributesText();
+        }
+
+        private void UpdateAttributesText()
+        {
+            this._presentationText.text = Player.Instance.PresentationSkills.ToString();
+            this._mediaText.text = Player.Instance.MediaSkills.ToString();
+            this._knowledgeText.text = Player.Instance.KnowledgeSkills.ToString();
+
+            //this._attributesText.text = string.Format("Attributen:   <color=lime>P:{0}</color>/<color=aqua>M:{1}</color>/<color=orange>K:{2}</color>",
+            //                Player.Instance.PresentationSkills, Player.Instance.MediaSkills, Player.Instance.KnowledgeSkills);
         }
 
         public void ShowUpgradeCanvas()

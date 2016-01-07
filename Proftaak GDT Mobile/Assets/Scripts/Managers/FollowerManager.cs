@@ -44,7 +44,7 @@
 
         public void UpdateFollowersText()
         {
-            this._followersText.text = "Volgers: " + HelperClass.ValueToStringWithSeperators(this.TotalFollowers);
+            this._followersText.text = HelperClass.ValueToStringWithSeperators(this.TotalFollowers);
         }
 
         // ReSharper disable once UnusedMember.Local
