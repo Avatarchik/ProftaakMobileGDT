@@ -2,10 +2,10 @@
 
 namespace RandomEventGenerator
 {
+	public enum PlayerSkill { Knowledge, Presentation, Media }
+	
     public class RandomEvent
     {
-        public enum PlayerSkill { Knowledge, Presentation, Media }
-
         public enum RandomEventType { Info, Fact, Choice, Link }
 
         public RandomEventType Type { get; set; }

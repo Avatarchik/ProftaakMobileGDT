@@ -10,6 +10,8 @@
 
     internal class RandomEventsManager : MonoBehaviour
     {
+        public static RandomEventsManager Instance;
+
         [SerializeField]
         private Canvas _randomEventsCanvas;
 
@@ -40,21 +42,28 @@
         // ReSharper disable once UnusedMember.Local
         private void Awake()
         {
+            if (Instance == null)
+                Instance = this;
             // read randomEvents from JSON file.
             this._randomEvents.Shuffle();
+			
             List<RandomEvent.Choice> choices = new List<RandomEvent.Choice>
-                                                   {                               // wordt niet afgerond dus kans op 4 is extreem klein, eigenlijk gewoon 1t/m3.
-                                                       new RandomEvent.Choice("Presentatie oefenen", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 4, PlayerSkill.Presentation),
-                                                                                  // wordt niet afgerond dus kans op 4 is extreem klein, eigenlijk gewoon 1t/m3.
-                                                       new RandomEvent.Choice("VLOG maken", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 4, PlayerSkill.Media)
-                                                   };
-            this.CurrentRandomEvent = new RandomEvent() { Choices = choices };
+            {
+                new RandomEvent.Choice("Presentatie oefenen1", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 4, PlayerSkill.Presentation),
+                new RandomEvent.Choice("VLOG maken1", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 4, PlayerSkill.Media)
+            };
+			
+            this.CurrentRandomEvent = new RandomEvent() { Description = "Wil je je vrije tijd besteden om je presentatie te oefenen, of om een VLOG te maken", Choices = choices };
+			
             List<RandomEvent.Choice> choices1 = new List<RandomEvent.Choice>
-                                                   {                               // wordt niet afgerond dus kans op 4 is extreem klein, eigenlijk gewoon 1t/m3.
-                                                       new RandomEvent.Choice("Presentatie oefenen1", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 14, PlayerSkill.Presentation),
-                                                                                  // wordt niet afgerond dus kans op 4 is extreem klein, eigenlijk gewoon 1t/m3.
-                                                       new RandomEvent.Choice("VLOG maken2", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 14, PlayerSkill.Media)
-                                                   };
+            {
+                new RandomEvent.Choice("Presentatie oefenen2", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 14, PlayerSkill.Presentation),
+                new RandomEvent.Choice("VLOG maken2", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 14, PlayerSkill.Media),
+				
+				new RandomEvent.Choice("Presentatie oefenen3", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 24, PlayerSkill.Presentation),
+                new RandomEvent.Choice("VLOG maken3", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 24, PlayerSkill.Media)
+            };
+			
             this._randomEvents.Add(new RandomEvent() { Choices = choices1, Description = "test123" });
         }
 
