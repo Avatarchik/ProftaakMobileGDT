@@ -682,7 +682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &200827476
 RectTransform:
   m_ObjectHideFlags: 0
@@ -830,7 +830,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2120963302}
+      - m_Target: {fileID: 2120963299}
         m_MethodName: Button3Click
         m_Mode: 1
         m_Arguments:
@@ -1241,7 +1241,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2120963302}
+      - m_Target: {fileID: 2120963299}
         m_MethodName: Button2Click
         m_Mode: 1
         m_Arguments:
@@ -2405,7 +2405,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2120963302}
+      - m_Target: {fileID: 2120963299}
         m_MethodName: Button1Click
         m_Mode: 1
         m_Arguments:
@@ -4250,7 +4250,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2120963302}
+      - m_Target: {fileID: 2120963299}
         m_MethodName: Button4Click
         m_Mode: 1
         m_Arguments:
@@ -5829,16 +5829,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02922d58b9d3a4b4f830ec31f49e522b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _randomEventsCanvas: {fileID: 0}
-  _button1: {fileID: 0}
-  _button1Text: {fileID: 0}
-  _button2: {fileID: 0}
-  _button2Text: {fileID: 0}
-  _button3: {fileID: 0}
-  _button3Text: {fileID: 0}
-  _button4: {fileID: 0}
-  _button4Text: {fileID: 0}
-  _descText: {fileID: 0}
+  _randomEventsCanvas: {fileID: 200827479}
+  _button1: {fileID: 914847952}
+  _button1Text: {fileID: 109276914}
+  _button2: {fileID: 378626365}
+  _button2Text: {fileID: 1406141505}
+  _button3: {fileID: 222390179}
+  _button3Text: {fileID: 1109343325}
+  _button4: {fileID: 1491492768}
+  _button4Text: {fileID: 1172534946}
+  _descText: {fileID: 1407089932}
 --- !u!114 &2120963300
 MonoBehaviour:
   m_ObjectHideFlags: 0
