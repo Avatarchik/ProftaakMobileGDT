@@ -12,7 +12,7 @@ namespace Assets.Scripts.Followers
         private int _followers;
         public int Followers { get { return this._followers; } set { this._followers = value; } }
 
-        public float DevideBy = 10000f;
+        public float DevideBy = 5000000f;
         public float StartSize = 1f;
 
         // ReSharper disable once UnusedMember.Local

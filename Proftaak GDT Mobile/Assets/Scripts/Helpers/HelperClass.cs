@@ -3,11 +3,12 @@
 namespace Assets.Scripts.Helpers
 {
     using System;
+    using System.Globalization;
     using Random = UnityEngine.Random;
 
-    public static class ExtensionMethods
+    public static class HelperClass
     {
-        public static bool IsNullOrEmpty<T>(this List<T> list )
+        public static bool IsNullOrEmpty<T>(this IList<T> list )
         {
             return (list == null || list.Count == 0);
         }
@@ -29,6 +30,19 @@ namespace Assets.Scripts.Helpers
                 list[k] = list[n];
                 list[n] = value;
             }
+        }
+
+        // int i = 1000; i.ToStringWithSeperators();
+        public static string ToStringWithSeperators(this int i)
+        {
+            CultureInfo dutchCulture = CultureInfo.CreateSpecificCulture("nl-NL");
+            return String.Format(dutchCulture, "{0:n0}", i);
+        }
+
+        public static string ValueToStringWithSeperators(object value)
+        {
+            CultureInfo dutchCulture = CultureInfo.CreateSpecificCulture("nl-NL");
+            return String.Format(dutchCulture, "{0:n0}", value);
         }
     }
 }

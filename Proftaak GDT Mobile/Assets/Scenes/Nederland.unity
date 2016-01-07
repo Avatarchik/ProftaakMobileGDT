@@ -558,11 +558,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22410684, guid: 24993ad267dd21a499429398fb42952e, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -82
+      value: -17.8999996
       objectReference: {fileID: 0}
     - target: {fileID: 22410684, guid: 24993ad267dd21a499429398fb42952e, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 2
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 22410684, guid: 24993ad267dd21a499429398fb42952e, type: 2}
       propertyPath: m_SizeDelta.x
@@ -682,7 +682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &200827476
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1736,11 +1736,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22416264, guid: 4ad62a7c926a3e64d87db38803949ae3, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 69
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 22416264, guid: 4ad62a7c926a3e64d87db38803949ae3, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 5
+      value: -8.69999981
       objectReference: {fileID: 0}
     - target: {fileID: 22416264, guid: 4ad62a7c926a3e64d87db38803949ae3, type: 2}
       propertyPath: m_SizeDelta.x
@@ -3022,11 +3022,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22417862, guid: 2cc71961788f3574490a58e47e3b4364, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 33.2999992
+      value: 19.6000004
       objectReference: {fileID: 0}
     - target: {fileID: 22417862, guid: 2cc71961788f3574490a58e47e3b4364, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -35.2999992
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 22417862, guid: 2cc71961788f3574490a58e47e3b4364, type: 2}
       propertyPath: m_SizeDelta.x
@@ -3059,6 +3059,10 @@ Prefab:
     - target: {fileID: 22417862, guid: 2cc71961788f3574490a58e47e3b4364, type: 2}
       propertyPath: m_Pivot.y
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496492, guid: 2cc71961788f3574490a58e47e3b4364, type: 2}
+      propertyPath: DevideBy
+      value: 1e+06
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2cc71961788f3574490a58e47e3b4364, type: 2}
@@ -3555,7 +3559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4311,12 +4315,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 142729865}
   m_Script: {fileID: 11500000, guid: d0f896befaa595b4ab4471f933552997, type: 3}
---- !u!114 &1503084879 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11475646, guid: 24993ad267dd21a499429398fb42952e,
-    type: 2}
-  m_PrefabInternal: {fileID: 142729865}
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!114 &1503084880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4352,7 +4350,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1503084879}
+  m_TargetGraphic: {fileID: 1299558076}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -5069,7 +5067,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
@@ -5078,8 +5076,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: .100000001
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: a90c129e402b07041ad3f87c471d836c,
+      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: a90c129e402b07041ad3f87c471d836c, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -5123,8 +5122,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 56ee8759aec5cac47bce72a4e22a2318, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

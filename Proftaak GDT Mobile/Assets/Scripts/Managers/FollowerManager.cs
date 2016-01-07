@@ -6,6 +6,7 @@
     using Assets.Scripts.Helpers;
     using UnityEngine;
     using UnityEngine.UI;
+    using Random = UnityEngine.Random;
 
     public class FollowerManager : MonoBehaviour
     {
@@ -31,22 +32,30 @@
         {
             if (Instance == null)
                 Instance = this;
-            this.InvokeRepeating("IncreaseFollowers", 0f, Random.Range(0.25f, 0.5f));
+            this.InvokeRepeating("IncreaseFollowers", 0f, 0.5f);
         }
 
         // ReSharper disable once UnusedMember.Local
         private void Update()
         {
-            this._followersText.text = "Volgers: " + this.TotalFollowers;
+            // TODO: Misschien niet in de Update?
+            this.UpdateFollowersText();
+        }
+
+        public void UpdateFollowersText()
+        {
+            this._followersText.text = "Volgers: " + HelperClass.ValueToStringWithSeperators(this.TotalFollowers);
         }
 
         // ReSharper disable once UnusedMember.Local
         private void IncreaseFollowers()
         {
+            int knowledgeSkills = Player.Instance.KnowledgeSkills;
             // TODO: Fix magic numbers
             foreach (FollowerGroup fg in this.FollowerGroups.Where(fg => Random.Range(0, 4) > 2))
             {
-                fg.Followers += Random.Range(5, 20) + (int)(fg.Followers * 0.05);
+                fg.Followers += Random.Range(5 + (knowledgeSkills * 2), 20 + (knowledgeSkills * 2))
+                    + (int)((fg.Followers * 0.05) + (fg.Followers * 0.01f * knowledgeSkills));
             }
         }
 
