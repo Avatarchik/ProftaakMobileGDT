@@ -8,6 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
   - enabled: 1
+    path: Assets/Scenes/IDEAmenu.unity
+  - enabled: 1
     path: Assets/Scenes/Nederland.unity
   - enabled: 1
     path: Assets/Scenes/Ending.unity

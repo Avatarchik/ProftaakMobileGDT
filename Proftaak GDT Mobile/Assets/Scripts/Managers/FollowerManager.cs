@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using System.Linq;
     using Assets.Scripts.Followers;
-    using Assets.Scripts.Helpers;
     using UnityEngine;
     using UnityEngine.UI;
     using Random = UnityEngine.Random;

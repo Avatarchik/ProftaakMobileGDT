@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Assets.Scripts.Helpers
+namespace Assets.Scripts
 {
     using System;
     using System.Globalization;

@@ -6,6 +6,8 @@
 
     public enum PlayerSkill { Knowledge, Presentation, Media };
 
+    public enum IdeaCategory {Technology, Design, Entertainment, Global_Issues, Education };
+
     public class Player
     {
         public static Player Instance = new Player();
@@ -13,7 +15,7 @@
         public string PlayerName { get; set; }
         public string IdeaName { get; set; }
 
-        // public IdeaCategory Category { get; set; }
+        public IdeaCategory Category { get; set; }
 
         public uint UnusedSkillPoints { get; set; }
 
