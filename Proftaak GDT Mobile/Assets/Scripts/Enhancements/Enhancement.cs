@@ -69,9 +69,9 @@
         {
             if (this.Unlocked || Player.Instance.UnusedSkillPoints < 1) return;
             this.RequiredPoints--;
+            Player.Instance.UnusedSkillPoints--;
             if (this.RequiredPoints > 0) return;
             this.Unlocked = true;
-            Player.Instance.UnusedSkillPoints -= this.RequiredPoints;
             Player.Instance.UnlockedEnhancements.Add(this);
             this._buttonImage.sprite = EnhancementData.Instance.UnlockedImg;
             foreach (Enhancement eh in this._unlockableEnhancements)
