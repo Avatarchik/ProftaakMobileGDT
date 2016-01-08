@@ -7,8 +7,6 @@
     {
         public static EnhancementData Instance;
         
-        public Sprite RegularImg;
-        public Sprite UnlockedImg;
         public Sprite LockedImg;
 
         public readonly List<Enhancement> Enhancements = new List<Enhancement>(); 
