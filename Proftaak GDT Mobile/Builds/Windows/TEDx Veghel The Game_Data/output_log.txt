@@ -1,4 +1,4 @@
-Initialize engine version: 5.2.3f1 (f3d16a1fa2dd)
+Initialize engine version: 5.2.2f1 (3757309da7e7)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
@@ -6,43 +6,39 @@ Direct3D:
     Vendor:   Intel
     VRAM:     128 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Joris\Documents\School\Game Design\GPT - Proftaak\Repo\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Joris\Documents\School\Game Design\GPT - Proftaak\Repo\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Joris\Documents\School\Game Design\GPT - Proftaak\Repo\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Joris\Documents\School\Game Design\GPT - Proftaak\Repo\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Joris\Documents\School\Game Design\GPT - Proftaak\Repo\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Joris\Documents\School\Game Design\GPT - Proftaak\Repo\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Joris\Documents\School\Game Design\GPT - Proftaak\Repo\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Joris\Documents\School\Game Design\GPT - Proftaak\Repo\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Joris\Documents\School\Game Design\GPT - Proftaak\Repo\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.139 seconds
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+Platform assembly: E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.167 seconds
+desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-Platform assembly: C:\Users\Joris\Documents\School\Game Design\GPT - Proftaak\Repo\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\System.dll (this message is harmless)
+Platform assembly: E:\DEV\GITHUB\ProftaakMobileGDT\Proftaak GDT Mobile\Builds\Windows\TEDx Veghel The Game_Data\Managed\System.dll (this message is harmless)
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 1420 -> priority: 1 
-  Thread -> id: 13fc -> priority: 1 
+  Thread -> id: 331c -> priority: 1 
+  Thread -> id: 2f1c -> priority: 1 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.567467 ms
+UnloadTime: 6.725489 ms
+Balloon: added to RandomEvents
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 759.
-Total: 1.604827 ms (FindLiveObjects: 0.969300 ms CreateObjectMapping: 0.050086 ms MarkObjects: 0.568607 ms  DeleteObjects: 0.015600 ms)
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 764.
+Total: 2.242140 ms (FindLiveObjects: 0.112433 ms CreateObjectMapping: 0.101703 ms MarkObjects: 1.969687 ms  DeleteObjects: 0.056450 ms)
+
+RandomEventsManager: value = 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Button clicked on RandomEventBalloon
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-RandomEventsManager: value = 3.248065
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Button clicked on RandomEventBalloon
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-RandomEventsManager: value = 6.271778
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
@@ -50,7 +46,15 @@ Disabling balloon
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Button clicked on RandomEventBalloon
+RandomEventsManager: value = 1.905576
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Balloon: added to Lightbulbs
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Button clicked on Lightbulb balloon
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 

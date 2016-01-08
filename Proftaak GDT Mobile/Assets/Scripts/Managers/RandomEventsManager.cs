@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Net.NetworkInformation;
     using Assets.Scripts.Helpers;
     using Assets.Scripts.RandomEvents;
     using UnityEngine;
@@ -45,25 +46,24 @@
                 Instance = this;
             // read randomEvents from JSON file.
             this._randomEvents.Shuffle();
-			
+
+            this.CurrentRandomEvent = new RandomEvent()
+            {
+                Description = "Je hebt een super tof idee. Probeer dit door heel Nederland te verspreiden en uiteindelijk op TEDx Veghel te komen. Succes met je avontuur!",
+                Choices = new List<RandomEvent.Choice>() { new RandomEvent.Choice("Ok", new List<RandomEvent.ChoiceAction>() { new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.Ok) }) }
+            };
+
+            List<RandomEvent.ChoiceAction> listActions = new List<RandomEvent.ChoiceAction>() { new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease), new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.NewLightbulbNear) };
             List<RandomEvent.Choice> choices = new List<RandomEvent.Choice>
             {
-                new RandomEvent.Choice("Presentatie oefenen1", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 4, PlayerSkill.Presentation),
-                new RandomEvent.Choice("VLOG maken1", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 4, PlayerSkill.Media)
+                new RandomEvent.Choice("Presentatie oefenen", listActions , 1, 4, PlayerSkill.Presentation),
+                new RandomEvent.Choice("VLOG maken", listActions, 1, 4, PlayerSkill.Media)
             };
-			
-            this.CurrentRandomEvent = new RandomEvent() { Description = "Wil je je vrije tijd besteden om je presentatie te oefenen, of om een VLOG te maken", Choices = choices };
-			
-            List<RandomEvent.Choice> choices1 = new List<RandomEvent.Choice>
-            {
-                new RandomEvent.Choice("Presentatie oefenen2", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 14, PlayerSkill.Presentation),
-                new RandomEvent.Choice("VLOG maken2", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 14, PlayerSkill.Media),
-				
-				new RandomEvent.Choice("Presentatie oefenen3", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 24, PlayerSkill.Presentation),
-                new RandomEvent.Choice("VLOG maken3", RandomEvent.Choice.ChoiceType.SkillIncrease, 1, 24, PlayerSkill.Media)
-            };
-			
-            this._randomEvents.Add(new RandomEvent() { Choices = choices1, Description = "test123" });
+            this._randomEvents.Add(new RandomEvent() { Description = "Wil je je vrije tijd besteden om je presentatie te oefenen, of om een VLOG te maken?", Choices = choices });
+
+
+
+            this.ShowRandomEventsCanvas();
         }
 
         // TODO: Setup RandomEventCanvas using CurrentRandomEvent -> Show buttons and change button text, description etc.
@@ -125,11 +125,13 @@
         {
             this._randomEventsCanvas.gameObject.SetActive(true);
             this.UpdateToGUITopcurrentRandomEvent();
+            Time.timeScale = 0f;
         }
 
         public void HideRandomEventsCanvas()
         {
             this._randomEventsCanvas.gameObject.SetActive(false);
+            Time.timeScale = 1f;
         }
 
         public void Button1Click()
@@ -164,14 +166,22 @@
             // ReSharper disable once CompareOfFloatsByEqualityOperator
             value = choice.Min == choice.Max ? choice.Max : UnityEngine.Random.Range(choice.Min, choice.Max);
             Debug.Log("RandomEventsManager: value = " + value);
-            switch (choice.Type)
-            {
-                case RandomEvent.Choice.ChoiceType.SkillIncrease:
-                    IncreasePlayerSkill(choice.Skill, value);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            foreach (RandomEvent.ChoiceAction action in choice.Actions)
+                switch (action.Action)
+                {
+                    case RandomEvent.ChoiceAction.ActionType.SkillIncrease:
+                        IncreasePlayerSkill(choice.Skill, value);
+                        break;
+                    case RandomEvent.ChoiceAction.ActionType.Ok:
+                        break;
+                    case RandomEvent.ChoiceAction.ActionType.NewLightbulbNear:
+                        IList<LightbulbBalloon> lightbulbs = BalloonManager.Instance.LightBulbBalloons;
+                        if (lightbulbs.Count > 0 && !lightbulbs[0].gameObject.activeInHierarchy)
+                            lightbulbs[0].gameObject.SetActive(true);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
             if (this.CurrentRandomEvent.FollowUpRandomEvents == null || this.CurrentRandomEvent.FollowUpRandomEvents[choice] == null)
             {
                 this.HideRandomEventsCanvas();

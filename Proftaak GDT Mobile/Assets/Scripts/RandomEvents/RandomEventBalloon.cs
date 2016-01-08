@@ -10,6 +10,7 @@
             Debug.Log("Button clicked on RandomEventBalloon");
 			
 			RandomEventsManager.Instance.ShowRandomEventsCanvas();
+            this.DisableBalloon();
         }
     }
 }

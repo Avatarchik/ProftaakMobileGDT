@@ -1,5 +1,6 @@
 ﻿namespace Assets.Scripts.RandomEvents
 {
+    using Assets.Scripts.Managers;
     using UnityEngine;
     using UnityEngine.UI;
 
@@ -24,6 +25,19 @@
             this.Invoke("DisableBalloon", Random.Range(MinTimeToDestroy, MaxTimeToDestroy));
             this._startSizeX = this.transform.localScale.x;
             this.startSizeY = this.transform.localScale.y;
+            LightbulbBalloon asLightbulb = this as LightbulbBalloon;
+            if (asLightbulb != null && BalloonManager.Instance.LightBulbBalloons.Contains(asLightbulb))
+            {
+                BalloonManager.Instance.LightBulbBalloons.Add(asLightbulb);
+                Debug.Log("Balloon: added to Lightbulbs");
+            }
+
+            RandomEventBalloon asRandomEvent = this as RandomEventBalloon;
+            if (asRandomEvent != null && BalloonManager.Instance.RandomEventsBalloons.Contains(asRandomEvent))
+            {
+                BalloonManager.Instance.RandomEventsBalloons.Add(asRandomEvent);
+                Debug.Log("Balloon: added to RandomEvents");
+            }
         }
 
         // ReSharper disable once UnusedMember.Local
@@ -63,9 +77,9 @@
             this.transform.localScale = new Vector3(this._startSizeX, this.startSizeY, this.transform.localScale.z);
             this.gameObject.SetActive(false);
         }
-        
+
         public abstract void OnButtonClicked();
-        
+
 
     }
 }

@@ -28,7 +28,7 @@
         {
             this.UnlockedEnhancements = new List<Enhancement>();
             // TODO: Remove
-            this.UnusedSkillPoints = 10;
+            this.UnusedSkillPoints = 1;
         }
     }
 }

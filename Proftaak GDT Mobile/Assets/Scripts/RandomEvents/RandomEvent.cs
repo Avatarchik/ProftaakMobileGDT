@@ -15,11 +15,19 @@
 
         public Dictionary<Choice, RandomEvent> FollowUpRandomEvents;
 
+        public class ChoiceAction
+        {
+            public enum ActionType { SkillIncrease, Ok, NewLightbulbNear }
+            public ActionType Action { get; private set; }
+
+            public ChoiceAction(ActionType action)
+            {
+                this.Action = action;
+            }
+        }
         public class Choice
         {
-            public enum ChoiceType { SkillIncrease }
-
-            public ChoiceType Type { get; private set; }
+            public IList<ChoiceAction> Actions { get; private set; }
             public string Text { get; private set; }
             public float Percentage { get; private set; }
             public float Min { get; private set; }
@@ -27,23 +35,29 @@
 
             public PlayerSkill Skill { get; private set; }
 
-            public Choice(string pText, ChoiceType type, float pMin, float pMax, PlayerSkill pSkill)
+            public Choice(string pText, IList<ChoiceAction> actions, float pMin, float pMax, PlayerSkill pSkill)
             {
                 this.Text = pText;
-                this.Type = type;
+                this.Actions = actions;
                 this.Min = pMin;
                 this.Max = pMax;
                 this.Skill = pSkill;
             }
 
-            public Choice(string pText, ChoiceType pType, float pPercentage, float pMin, float pMax, PlayerSkill pSkill)
+            public Choice(string pText, IList<ChoiceAction> actions, float pPercentage, float pMin, float pMax, PlayerSkill pSkill)
             {
                 this.Text = pText;
-                this.Type = pType;
+                this.Actions = actions;
                 this.Percentage = pPercentage;
                 this.Min = pMin;
                 this.Max = pMax;
                 this.Skill = pSkill;
+            }
+
+            public Choice(string text, IList<ChoiceAction> actions)
+            {
+                this.Text = text;
+                this.Actions = actions;
             }
         }
     }
