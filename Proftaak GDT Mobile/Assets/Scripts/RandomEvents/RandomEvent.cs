@@ -17,7 +17,7 @@
 
         public class ChoiceAction
         {
-            public enum ActionType { SkillIncrease, Ok, NewLightbulbNear, VisitUrl, Tutorial }
+            public enum ActionType { SkillIncrease, FollowerIncrease, Ok, NewLightbulbNear, VisitUrl, Tutorial }
             public ActionType Action { get; private set; }
 
             public ChoiceAction(ActionType action)

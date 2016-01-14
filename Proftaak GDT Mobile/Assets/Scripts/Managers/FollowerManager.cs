@@ -14,7 +14,11 @@
 
         public List<FollowerGroup> FollowerGroups;
 
-        public int TotalFollowers { get { return this.FollowerGroups.IsNullOrEmpty() ? 0 : this.FollowerGroups.Select(x => x.Followers).Sum(); } }
+        public int TotalFollowers
+        {
+            get { return this.FollowerGroups.IsNullOrEmpty() ? 0 : this.FollowerGroups.Select(x => x.Followers).Sum(); }
+            set { this.FollowerGroups[0].Followers += value; }
+        }
 
         [SerializeField]
         private Text _followersText;
@@ -24,7 +28,7 @@
 
         [SerializeField]
         private Canvas _followersCanvas;
-        
+
 
         // ReSharper disable once UnusedMember.Local
         private void Awake()
@@ -66,7 +70,7 @@
             newGroup.GetComponent<RectTransform>().position = pos;
             newGroup.Followers = startFollowers;
             this.FollowerGroups.Add(newGroup);
-            
+
         }
     }
 }
