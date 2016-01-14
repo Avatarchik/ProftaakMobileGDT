@@ -9,6 +9,10 @@
         public static float MinTimeToDestroy = 4f;
         public static float MaxTimeToDestroy = 8f;
 
+        public float MinRespawnTime = 6f;
+        public float MaxRespawnTime = 13f;
+
+
         private const bool _LOG = true;
 
         public bool DoAnimation = true;
@@ -81,5 +85,11 @@
         public abstract void OnButtonClicked();
 
 
+        // ReSharper disable once UnusedMember.Local
+        private void Respawn()
+        {
+            Debug.Log("Respawned Balloon");
+            BalloonManager.Instance.Respawn(this);
+        }
     }
 }

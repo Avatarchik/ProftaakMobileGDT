@@ -1,6 +1,8 @@
 ﻿namespace Assets.Scripts.Managers
 {
     using System.Collections.Generic;
+    using System.Linq.Expressions;
+    using Assets.Scripts.Followers;
     using Assets.Scripts.RandomEvents;
     using UnityEngine;
 
@@ -8,6 +10,8 @@
     {
         public static BalloonManager Instance;
 
+        public float RespawnRandomPosX = 15f;
+        public float RespawnRandomPosY = 15f;
 
         public IList<LightbulbBalloon> LightBulbBalloons { get; set; }
         public IList<RandomEventBalloon> RandomEventsBalloons { get; set; }
@@ -30,6 +34,7 @@
             this._firstRandomEventBalloon.gameObject.SetActive(true);
         }
 
+        // ReSharper disable once UnusedMember.Local
         private void Update()
         {
             Ray ray = new Ray(Vector3.back, Vector3.down);
@@ -45,11 +50,25 @@
             {
                 if (hit.transform.GetComponent<LightbulbBalloon>() != null)
                     hit.transform.GetComponent<LightbulbBalloon>().OnButtonClicked();
-                else  if (hit.transform.GetComponent<RandomEventBalloon>() != null)
+                else if (hit.transform.GetComponent<RandomEventBalloon>() != null)
                     hit.transform.GetComponent<RandomEventBalloon>().OnButtonClicked();
 
             }
         }
 
+        public void Respawn(Balloon balloon)
+        {
+            List<FollowerGroup> groups = FollowerManager.Instance.FollowerGroups;
+            Vector3 respawnPos = Vector3.zero;
+            for (int i = 0; i < groups.Count; i++)
+            {
+                if (i == groups.Count -1 || Random.Range(0, groups.Count) == 0)
+                    respawnPos = new Vector3(Random.Range(groups[i].transform.position.x - this.RespawnRandomPosX, groups[i].transform.position.x + this.RespawnRandomPosX),
+                        Random.Range(groups[i].transform.position.y - this.RespawnRandomPosY, groups[i].transform.position.y + this.RespawnRandomPosY), balloon.transform.position.z);
+
+            }
+            balloon.transform.position = respawnPos;
+            balloon.gameObject.SetActive(true);
+        }
     }
 }

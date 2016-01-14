@@ -5,12 +5,16 @@
 
     public class RandomEventBalloon : Balloon
     {
+
         public override void OnButtonClicked()
         {
             Debug.Log("Button clicked on RandomEventBalloon");
 			
 			RandomEventsManager.Instance.ShowRandomEventsCanvas();
             this.DisableBalloon();
+            this.Invoke("Respawn", Random.Range(this.MinRespawnTime, this.MaxRespawnTime));
+
         }
+
     }
 }
