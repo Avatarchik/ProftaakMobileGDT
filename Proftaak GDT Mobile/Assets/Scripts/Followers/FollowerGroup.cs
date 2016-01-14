@@ -4,9 +4,10 @@ namespace Assets.Scripts.Followers
 {
     public class FollowerGroup : MonoBehaviour {
 
+        [SerializeField]
+        private int _targetFollowersIncrease = 50;
 
-
-        private int _targetFollowers = 0;
+        private int _targetFollowers;
 
         [SerializeField]
         private int _followers;
@@ -20,9 +21,9 @@ namespace Assets.Scripts.Followers
         {
             if (this._targetFollowers == this.Followers) return;
             if (this._targetFollowers > this.Followers)
-                this._targetFollowers -= (((this._targetFollowers + 1) - (this.Followers + 1)) / 5);
+                this._targetFollowers -= (((this._targetFollowers + 1) - (this.Followers + 1)) / this._targetFollowersIncrease);
             else
-                this._targetFollowers += (((this.Followers + 1) - (this._targetFollowers + 1)) / 5);
+                this._targetFollowers += (((this.Followers + 1) - (this._targetFollowers + 1)) / this._targetFollowersIncrease);
             this.transform.localScale = new Vector3(this.StartSize + (this._targetFollowers / this.DevideBy), this.StartSize + (this._targetFollowers / this.DevideBy), 1);
         }
 
