@@ -13,8 +13,8 @@ namespace RandomEventGenerator
 
         public RandomEventGenerator()
         {
-            this.LoadRandomEvents();
             this.InitializeComponent();
+            this.LoadRandomEvents();
             this.ResetFields();
         }
 
@@ -23,6 +23,7 @@ namespace RandomEventGenerator
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\School\Game Design\GPT - Proftaak\JSON Files";
             this._totalPath = Path.Combine(path, Filename);
             this._randomEvents = JsonSerializer.ReadFromFile(path, Filename);
+            this.lbCurrentEventAmount.Text = this._randomEvents.Count + " events";
         }
 
         private void ResetFields()
@@ -49,7 +50,7 @@ namespace RandomEventGenerator
             return (RandomEvent.RandomEventType)this.cmbEventType.SelectedItem == RandomEvent.RandomEventType.Link;
         }
 
-        private void btnCreateEvent_Click(object sender, EventArgs e)
+        private void CreateEvent()
         {
             if (!EventIsValid())
             {
@@ -77,6 +78,11 @@ namespace RandomEventGenerator
             this.ResetFields();
         }
 
+        private void btnCreateEvent_Click(object sender, EventArgs e)
+        {
+            this.CreateEvent();
+        }
+
         private void cmbEventType_SelectedIndexChanged(object sender, EventArgs e)
         {
             bool isVisible = this.IsLinkEvent();
@@ -88,6 +94,14 @@ namespace RandomEventGenerator
         private void RandomEventGenerator_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void RandomEventGenerator_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                this.CreateEvent();
+            }
         }
     }
 }

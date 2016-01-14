@@ -37,12 +37,13 @@
             this.btnCreateEvent = new System.Windows.Forms.Button();
             this.lblUrl = new System.Windows.Forms.Label();
             this.txtUrl = new System.Windows.Forms.TextBox();
+            this.lbCurrentEventAmount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbEventTitle
             // 
             this.lbEventTitle.AutoSize = true;
-            this.lbEventTitle.Location = new System.Drawing.Point(255, 55);
+            this.lbEventTitle.Location = new System.Drawing.Point(12, 55);
             this.lbEventTitle.Name = "lbEventTitle";
             this.lbEventTitle.Size = new System.Drawing.Size(32, 16);
             this.lbEventTitle.TabIndex = 9;
@@ -50,15 +51,15 @@
             // 
             // txtEventTitle
             // 
-            this.txtEventTitle.Location = new System.Drawing.Point(258, 74);
+            this.txtEventTitle.Location = new System.Drawing.Point(12, 74);
             this.txtEventTitle.Name = "txtEventTitle";
-            this.txtEventTitle.Size = new System.Drawing.Size(257, 22);
+            this.txtEventTitle.Size = new System.Drawing.Size(760, 22);
             this.txtEventTitle.TabIndex = 8;
             // 
             // lbEventDescription
             // 
             this.lbEventDescription.AutoSize = true;
-            this.lbEventDescription.Location = new System.Drawing.Point(255, 99);
+            this.lbEventDescription.Location = new System.Drawing.Point(12, 99);
             this.lbEventDescription.Name = "lbEventDescription";
             this.lbEventDescription.Size = new System.Drawing.Size(77, 16);
             this.lbEventDescription.TabIndex = 10;
@@ -66,25 +67,26 @@
             // 
             // txtEventDescription
             // 
-            this.txtEventDescription.Location = new System.Drawing.Point(258, 118);
+            this.txtEventDescription.Location = new System.Drawing.Point(12, 118);
             this.txtEventDescription.Multiline = true;
             this.txtEventDescription.Name = "txtEventDescription";
-            this.txtEventDescription.Size = new System.Drawing.Size(257, 139);
+            this.txtEventDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtEventDescription.Size = new System.Drawing.Size(760, 296);
             this.txtEventDescription.TabIndex = 11;
             // 
             // cmbEventType
             // 
             this.cmbEventType.FormattingEnabled = true;
-            this.cmbEventType.Location = new System.Drawing.Point(258, 28);
+            this.cmbEventType.Location = new System.Drawing.Point(12, 28);
             this.cmbEventType.Name = "cmbEventType";
-            this.cmbEventType.Size = new System.Drawing.Size(257, 24);
+            this.cmbEventType.Size = new System.Drawing.Size(760, 24);
             this.cmbEventType.TabIndex = 12;
             this.cmbEventType.SelectedIndexChanged += new System.EventHandler(this.cmbEventType_SelectedIndexChanged);
             // 
             // lbEventType
             // 
             this.lbEventType.AutoSize = true;
-            this.lbEventType.Location = new System.Drawing.Point(255, 9);
+            this.lbEventType.Location = new System.Drawing.Point(12, 9);
             this.lbEventType.Name = "lbEventType";
             this.lbEventType.Size = new System.Drawing.Size(75, 16);
             this.lbEventType.TabIndex = 13;
@@ -103,7 +105,7 @@
             // lblUrl
             // 
             this.lblUrl.AutoSize = true;
-            this.lblUrl.Location = new System.Drawing.Point(255, 260);
+            this.lblUrl.Location = new System.Drawing.Point(12, 417);
             this.lblUrl.Name = "lblUrl";
             this.lblUrl.Size = new System.Drawing.Size(33, 16);
             this.lblUrl.TabIndex = 16;
@@ -112,16 +114,28 @@
             // 
             // txtUrl
             // 
-            this.txtUrl.Location = new System.Drawing.Point(258, 279);
+            this.txtUrl.Location = new System.Drawing.Point(12, 436);
             this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(257, 22);
+            this.txtUrl.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtUrl.Size = new System.Drawing.Size(760, 22);
             this.txtUrl.TabIndex = 15;
             this.txtUrl.Visible = false;
+            this.txtUrl.WordWrap = false;
+            // 
+            // lbCurrentEventAmount
+            // 
+            this.lbCurrentEventAmount.AutoSize = true;
+            this.lbCurrentEventAmount.Location = new System.Drawing.Point(702, 9);
+            this.lbCurrentEventAmount.Name = "lbCurrentEventAmount";
+            this.lbCurrentEventAmount.Size = new System.Drawing.Size(70, 16);
+            this.lbCurrentEventAmount.TabIndex = 17;
+            this.lbCurrentEventAmount.Text = "XXX events";
             // 
             // RandomEventGenerator
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.lbCurrentEventAmount);
             this.Controls.Add(this.lblUrl);
             this.Controls.Add(this.txtUrl);
             this.Controls.Add(this.btnCreateEvent);
@@ -132,10 +146,14 @@
             this.Controls.Add(this.lbEventDescription);
             this.Controls.Add(this.txtEventDescription);
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyPreview = true;
+            this.MaximumSize = new System.Drawing.Size(800, 600);
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "RandomEventGenerator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Random Event Generator";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RandomEventGenerator_FormClosed);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RandomEventGenerator_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,5 +170,6 @@
         private System.Windows.Forms.Button btnCreateEvent;
         private System.Windows.Forms.Label lblUrl;
         private System.Windows.Forms.TextBox txtUrl;
+        private System.Windows.Forms.Label lbCurrentEventAmount;
     }
 }
