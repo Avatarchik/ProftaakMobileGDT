@@ -4,12 +4,19 @@ using System.IO;
 using System.Linq;
 using Assets.Scripts.RandomEvents;
 using Newtonsoft.Json;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+#if UNITY_EDITOR_64
+using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace Assets.Scripts.Helpers
 {
+#if UNITY_EDITOR_64
     [InitializeOnLoad]
+#endif
     public static class JsonSerializer
     {
         static JsonSerializer()
