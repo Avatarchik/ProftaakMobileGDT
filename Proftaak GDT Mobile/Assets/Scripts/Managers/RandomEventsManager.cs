@@ -16,14 +16,10 @@ namespace Assets.Scripts.Managers
         private Canvas _randomEventsCanvas;
 
         [SerializeField]
-<<<<<<< HEAD
         private GameObject _temporaryTutorialCanvas;
 
         [SerializeField]
-        private readonly List<RandomEvent> _randomEvents = new List<RandomEvent>();
-=======
         private List<RandomEvent> _randomEvents = new List<RandomEvent>();
->>>>>>> JSON Serialization in Unity fix
 
         [SerializeField]
         private Button _button1;
@@ -187,11 +183,8 @@ namespace Assets.Scripts.Managers
                         break;
 
                     case RandomEvent.ChoiceAction.ActionType.Tutorial:
-<<<<<<< HEAD
                         _temporaryTutorialCanvas.SetActive(true);
-=======
-                        //                     Time.timeScale = 0f;
->>>>>>> JSON Serialization in Unity fix
+                        // Time.timeScale = 0f;
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
