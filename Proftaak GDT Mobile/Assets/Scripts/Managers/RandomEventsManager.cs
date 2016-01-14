@@ -14,6 +14,9 @@
         private Canvas _randomEventsCanvas;
 
         [SerializeField]
+        private GameObject _temporaryTutorialCanvas;
+
+        [SerializeField]
         private readonly List<RandomEvent> _randomEvents = new List<RandomEvent>();
 
         [SerializeField]
@@ -183,7 +186,7 @@
                         break;
 
                     case RandomEvent.ChoiceAction.ActionType.Tutorial:
-   //                     Time.timeScale = 0f;
+                        _temporaryTutorialCanvas.SetActive(true);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
