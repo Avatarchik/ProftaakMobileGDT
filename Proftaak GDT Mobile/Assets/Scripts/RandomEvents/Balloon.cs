@@ -6,8 +6,8 @@
 
     public abstract class Balloon : MonoBehaviour
     {
-        public static float MinTimeToDestroy = 4f;
-        public static float MaxTimeToDestroy = 8f;
+        public float MinTimeToDestroy = 4f;
+        public float MaxTimeToDestroy = 8f;
 
         public float MinRespawnTime = 6f;
         public float MaxRespawnTime = 13f;
@@ -27,6 +27,9 @@
         private void OnEnable()
         {
             this.Invoke("DisableBalloon", Random.Range(MinTimeToDestroy, MaxTimeToDestroy));
+            // eerste radom event blijft 1000 seconden.
+            //this.MinRespawnTime = 4f;
+            //this.MaxRespawnTime = 8f;
             this._startSizeX = this.transform.localScale.x;
             this.startSizeY = this.transform.localScale.y;
             LightbulbBalloon asLightbulb = this as LightbulbBalloon;
