@@ -48,7 +48,7 @@
             this.CurrentRandomEvent = new RandomEvent()
             {
                 Description = string.Format("Welkom {0}. {1} is een super tof idee! Probeer dit door heel Nederland te verspreiden en uiteindelijk op TEDx Veghel te komen. Succes met je avontuur!", Player.Instance.PlayerName, Player.Instance.IdeaName),
-                Choices = new List<RandomEvent.Choice>() { new RandomEvent.Choice("Ok", new List<RandomEvent.ChoiceAction>() { new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.Ok) }) }
+                Choices = new List<RandomEvent.Choice>() { new RandomEvent.Choice("Ok", new List<RandomEvent.ChoiceAction>() { new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.Tutorial) }) }
             };
 
             List<RandomEvent.ChoiceAction> listActions = new List<RandomEvent.ChoiceAction>() { new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease), new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.NewLightbulbNear) };
@@ -179,6 +179,10 @@
                             lightbulbs[0].gameObject.SetActive(true);
                         break;
                     case RandomEvent.ChoiceAction.ActionType.VisitUrl:
+                        Application.OpenURL(this.CurrentRandomEvent.TedUrl);
+                        break;
+
+                    case RandomEvent.ChoiceAction.ActionType.Tutorial:
                         Application.OpenURL(this.CurrentRandomEvent.TedUrl);
                         break;
                     default:
