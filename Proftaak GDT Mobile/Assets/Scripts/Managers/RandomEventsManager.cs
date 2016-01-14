@@ -59,9 +59,64 @@ namespace Assets.Scripts.Managers
             // read randomEvents from JSON file.
             this._randomEvents = JsonSerializer.ReadFromFile(Application.dataPath + Path.DirectorySeparatorChar + "JSON" + Path.DirectorySeparatorChar + "GeneratedJsonData.txt").GetRange(0, 4);
 
+            this.HardCodeChoices();
+
             Debug.Log("Aantal events geladen: " + this._randomEvents.Count);
 
             this.ShowRandomEventsCanvas();
+        }
+
+        private void HardCodeChoices()
+        {
+            this._randomEvents[0].Choices = new List<RandomEvent.Choice>
+            {
+                new RandomEvent.Choice("Verdiepen", new List<RandomEvent.ChoiceAction>
+                {
+                    new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease)
+
+                }, 1, 1, PlayerSkill.Knowledge),
+                new RandomEvent.Choice("Niet verdiepen", new List<RandomEvent.ChoiceAction>
+                {
+                    new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.Ok)
+                })
+            };
+            this._randomEvents[1].Choices = new List<RandomEvent.Choice>
+            {
+                new RandomEvent.Choice("Verhaal", new List<RandomEvent.ChoiceAction>
+                {
+                    new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease)
+                }, 1, 1, PlayerSkill.Presentation),
+                new RandomEvent.Choice("Feiten", new List<RandomEvent.ChoiceAction>
+                {
+                    new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease)
+                }, -1, -1, PlayerSkill.Presentation)
+            };
+            this._randomEvents[2].Choices = new List<RandomEvent.Choice>
+            {
+                new RandomEvent.Choice("10 minuten / 5 slides", new List<RandomEvent.ChoiceAction>
+                {
+                    new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease)
+                }, -1, -1, PlayerSkill.Presentation),
+                new RandomEvent.Choice("20 minutes / 10 slides", new List<RandomEvent.ChoiceAction>
+                {
+                    new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease)
+                }, 1, 1, PlayerSkill.Presentation),
+                new RandomEvent.Choice("30 minutes / 15 slides", new List<RandomEvent.ChoiceAction>
+                {
+                    new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease)
+                }, -1, -1, PlayerSkill.Presentation)
+            };
+            this._randomEvents[3].Choices = new List<RandomEvent.Choice>
+            {
+                new RandomEvent.Choice("Gemeentehuis", new List<RandomEvent.ChoiceAction>
+                {
+                    new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease)
+                }, 1, 1, PlayerSkill.Presentation),
+                new RandomEvent.Choice("Beursgebouw", new List<RandomEvent.ChoiceAction>
+                {
+                    new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease)
+                }, -1, -1, PlayerSkill.Presentation)
+            };
         }
 
         // TODO: Setup RandomEventCanvas using CurrentRandomEvent -> Show buttons and change button text, description etc.
