@@ -1,120 +1,137 @@
-﻿//namespace Assets.Scripts.Helpers
-//{
-//    using System;
-//    using System.Collections.Generic;
-//    using System.IO;
-//    using System.Linq;
-//    using Assets.Scripts.RandomEvents;
-//    using Newtonsoft.Json;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Assets.Scripts.RandomEvents;
+using Newtonsoft.Json;
+using UnityEditor;
+using UnityEngine;
 
-//    public static class JsonSerializer
-//    {
-//        private class RandomEventsList
-//        {
-//            public readonly List<RandomEvent> RandomEvents;
+namespace Assets.Scripts.Helpers
+{
+    [InitializeOnLoad]
+    public static class JsonSerializer
+    {
+        static JsonSerializer()
+        {
+            string currentPath = Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.Process);
 
-//            public RandomEventsList()
-//            {
-//                this.RandomEvents = new List<RandomEvent>();
-//            }
-//        }
+            string dllPath = Application.dataPath + Path.DirectorySeparatorChar + "JSON";
 
-//        public static List<RandomEvent> JsonToRandomEventsList(string reTextParam)
-//        {
-//            try
-//            {
-//                string reText = reTextParam;
+            if (!string.IsNullOrEmpty(currentPath) && !currentPath.Contains(dllPath))
+            {
+                Environment.SetEnvironmentVariable("PATH", currentPath + Path.PathSeparator + dllPath, EnvironmentVariableTarget.Process);
 
-//                if (!reTextParam.ToLower().StartsWith("{"))
-//                {
-//                    reText = reTextParam.Remove(0, reText.IndexOf("{", StringComparison.Ordinal));
-//                }
+                Debug.Log(Environment.GetEnvironmentVariable("PATH"));
+            }
+        }
 
-//                RandomEventsList reList = JsonConvert.DeserializeObject<RandomEventsList>(reText);
+        private class RandomEventsList
+        {
+            public readonly List<RandomEvent> RandomEvents;
 
-//                return reList.RandomEvents.ToList();
-//            }
-//            catch (Exception ex)
-//            {
-//                throw new Exception(ex.Message);
-//            }
-//        }
+            public RandomEventsList()
+            {
+                this.RandomEvents = new List<RandomEvent>();
+            }
+        }
 
-//        public static string RandomEventsListToJson(List<RandomEvent> reListParam)
-//        {
-//            try
-//            {
-//                RandomEventsList reList = new RandomEventsList();
+        public static List<RandomEvent> JsonToRandomEventsList(string reTextParam)
+        {
+            try
+            {
+                string reText = reTextParam;
 
-//                foreach (RandomEvent re in reListParam)
-//                {
-//                    reList.RandomEvents.Add(re);
-//                }
+                if (!reTextParam.ToLower().StartsWith("{"))
+                {
+                    reText = reTextParam.Remove(0, reText.IndexOf("{", StringComparison.Ordinal));
+                }
 
-//                string reJson = JsonConvert.SerializeObject(reList);
+                RandomEventsList reList = JsonConvert.DeserializeObject<RandomEventsList>(reText);
 
-//                return reJson;
-//            }
-//            catch (Exception ex)
-//            {
-//                throw new Exception(ex.Message);
-//            }
-//        }
+                return reList.RandomEvents.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
-//        public static List<RandomEvent> ReadFromFile(string filePath)
-//        {
-//            if (string.IsNullOrEmpty(filePath))
-//            {
-//                throw new Exception("Cannot read from empty directory");
-//            }
+        public static string RandomEventsListToJson(List<RandomEvent> reListParam)
+        {
+            try
+            {
+                RandomEventsList reList = new RandomEventsList();
 
-//            string path = Path.GetDirectoryName(filePath);
+                foreach (RandomEvent re in reListParam)
+                {
+                    reList.RandomEvents.Add(re);
+                }
 
-//            if (string.IsNullOrEmpty(path))
-//            {
-//                throw new Exception("Cannot read from empty directory");
-//            }
+                string reJson = JsonConvert.SerializeObject(reList);
 
-//            if (!Directory.Exists(path))
-//                Directory.CreateDirectory(path);
+                return reJson;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
-//            if (!File.Exists(filePath))
-//            {
-//                File.Create(filePath).Close();
-//            }
-//            else
-//            {
-//                string json = File.ReadAllText(filePath).Trim();
+        public static List<RandomEvent> ReadFromFile(string filePath)
+        {
+            if (string.IsNullOrEmpty(filePath))
+            {
+                throw new Exception("Cannot read from empty directory");
+            }
 
-//                if (!json.IsNullEmptyOrWhitespace())
-//                {
-//                    return JsonSerializer.JsonToRandomEventsList(json);
-//                }
-//            }
+            string path = Path.GetDirectoryName(filePath);
 
-//            return new List<RandomEvent>();
-//        }
+            if (string.IsNullOrEmpty(path))
+            {
+                throw new Exception("Cannot read from empty directory");
+            }
 
-//        public static void WriteToFile(string filePath, string text)
-//        {
-//            if (string.IsNullOrEmpty(filePath))
-//            {
-//                throw new Exception("Cannot write to empty directory");
-//            }
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
 
-//            string path = Path.GetDirectoryName(filePath);
+            if (!File.Exists(filePath))
+            {
+                File.Create(filePath).Close();
+            }
+            else
+            {
+                string json = File.ReadAllText(filePath).Trim();
 
-//            if (string.IsNullOrEmpty(path))
-//            {
-//                throw new Exception("Cannot write to empty directory");
-//            }
+                if (!json.IsNullEmptyOrWhitespace())
+                {
+                    return JsonSerializer.JsonToRandomEventsList(json);
+                }
+            }
 
-//            if (!Directory.Exists(path))
-//            {
-//                Directory.CreateDirectory(filePath);
-//            }
+            return new List<RandomEvent>();
+        }
 
-//            File.WriteAllText(filePath, text);
-//        }
-//    }
-//}
+        public static void WriteToFile(string filePath, string text)
+        {
+            if (string.IsNullOrEmpty(filePath))
+            {
+                throw new Exception("Cannot write to empty directory");
+            }
+
+            string path = Path.GetDirectoryName(filePath);
+
+            if (string.IsNullOrEmpty(path))
+            {
+                throw new Exception("Cannot write to empty directory");
+            }
+
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(filePath);
+            }
+
+            File.WriteAllText(filePath, text);
+        }
+    }
+}

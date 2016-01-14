@@ -1,11 +1,13 @@
-﻿namespace Assets.Scripts.Managers
-{
-    using System;
-    using System.Collections.Generic;
-    using Assets.Scripts.RandomEvents;
-    using UnityEngine;
-    using UnityEngine.UI;
+﻿using System;
+using System.Collections.Generic;
+using Assets.Scripts.RandomEvents;
+using UnityEngine;
+using UnityEngine.UI;
+using System.IO;
+using Assets.Scripts.Helpers;
 
+namespace Assets.Scripts.Managers
+{
     internal class RandomEventsManager : MonoBehaviour
     {
         public static RandomEventsManager Instance;
@@ -14,10 +16,14 @@
         private Canvas _randomEventsCanvas;
 
         [SerializeField]
+<<<<<<< HEAD
         private GameObject _temporaryTutorialCanvas;
 
         [SerializeField]
         private readonly List<RandomEvent> _randomEvents = new List<RandomEvent>();
+=======
+        private List<RandomEvent> _randomEvents = new List<RandomEvent>();
+>>>>>>> JSON Serialization in Unity fix
 
         [SerializeField]
         private Button _button1;
@@ -44,9 +50,9 @@
         private void Awake()
         {
             if (Instance == null)
+            {
                 Instance = this;
-            // read randomEvents from JSON file.
-            this._randomEvents.Shuffle();
+            }
 
             this.CurrentRandomEvent = new RandomEvent()
             {
@@ -54,15 +60,10 @@
                 Choices = new List<RandomEvent.Choice>() { new RandomEvent.Choice("Ok", new List<RandomEvent.ChoiceAction>() { new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.Tutorial) }) }
             };
 
-            List<RandomEvent.ChoiceAction> listActions = new List<RandomEvent.ChoiceAction>() { new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease), new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.NewLightbulbNear) };
-            List<RandomEvent.Choice> choices = new List<RandomEvent.Choice>
-            {
-                new RandomEvent.Choice("Presentatie oefenen", listActions , 1, 4, PlayerSkill.Presentation),
-                new RandomEvent.Choice("VLOG maken", listActions, 1, 4, PlayerSkill.Media)
-            };
-            this._randomEvents.Add(new RandomEvent() { Description = "Wil je je vrije tijd besteden om je presentatie te oefenen, of om een VLOG te maken?", Choices = choices });
-            this._randomEvents.Add(new RandomEvent() { Description = "TED video van \"Do schools kill creativity\"", TedUrl = "http://www.ted.com/talks/ken_robinson_says_schools_kill_creativity", Choices = new List<RandomEvent.Choice>() { new RandomEvent.Choice("Bekijk", new List<RandomEvent.ChoiceAction>() { new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.VisitUrl) }), new RandomEvent.Choice("Ok", new List<RandomEvent.ChoiceAction>() { new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.Ok) }) } });
+            // read randomEvents from JSON file.
+            this._randomEvents = JsonSerializer.ReadFromFile(Application.dataPath + Path.DirectorySeparatorChar + "JSON" + Path.DirectorySeparatorChar + "GeneratedJsonData.txt").GetRange(0, 4);
 
+            Debug.Log("Aantal events geladen: " + this._randomEvents.Count);
 
             this.ShowRandomEventsCanvas();
         }
@@ -186,7 +187,11 @@
                         break;
 
                     case RandomEvent.ChoiceAction.ActionType.Tutorial:
+<<<<<<< HEAD
                         _temporaryTutorialCanvas.SetActive(true);
+=======
+                        //                     Time.timeScale = 0f;
+>>>>>>> JSON Serialization in Unity fix
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
