@@ -12,7 +12,6 @@
 			
 			RandomEventsManager.Instance.ShowRandomEventsCanvas();
             this.DisableBalloon();
-            this.Invoke("Respawn", Random.Range(this.MinRespawnTime, this.MaxRespawnTime));
 
         }
 

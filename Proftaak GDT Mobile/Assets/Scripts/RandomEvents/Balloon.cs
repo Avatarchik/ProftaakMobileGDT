@@ -80,6 +80,7 @@
                 Debug.Log("Disabling balloon");
             this.transform.localScale = new Vector3(this._startSizeX, this.startSizeY, this.transform.localScale.z);
             this.gameObject.SetActive(false);
+            this.Invoke("Respawn", Random.Range(this.MinRespawnTime, this.MaxRespawnTime));
         }
 
         public abstract void OnButtonClicked();

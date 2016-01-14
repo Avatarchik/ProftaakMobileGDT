@@ -10,7 +10,6 @@
             Debug.Log("Button clicked on Lightbulb balloon");
             FollowerManager.Instance.CreateNewFollowerGroup(new Vector2(this.transform.position.x, this.transform.position.y), 100);
             this.DisableBalloon();
-            this.Invoke("Respawn", Random.Range(this.MinRespawnTime, this.MaxRespawnTime));
             this.transform.position = new Vector3(this.transform.position.x - 20f, this.transform.position.y, this.transform.position.z);
         }        
     }
