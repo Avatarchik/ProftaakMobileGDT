@@ -11,7 +11,7 @@ GameObject:
   - 222: {fileID: 22266378}
   - 114: {fileID: 11494464}
   - 114: {fileID: 11496492}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: Followers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
