@@ -183,7 +183,7 @@
                         break;
 
                     case RandomEvent.ChoiceAction.ActionType.Tutorial:
-                        Application.OpenURL(this.CurrentRandomEvent.TedUrl);
+   //                     Time.timeScale = 0f;
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();

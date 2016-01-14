@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -43,6 +44,20 @@ namespace Assets.Scripts
         {
             CultureInfo dutchCulture = CultureInfo.CreateSpecificCulture("nl-NL");
             return String.Format(dutchCulture, "{0:n0}", value);
+        }
+
+        public static bool PauseGame()
+        {
+            if (Time.timeScale == 0f)
+            {
+                Time.timeScale = 1f;
+            }
+            else
+            {
+                Time.timeScale = 0f;
+            }
+
+            return Time.timeScale == 1f;
         }
     }
 }

@@ -8,6 +8,8 @@ public class TutorialManager : MonoBehaviour
     private string tutorialDescription;
     private string tutorialTitle;
 
+    public bool inTutorial;
+
     [SerializeField]
     private Text title;
 
@@ -31,6 +33,10 @@ public class TutorialManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (tutorialPlane.active)
+        {
+            Time.timeScale = 0f;
+        }
 
         prevButton.enabled = stepCounter >= 1;
 
@@ -38,8 +44,8 @@ public class TutorialManager : MonoBehaviour
         {
             case 0:
                 {
-                    currentStep = new Step("Skills",
-                        "These are your skills. These skills are here for you to mollest and stuff.");
+                    currentStep = new Step("Vaardigheden",
+                        "Dit zijn je skills.");
 
                     this.title.text = currentStep.titleStep;
                     this.description.text = currentStep.descriptionStep;
@@ -47,8 +53,8 @@ public class TutorialManager : MonoBehaviour
                 }
             case 1:
                 {
-                    currentStep = new Step("Enhancements",
-    "These are your enhancements.");
+                    currentStep = new Step("Verbeteringen",
+    "Dit zijn je verbeteringen.");
 
                     this.title.text = currentStep.titleStep;
                     this.description.text = currentStep.descriptionStep;
@@ -70,6 +76,7 @@ public class TutorialManager : MonoBehaviour
                 {
                     this.tutorialPlane.SetActive(false);
                     stepCounter = 0;
+                    Time.timeScale = 1f;
                     break;
                 }
 
