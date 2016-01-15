@@ -11,8 +11,6 @@ namespace Assets.Scripts.Managers
     {
         public static RandomEventsManager Instance;
 
-        private string _filepath;
-
         [SerializeField]
         private GameObject _randomEventsCanvas;
 
@@ -88,9 +86,7 @@ namespace Assets.Scripts.Managers
                 }
             };
 
-            this._filepath = Application.dataPath + @"\JSON\GeneratedJsonData.txt";
-
-            this._randomEvents = JsonSerializer.ReadFromFile(this._filepath).RandomEvents.GetRange(0, 4);
+            this._randomEvents = JsonSerializer.ReadFromFile("GeneratedJsonData.txt").RandomEvents.GetRange(0, 4);
 
             this.SetupChoices();
 
@@ -105,7 +101,7 @@ namespace Assets.Scripts.Managers
                 {
                     new RandomEvent.Choice("Verdiepen", new List<RandomEvent.ChoiceAction>
                     {
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, PlayerSkill.Knowledge, 1)
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, (int) PlayerSkill.Knowledge, 1)
                     }),
                     new RandomEvent.Choice("Niet verdiepen", new List<RandomEvent.ChoiceAction>
                     {
@@ -117,12 +113,12 @@ namespace Assets.Scripts.Managers
                 {
                     new RandomEvent.Choice("Verhaal", new List<RandomEvent.ChoiceAction>
                     {
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, PlayerSkill.Presentation, 1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, (int) PlayerSkill.Presentation, 1),
                         new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease, 100000)
                     }),
                     new RandomEvent.Choice("Feiten", new List<RandomEvent.ChoiceAction>
                     {
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, PlayerSkill.Presentation, -1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, (int) PlayerSkill.Presentation, -1),
                         new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease, 500)
                     })
                 };
@@ -131,17 +127,17 @@ namespace Assets.Scripts.Managers
                 {
                     new RandomEvent.Choice("10 minuten / 5 slides", new List<RandomEvent.ChoiceAction>
                     {
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, PlayerSkill.Presentation, -1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, (int) PlayerSkill.Presentation, -1),
                         new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease, 500)
                     }),
                     new RandomEvent.Choice("20 minutes / 10 slides", new List<RandomEvent.ChoiceAction>
                     {
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, PlayerSkill.Presentation, 1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, (int) PlayerSkill.Presentation, 1),
                         new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease, 100000)
                     }),
                     new RandomEvent.Choice("30 minutes / 15 slides", new List<RandomEvent.ChoiceAction>
                     {
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, PlayerSkill.Presentation, -1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, (int) PlayerSkill.Presentation, -1),
                         new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease, 500)
                     })
                 };
@@ -150,12 +146,12 @@ namespace Assets.Scripts.Managers
                 {
                     new RandomEvent.Choice("Gemeentehuis", new List<RandomEvent.ChoiceAction>
                     {
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, PlayerSkill.Presentation, 1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, (int) PlayerSkill.Presentation, 1),
                         new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease, 100000)
                     }),
                     new RandomEvent.Choice("Beursgebouw", new List<RandomEvent.ChoiceAction>
                     {
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, PlayerSkill.Presentation, -1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, (int) PlayerSkill.Presentation, -1),
                         new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease, 500)
                     })
                 };
@@ -366,13 +362,13 @@ namespace Assets.Scripts.Managers
                 {
                     case RandomEvent.ChoiceAction.ActionType.SkillIncrease:
                         {
-                            IncreasePlayerSkill((PlayerSkill) action.Values[0], (float) action.Values[1]);
+                            IncreasePlayerSkill((PlayerSkill)action.Values[0], (int)action.Values[1]);
 
                             break;
                         }
                     case RandomEvent.ChoiceAction.ActionType.FollowerIncrease:
                         {
-                            FollowerManager.Instance.TotalFollowers += (int) action.Values[0];
+                            FollowerManager.Instance.TotalFollowers += (int)action.Values[0];
 
                             break;
                         }
@@ -424,25 +420,25 @@ namespace Assets.Scripts.Managers
             this.UpdateToGuiTopcurrentRandomEvent();
         }
 
-        private static void IncreasePlayerSkill(PlayerSkill pSkill, float value)
+        private static void IncreasePlayerSkill(PlayerSkill pSkill, int value)
         {
             switch (pSkill)
             {
                 case PlayerSkill.Knowledge:
                     {
-                        Player.Instance.KnowledgeSkills += (int)value;
+                        Player.Instance.KnowledgeSkills += value;
 
                         break;
                     }
                 case PlayerSkill.Presentation:
                     {
-                        Player.Instance.PresentationSkills += (int)value;
+                        Player.Instance.PresentationSkills += value;
 
                         break;
                     }
                 case PlayerSkill.Media:
                     {
-                        Player.Instance.MediaSkills += (int)value;
+                        Player.Instance.MediaSkills += value;
 
                         break;
                     }

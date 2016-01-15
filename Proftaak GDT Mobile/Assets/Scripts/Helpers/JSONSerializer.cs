@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using Assets.Scripts.RandomEvents;
 using UnityEngine;
 
@@ -19,18 +18,20 @@ namespace Assets.Scripts.Helpers
             }
         }
 
-        public static RandomEventsList ReadFromFile(string filePath)
+        public static RandomEventsList ReadFromFile(string fileName)
         {
-            filePath = filePath.Trim();
+            fileName = fileName.Trim();
 
-            if (string.IsNullOrEmpty(filePath))
+            if (fileName.IsNullEmptyOrWhitespace())
             {
-                throw new Exception("Cannot read from empty filepath");
+                throw new Exception("Cannot read from empty fileName");
             }
 
-            if (File.Exists(filePath))
+            TextAsset textFile = Resources.Load<TextAsset>(fileName);
+
+            if (textFile != null)
             {
-                return JsonUtility.FromJson<RandomEventsList>(File.ReadAllText(filePath));
+                return JsonUtility.FromJson<RandomEventsList>(textFile.text);
             }
 
             return new RandomEventsList();
