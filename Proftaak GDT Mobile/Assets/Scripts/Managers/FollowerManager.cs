@@ -35,6 +35,8 @@
         [SerializeField]
         private Canvas _followersCanvas;
 
+        [SerializeField]
+        private FollowerGroup _firstFollowerGroup;
 
         // ReSharper disable once UnusedMember.Local
         private void Awake()
@@ -42,6 +44,11 @@
             if (Instance == null)
                 Instance = this;
             this.InvokeRepeating("IncreaseFollowers", 0f, 0.5f);
+        }
+
+        public void StartFollowers()
+        {
+            this._firstFollowerGroup.gameObject.SetActive(true);
         }
 
         // ReSharper disable once UnusedMember.Local

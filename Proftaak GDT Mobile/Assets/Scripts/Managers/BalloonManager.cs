@@ -1,7 +1,6 @@
 ﻿namespace Assets.Scripts.Managers
 {
     using System.Collections.Generic;
-    using System.Linq.Expressions;
     using Assets.Scripts.Followers;
     using Assets.Scripts.RandomEvents;
     using UnityEngine;
@@ -31,7 +30,6 @@
             this.RandomEventsBalloons = new List<RandomEventBalloon>();
             this.LightBulbBalloons.Add(this._firstLightbulbBalloon);
             this.RandomEventsBalloons.Add(this._firstRandomEventBalloon);
-            this._firstRandomEventBalloon.gameObject.SetActive(true);
         }
 
         // ReSharper disable once UnusedMember.Local
@@ -69,6 +67,11 @@
             }
             balloon.transform.position = respawnPos;
             balloon.gameObject.SetActive(true);
+        }
+
+        public void StartBalloons()
+        {
+            this._firstRandomEventBalloon.gameObject.SetActive(true);
         }
     }
 }

@@ -88,8 +88,9 @@ namespace Assets.Scripts.Managers
                     })
                 }
             };
-
-            this._randomEvents = JsonSerializer.ReadFromFile("GeneratedJsonData").RandomEvents.GetRange(0, 4);
+            
+            List<RandomEvent> tempList = JsonSerializer.ReadFromFile("GeneratedJsonData").RandomEvents;
+            this._randomEvents = tempList.GetRange(0, 4);
 
             this.SetupChoices();
 

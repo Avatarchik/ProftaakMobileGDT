@@ -4125,6 +4125,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 184214, guid: 2cc71961788f3574490a58e47e3b4364, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2cc71961788f3574490a58e47e3b4364, type: 2}
   m_IsPrefabParent: 0
@@ -7660,6 +7664,7 @@ MonoBehaviour:
   _followerGroupPrefab: {fileID: 11496492, guid: 2cc71961788f3574490a58e47e3b4364,
     type: 2}
   _followersCanvas: {fileID: 496212642}
+  _firstFollowerGroup: {fileID: 1075594558}
 --- !u!114 &2120963302
 MonoBehaviour:
   m_ObjectHideFlags: 0
