@@ -77,10 +77,11 @@ namespace Assets.Scripts.Managers
 
             RandomEvent currentNotification = new RandomEvent
             {
-                Description = string.Format("Welkom {0}. {1} is een super tof idee! Probeer dit door heel Nederland te verspreiden en uiteindelijk op TEDx Veghel te komen. Succes met je avontuur!", Player.Instance.PlayerName, Player.Instance.IdeaName),
+                Title = string.Format("Welkom {0}!", Player.Instance.PlayerName),
+                Description = string.Format("{0} is een super tof idee! Probeer dit door heel Nederland te verspreiden en uiteindelijk op TEDx Veghel te komen. Succes met je avontuur!", Player.Instance.IdeaName),
                 Choices = new List<RandomEvent.Choice>
                 {
-                    new RandomEvent.Choice("SLUITEN", new List<RandomEvent.ChoiceAction>
+                    new RandomEvent.Choice("Sluiten", new List<RandomEvent.ChoiceAction>
                     {
                         new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.Tutorial)
                     })
@@ -104,8 +105,8 @@ namespace Assets.Scripts.Managers
                 {
                     new RandomEvent.Choice("Verdiepen", new List<RandomEvent.ChoiceAction>
                     {
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease)
-                    }, PlayerSkill.Knowledge, 1, 1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, PlayerSkill.Knowledge, 1)
+                    }),
                     new RandomEvent.Choice("Niet verdiepen", new List<RandomEvent.ChoiceAction>
                     {
                         new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.Ok)
@@ -116,47 +117,47 @@ namespace Assets.Scripts.Managers
                 {
                     new RandomEvent.Choice("Verhaal", new List<RandomEvent.ChoiceAction>
                     {
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease),
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease)
-                    }, PlayerSkill.Presentation, 100000, 1, 1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, PlayerSkill.Presentation, 1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease, 100000)
+                    }),
                     new RandomEvent.Choice("Feiten", new List<RandomEvent.ChoiceAction>
                     {
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease),
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease)
-                    }, PlayerSkill.Presentation, 10, -1, -1)
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, PlayerSkill.Presentation, -1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease, 500)
+                    })
                 };
 
             this._randomEvents[2].Choices = new List<RandomEvent.Choice>
                 {
                     new RandomEvent.Choice("10 minuten / 5 slides", new List<RandomEvent.ChoiceAction>
                     {
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease),
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease)
-                    }, PlayerSkill.Presentation, 10, -1, -1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, PlayerSkill.Presentation, -1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease, 500)
+                    }),
                     new RandomEvent.Choice("20 minutes / 10 slides", new List<RandomEvent.ChoiceAction>
                     {
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease),
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease)
-                    }, PlayerSkill.Presentation, 100000, 1, 1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, PlayerSkill.Presentation, 1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease, 100000)
+                    }),
                     new RandomEvent.Choice("30 minutes / 15 slides", new List<RandomEvent.ChoiceAction>
                     {
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease),
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease)
-                    }, PlayerSkill.Presentation, 10, -1, -1)
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, PlayerSkill.Presentation, -1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease, 500)
+                    })
                 };
 
             this._randomEvents[3].Choices = new List<RandomEvent.Choice>
                 {
                     new RandomEvent.Choice("Gemeentehuis", new List<RandomEvent.ChoiceAction>
                     {
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease),
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease)
-                    }, PlayerSkill.Presentation, 100000, 1, 1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, PlayerSkill.Presentation, 1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease, 100000)
+                    }),
                     new RandomEvent.Choice("Beursgebouw", new List<RandomEvent.ChoiceAction>
                     {
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease),
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease)
-                    }, PlayerSkill.Presentation, 10, -1, -1)
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, PlayerSkill.Presentation, -1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.FollowerIncrease, 500)
+                    })
                 };
         }
 
@@ -217,12 +218,13 @@ namespace Assets.Scripts.Managers
         {
             this._notificationDescription.text = string.Empty;
             this.DeactivateAllButtons();
-			
+
             if (this.CurrentNotification == null)
-			{
-				return;
-			}
-			
+            {
+                return;
+            }
+
+            this._notificationTitle.text = this.CurrentNotification.Title;
             this._notificationDescription.text = this.CurrentNotification.Description;
 
             this._buttonOk.gameObject.SetActive(true);
@@ -243,7 +245,7 @@ namespace Assets.Scripts.Managers
             if (this._randomEvents.Count == 0)
             {
                 this.CurrentRandomEvent = null;
-				
+
                 return false;
             }
 
@@ -252,7 +254,7 @@ namespace Assets.Scripts.Managers
 
             return true;
         }
-		
+
         public void ShowRandomEventsCanvas()
         {
             this._randomEventsCanvas.SetActive(true);
@@ -290,7 +292,7 @@ namespace Assets.Scripts.Managers
 
             this.DoChoice(this.CurrentRandomEvent.Choices[0]);
         }
-		
+
         public void Button2Click()
         {
             if (!this.CheckButtonClickIsValid(2))
@@ -300,7 +302,7 @@ namespace Assets.Scripts.Managers
 
             this.DoChoice(this.CurrentRandomEvent.Choices[1]);
         }
-		
+
         public void Button3Click()
         {
             if (!this.CheckButtonClickIsValid(3))
@@ -310,7 +312,7 @@ namespace Assets.Scripts.Managers
 
             this.DoChoice(this.CurrentRandomEvent.Choices[2]);
         }
-		
+
         public void Button4Click()
         {
             if (!this.CheckButtonClickIsValid(4))
@@ -320,13 +322,17 @@ namespace Assets.Scripts.Managers
 
             this.DoChoice(this.CurrentRandomEvent.Choices[3]);
         }
-		
+
         public void ButtonConfirmClick()
         {
-            if (!this.CheckButtonClickIsValid2(1)) return;
+            if (!this.CheckButtonClickIsValid2(1))
+            {
+                return;
+            }
+
             this.DoChoice(this.CurrentNotification.Choices[0]);
         }
-		
+
         private bool CheckButtonClickIsValid(int number)
         {
             if (this.CurrentRandomEvent == null || this.CurrentRandomEvent.Choices == null)
@@ -336,23 +342,23 @@ namespace Assets.Scripts.Managers
 
             return this.CurrentRandomEvent.Choices.Count >= number;
         }
-		
+
         private bool CheckButtonClickIsValid2(int number)
         {
             if (this.CurrentNotification == null)
-			{
-				return false;
-			}
-			
+            {
+                return false;
+            }
+
             return this.CurrentNotification.Choices.Count >= number;
         }
 
         private void DoChoice(RandomEvent.Choice choice)
         {
             // ReSharper disable once CompareOfFloatsByEqualityOperator
-            float value = choice.Min == choice.Max ? choice.Max : UnityEngine.Random.Range(choice.Min, choice.Max);
+            // float value = choice.Min == choice.Max ? choice.Max : UnityEngine.Random.Range(choice.Min, choice.Max);
 
-            Debug.Log("RandomEventsManager: value = " + value);
+            // Debug.Log("RandomEventsManager: value = " + value);
 
             foreach (RandomEvent.ChoiceAction action in choice.Actions)
             {
@@ -360,13 +366,13 @@ namespace Assets.Scripts.Managers
                 {
                     case RandomEvent.ChoiceAction.ActionType.SkillIncrease:
                         {
-                            IncreasePlayerSkill(choice.Skill, value);
+                            IncreasePlayerSkill((PlayerSkill) action.Values[0], (float) action.Values[1]);
 
                             break;
                         }
                     case RandomEvent.ChoiceAction.ActionType.FollowerIncrease:
                         {
-                            FollowerManager.Instance.TotalFollowers += (int)choice.Percentage;
+                            FollowerManager.Instance.TotalFollowers += (int) action.Values[0];
 
                             break;
                         }
@@ -392,12 +398,12 @@ namespace Assets.Scripts.Managers
                             break;
                         }
                     case RandomEvent.ChoiceAction.ActionType.Tutorial:
-						{
-							this._notificationPanel.SetActive(false);
-							this._temporaryTutorialCanvas.SetActive(true);
-							
-							break;
-						}
+                        {
+                            this._notificationPanel.SetActive(false);
+                            this._temporaryTutorialCanvas.SetActive(true);
+
+                            break;
+                        }
                     default:
                         {
                             throw new ArgumentOutOfRangeException();

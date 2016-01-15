@@ -17,31 +17,8 @@ namespace Assets.Scripts.RandomEvents
 
         public class Choice
         {
-            public PlayerSkill Skill;
             public List<ChoiceAction> Actions;
             public string Text;
-            public float Percentage;
-            public float Min;
-            public float Max;
-
-            public Choice(string text, List<ChoiceAction> actions, PlayerSkill skill, float min, float max)
-            {
-                this.Text = text;
-                this.Actions = actions;
-                this.Min = min;
-                this.Max = max;
-                this.Skill = skill;
-            }
-
-            public Choice(string text, List<ChoiceAction> actions, PlayerSkill skill, float percentage, float min, float max)
-            {
-                this.Text = text;
-                this.Actions = actions;
-                this.Percentage = percentage;
-                this.Min = min;
-                this.Max = max;
-                this.Skill = skill;
-            }
 
             public Choice(string text, List<ChoiceAction> actions)
             {
@@ -55,10 +32,12 @@ namespace Assets.Scripts.RandomEvents
             public enum ActionType { SkillIncrease, FollowerIncrease, Ok, NewLightbulbNear, VisitUrl, Tutorial }
 
             public ActionType Action;
+            public object[] Values;
 
-            public ChoiceAction(ActionType action)
+            public ChoiceAction(ActionType action, params object[] values)
             {
                 this.Action = action;
+                this.Values = values;
             }
         }
     }

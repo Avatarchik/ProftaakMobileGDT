@@ -17,7 +17,13 @@
         public int TotalFollowers
         {
             get { return this.FollowerGroups.IsNullOrEmpty() ? 0 : this.FollowerGroups.Select(x => x.Followers).Sum(); }
-            set { this.FollowerGroups[0].Followers += value; }
+            set
+            {
+                foreach (FollowerGroup fg in this.FollowerGroups)
+                {
+                    fg.Followers += value / this.FollowerGroups.Count;
+                }
+            }
         }
 
         [SerializeField]
