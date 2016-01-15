@@ -22,7 +22,7 @@ namespace RandomEventGenerator
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\School\Game Design\GPT - Proftaak\JSON Files";
             this._totalPath = Path.Combine(path, Filename);
-            this._randomEvents = JsonSerializer.ReadFromFile(path, Filename);
+            this._randomEvents = JsonSerializer.ReadFromFile(path, Filename).RandomEvents;
             this.lbCurrentEventAmount.Text = this._randomEvents.Count + " events";
         }
 

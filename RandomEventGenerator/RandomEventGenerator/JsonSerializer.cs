@@ -1,37 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using Newtonsoft.Json;
 
 namespace RandomEventGenerator
 {
     public static class JsonSerializer
     {
-        private class RandomEventsList
+        [Serializable]
+        public class RandomEventsList
         {
-            public readonly List<RandomEvent> RandomEvents;
+            public List<RandomEvent> RandomEvents;
 
             public RandomEventsList()
             {
-                RandomEvents = new List<RandomEvent>();
+                this.RandomEvents = new List<RandomEvent>();
             }
         }
 
-        public static List<RandomEvent> JsonToRandomEventsList(string reTextParam)
+        public static RandomEventsList JsonToRandomEventsList(string randomEventsText)
         {
             try
             {
-                string reText = reTextParam;
-
-                if (!reTextParam.ToLower().StartsWith("{"))
-                {
-                    reText = reTextParam.Remove(0, reText.IndexOf("{", StringComparison.Ordinal));
-                }
-
-                RandomEventsList reList = JsonConvert.DeserializeObject<RandomEventsList>(reText);
-
-                return reList.RandomEvents.ToList();
+                return JsonConvert.DeserializeObject<RandomEventsList>(randomEventsText);
             }
             catch (Exception ex)
             {
@@ -39,20 +30,14 @@ namespace RandomEventGenerator
             }
         }
 
-        public static string RandomEventsListToJson(List<RandomEvent> reListParam)
+        public static string RandomEventsListToJson(List<RandomEvent> randomEventsList)
         {
             try
             {
-                RandomEventsList reList = new RandomEventsList();
-
-                foreach (RandomEvent re in reListParam)
+                return JsonConvert.SerializeObject(new RandomEventsList
                 {
-                    reList.RandomEvents.Add(re);
-                }
-
-                string reJson = JsonConvert.SerializeObject(reList);
-
-                return reJson;
+                    RandomEvents = randomEventsList
+                });
             }
             catch (Exception ex)
             {
@@ -60,7 +45,7 @@ namespace RandomEventGenerator
             }
         }
 
-        public static List<RandomEvent> ReadFromFile(string filePath, string filename)
+        public static RandomEventsList ReadFromFile(string filePath, string filename)
         {
             string totalPath = Path.Combine(filePath, filename);
 
@@ -75,8 +60,11 @@ namespace RandomEventGenerator
             {
                 throw new Exception("Cannot read from empty directory");
             }
+
             if (!Directory.Exists(filePath))
+            {
                 Directory.CreateDirectory(filePath);
+            }
 
             if (!File.Exists(totalPath))
             {
@@ -92,8 +80,8 @@ namespace RandomEventGenerator
                 }
             }
 
-            return new List<RandomEvent>();
-        } 
+            return new RandomEventsList();
+        }
 
         public static void WriteToFile(string filePath, string text)
         {

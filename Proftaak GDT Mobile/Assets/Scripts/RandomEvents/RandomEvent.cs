@@ -1,63 +1,64 @@
-﻿namespace Assets.Scripts.RandomEvents
-{
-    using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
+namespace Assets.Scripts.RandomEvents
+{
+    [Serializable]
     public class RandomEvent
     {
         public enum RandomEventType { Info, Fact, Choice, Link }
 
-        public RandomEventType Type { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string TedUrl { get; set; }
-
+        public RandomEventType Type;
         public List<Choice> Choices;
-
         public Dictionary<Choice, RandomEvent> FollowUpRandomEvents;
+        public string Title;
+        public string Description;
+        public string TedUrl;
+
+        public class Choice
+        {
+            public PlayerSkill Skill;
+            public List<ChoiceAction> Actions;
+            public string Text;
+            public float Percentage;
+            public float Min;
+            public float Max;
+
+            public Choice(string text, List<ChoiceAction> actions, PlayerSkill skill, float min, float max)
+            {
+                this.Text = text;
+                this.Actions = actions;
+                this.Min = min;
+                this.Max = max;
+                this.Skill = skill;
+            }
+
+            public Choice(string text, List<ChoiceAction> actions, PlayerSkill skill, float percentage, float min, float max)
+            {
+                this.Text = text;
+                this.Actions = actions;
+                this.Percentage = percentage;
+                this.Min = min;
+                this.Max = max;
+                this.Skill = skill;
+            }
+
+            public Choice(string text, List<ChoiceAction> actions)
+            {
+                this.Text = text;
+                this.Actions = actions;
+            }
+        }
 
         public class ChoiceAction
         {
             public enum ActionType { SkillIncrease, FollowerIncrease, Ok, NewLightbulbNear, VisitUrl, Tutorial }
-            public ActionType Action { get; private set; }
+
+            public ActionType Action;
 
             public ChoiceAction(ActionType action)
             {
                 this.Action = action;
-            }
-        }
-        public class Choice
-        {
-            public IList<ChoiceAction> Actions { get; private set; }
-            public string Text { get; private set; }
-            public float Percentage { get; private set; }
-            public float Min { get; private set; }
-            public float Max { get; private set; }
-
-            public PlayerSkill Skill { get; private set; }
-
-            public Choice(string pText, IList<ChoiceAction> actions, float pMin, float pMax, PlayerSkill pSkill)
-            {
-                this.Text = pText;
-                this.Actions = actions;
-                this.Min = pMin;
-                this.Max = pMax;
-                this.Skill = pSkill;
-            }
-
-            public Choice(string pText, IList<ChoiceAction> actions, float pPercentage, float pMin, float pMax, PlayerSkill pSkill)
-            {
-                this.Text = pText;
-                this.Actions = actions;
-                this.Percentage = pPercentage;
-                this.Min = pMin;
-                this.Max = pMax;
-                this.Skill = pSkill;
-            }
-
-            public Choice(string text, IList<ChoiceAction> actions)
-            {
-                this.Text = text;
-                this.Actions = actions;
             }
         }
     }
