@@ -45,7 +45,10 @@ namespace Assets.Scripts.Managers
         private Text _button4Text;
 
         [SerializeField]
-        private Text _descText;
+        private Text _randomEventTitleText;
+
+        [SerializeField]
+        private Text _randomEventDescText;
 
         [SerializeField]
         private GameObject _notificationPanel;
@@ -86,7 +89,7 @@ namespace Assets.Scripts.Managers
                 }
             };
 
-            this._randomEvents = JsonSerializer.ReadFromFile("GeneratedJsonData.txt").RandomEvents.GetRange(0, 4);
+            this._randomEvents = JsonSerializer.ReadFromFile("GeneratedJsonData").RandomEvents.GetRange(0, 4);
 
             this.SetupChoices();
 
@@ -101,11 +104,13 @@ namespace Assets.Scripts.Managers
                 {
                     new RandomEvent.Choice("Verdiepen", new List<RandomEvent.ChoiceAction>
                     {
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, (int) PlayerSkill.Knowledge, 1)
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.SkillIncrease, (int) PlayerSkill.Knowledge, 1),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.NewLightbulbNear)
                     }),
                     new RandomEvent.Choice("Niet verdiepen", new List<RandomEvent.ChoiceAction>
                     {
-                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.Ok)
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.Ok),
+                        new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.NewLightbulbNear)
                     })
                 };
 
@@ -159,7 +164,7 @@ namespace Assets.Scripts.Managers
 
         private void UpdateToGuiTopcurrentRandomEvent()
         {
-            this._descText.text = string.Empty;
+            this._randomEventDescText.text = string.Empty;
             this.DeactivateAllButtons();
 
             if (this.CurrentRandomEvent == null)
@@ -167,7 +172,8 @@ namespace Assets.Scripts.Managers
                 return;
             }
 
-            this._descText.text = this.CurrentRandomEvent.Description;
+            this._randomEventTitleText.text = this.CurrentRandomEvent.Title;
+            this._randomEventDescText.text = this.CurrentRandomEvent.Description;
 
             for (int i = 0; i < this.CurrentRandomEvent.Choices.Count; i++)
             {

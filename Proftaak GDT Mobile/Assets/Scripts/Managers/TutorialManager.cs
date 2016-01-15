@@ -144,7 +144,7 @@ public class TutorialManager : MonoBehaviour
             case 5:
                 {
                     currentStep = new Step("Random Events",
-"Random events zijn events in het spel waarbij je bepaalde keuzes moet maken om je idee te verspreiden. Deze beïnvloeden de groei van je idee enorm.",null);
+"Random events zijn events in het spel waarbij je bepaalde keuzes moet maken om je idee te verspreiden. Deze beïnvloeden de groei van je idee enorm.", null);
 
                     this.title.text = currentStep.titleStep;
                     this.description.text = currentStep.descriptionStep;
@@ -162,7 +162,7 @@ public class TutorialManager : MonoBehaviour
             case 6:
                 {
                     currentStep = new Step("Random Events",
-"Als je dit symbool op de landkaart ziet verschijnen moet je er snel op drukken voor dat deze verwdijnt! Dit zal een random event starten", images[4]);
+"Als je dit symbool op de landkaart ziet verschijnen moet je er snel op drukken voor dat deze verdwijnt! Dit zal een random event starten.", images[4]);
 
                     this.title.text = currentStep.titleStep;
                     this.description.text = currentStep.descriptionStep;
@@ -180,7 +180,7 @@ public class TutorialManager : MonoBehaviour
             case 7:
                 {
                     currentStep = new Step("Random Events",
-"Ook als dit symbool verschijnt zal je deze snel moeten indrukken! Dit zal je volgers of vaardigheidspunten geven", images[5]);
+"Ook als dit symbool verschijnt zal je deze snel moeten indrukken! Dit zal je volgers of vaardigheidspunten geven.", images[5]);
 
                     this.title.text = currentStep.titleStep;
                     this.description.text = currentStep.descriptionStep;
@@ -216,12 +216,12 @@ public class TutorialManager : MonoBehaviour
                 }
             case 9:
                 {
-                    currentStep = new Step("klaar!",
+                    currentStep = new Step("That's all folks!",
 "Je bent nu klaar om je idee te gaan verspreiden! \n Heel veel succes!", null);
 
                     this.title.text = currentStep.titleStep;
                     this.description.text = currentStep.descriptionStep;
-                    this.nextButton.GetComponentInChildren<Text>().text = "Einde";
+                    this.nextButton.GetComponentInChildren<Text>().text = "Start";
                     if (currentStep.RequiresImage)
                     {
                         this.placeHolder.enabled = true;
