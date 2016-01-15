@@ -21,6 +21,11 @@
         private Text _mediaText;
         [SerializeField]
         private Text _knowledgeText;
+        [SerializeField]
+        private Text _upgradeSkillText;
+        [SerializeField]
+        private Text _unusedSkillText;
+
 
 
 
@@ -41,6 +46,8 @@
 
         private void UpdateAttributesText()
         {
+            this._upgradeSkillText.text = Player.Instance.UnusedSkillPoints.ToString();
+            this._unusedSkillText.text = Player.Instance.UnusedSkillPoints.ToString();
             this._presentationText.text = Player.Instance.PresentationSkills.ToString();
             this._mediaText.text = Player.Instance.MediaSkills.ToString();
             this._knowledgeText.text = Player.Instance.KnowledgeSkills.ToString();
