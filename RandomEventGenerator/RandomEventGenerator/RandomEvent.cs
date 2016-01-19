@@ -45,9 +45,9 @@ namespace RandomEventGenerator
 
             public ActionType Action { get; private set; }
 
-            public object[] Values {get; set;}
+            public int[] Values {get; set;}
 
-            public ChoiceAction(ActionType action, params object[] values)
+            public ChoiceAction(ActionType action, params int[] values)
             {
                 this.Action = action;
                 this.Values = values;
