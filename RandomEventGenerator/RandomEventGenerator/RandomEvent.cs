@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace RandomEventGenerator
 {
+    using System.Linq;
+
     public enum PlayerSkill { Knowledge, Presentation, Media }
 
     [Serializable]
@@ -17,40 +19,25 @@ namespace RandomEventGenerator
         public string Description { get; set; }
         public string TedUrl { get; set; }
 
+        [Serializable]
         public class Choice
         {
-            public PlayerSkill Skill { get; private set; }
             public List<ChoiceAction> Actions { get; private set; }
             public string Text { get; private set; }
-            public float Percentage { get; private set; }
-            public float Min { get; private set; }
-            public float Max { get; private set; }
-
-            public Choice(string text, List<ChoiceAction> actions, PlayerSkill skill, float min, float max)
-            {
-                this.Text = text;
-                this.Actions = actions;
-                this.Min = min;
-                this.Max = max;
-                this.Skill = skill;
-            }
-
-            public Choice(string text, List<ChoiceAction> actions, PlayerSkill skill, float percentage, float min, float max)
-            {
-                this.Text = text;
-                this.Actions = actions;
-                this.Percentage = percentage;
-                this.Min = min;
-                this.Max = max;
-                this.Skill = skill;
-            }
 
             public Choice(string text, List<ChoiceAction> actions)
             {
                 this.Text = text;
                 this.Actions = actions;
             }
+            
+            public override string ToString()
+            {
+                return this.Text + this.Actions.Aggregate(", ", (lvCurrent, ca) => lvCurrent + ca.ToString()).Remove(0,2);
+            }
         }
+
+        [Serializable]
 
         public class ChoiceAction
         {
@@ -58,9 +45,17 @@ namespace RandomEventGenerator
 
             public ActionType Action { get; private set; }
 
-            public ChoiceAction(ActionType action)
+            public object[] Values {get; set;}
+
+            public ChoiceAction(ActionType action, params object[] values)
             {
                 this.Action = action;
+                this.Values = values;
+            }
+            
+            public override string ToString()
+            {
+                return this.Action + ": " + this.Values.ArrayToString();
             }
         }
     }

@@ -85,19 +85,19 @@
                             minY = groups[i].transform.position.y - this.OffsetPosY - groups[i].transform.localScale.x / this.DivideByScale;
                             maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
                             break;
-                        case 3: // up
+                        case 3: // down
+                            Debug.Log("bottom side");
+                            minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
+                            maxX = groups[i].transform.position.x + this.OffsetPosX + groups[i].transform.localScale.x / this.DivideByScale;
+                            minY = groups[i].transform.position.y - this.OffsetPosY - groups[i].transform.localScale.x / this.DivideByScale;
+                            maxY = groups[i].transform.position.y - groups[i].transform.localScale.x / this.DivideByScale;
+                            break;
+                       default: // top
                             Debug.Log("top side");
                             minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
                             maxX = groups[i].transform.position.x + this.OffsetPosX + groups[i].transform.localScale.x / this.DivideByScale;
                             minY = groups[i].transform.position.y + groups[i].transform.localScale.x / this.DivideByScale;
                             maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
-                            break;
-                       default: // below
-                            Debug.Log("bottom side");
-                            minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
-                            maxX = groups[i].transform.position.x + this.OffsetPosX + groups[i].transform.localScale.x / this.DivideByScale;
-                            minY = groups[i].transform.position.y - this.OffsetPosY -groups[i].transform.localScale.x / this.DivideByScale;
-                            maxY = groups[i].transform.position.y - groups[i].transform.localScale.x / this.DivideByScale;
                             break;
                     }
                     

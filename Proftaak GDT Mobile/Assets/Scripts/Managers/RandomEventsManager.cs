@@ -77,9 +77,9 @@ namespace Assets.Scripts.Managers
             };
 
             List<RandomEvent> tempList = JsonSerializer.ReadFromFile("GeneratedJsonData").RandomEvents;
-            this._randomEvents = tempList.GetRange(0, 4);
+            this._randomEvents = tempList;
 
-            this.SetupChoices();
+            //this.SetupChoices();
 
             this.CurrentRandomEvent = this._randomEvents[0];
 
@@ -159,7 +159,7 @@ namespace Assets.Scripts.Managers
             {
                 this.CurrentRandomEvent = new RandomEvent(RandomEvent.RandomEventType.Choice, new List<RandomEvent.Choice>()
                     {
-                        new RandomEvent.Choice("Oke", new List<RandomEvent.ChoiceAction>() { new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.Ok) })
+                        new RandomEvent.Choice("Sluiten", new List<RandomEvent.ChoiceAction>() { new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.Ok) })
                     }, "Helaas", "Je hebt er helaas te lang over gedaan om er te komen. Probeer het nogmaals");
                 this._button1.gameObject.SetActive(true);
                 this._button1Text.text = this.CurrentRandomEvent.Choices[0].Text;
@@ -169,44 +169,51 @@ namespace Assets.Scripts.Managers
             this._randomEventTitleText.text = this.CurrentRandomEvent.Title;
             this._randomEventDescText.text = this.CurrentRandomEvent.Description;
 
-            for (int i = 0; i < this.CurrentRandomEvent.Choices.Count; i++)
+
+            if (this.CurrentRandomEvent.Choices == null)
             {
-                switch (i)
-                {
-                    case 0:
-                        {
-                            this._button1.gameObject.SetActive(true);
-                            this._button1Text.text = this.CurrentRandomEvent.Choices[i].Text;
-
-                            break;
-                        }
-                    case 1:
-                        {
-                            this._button2.gameObject.SetActive(true);
-                            this._button2Text.text = this.CurrentRandomEvent.Choices[i].Text;
-
-                            break;
-                        }
-                    case 2:
-                        {
-                            this._button3.gameObject.SetActive(true);
-                            this._button3Text.text = this.CurrentRandomEvent.Choices[i].Text;
-
-                            break;
-                        }
-                    case 3:
-                        {
-                            this._button4.gameObject.SetActive(true);
-                            this._button4Text.text = this.CurrentRandomEvent.Choices[i].Text;
-
-                            break;
-                        }
-                    default:
-                        {
-                            throw new ArgumentOutOfRangeException("Meer dan 4 keuzes, hoe kan dit?");
-                        }
-                }
+                this._button1.gameObject.SetActive(true);
+                this._button1Text.text = "Sluiten";
             }
+            else
+                for (int i = 0; i < this.CurrentRandomEvent.Choices.Count; i++)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            {
+                                this._button1.gameObject.SetActive(true);
+                                this._button1Text.text = this.CurrentRandomEvent.Choices[i].Text;
+
+                                break;
+                            }
+                        case 1:
+                            {
+                                this._button2.gameObject.SetActive(true);
+                                this._button2Text.text = this.CurrentRandomEvent.Choices[i].Text;
+
+                                break;
+                            }
+                        case 2:
+                            {
+                                this._button3.gameObject.SetActive(true);
+                                this._button3Text.text = this.CurrentRandomEvent.Choices[i].Text;
+
+                                break;
+                            }
+                        case 3:
+                            {
+                                this._button4.gameObject.SetActive(true);
+                                this._button4Text.text = this.CurrentRandomEvent.Choices[i].Text;
+
+                                break;
+                            }
+                        default:
+                            {
+                                throw new ArgumentOutOfRangeException("Meer dan 4 keuzes, hoe kan dit?");
+                            }
+                    }
+                }
         }
 
 
@@ -272,7 +279,7 @@ namespace Assets.Scripts.Managers
             this.UpdateToGuiTopcurrentNotification();
             Time.timeScale = 0f;
         }
-        
+
 
         public void HideRandomEventsCanvas()
         {
@@ -334,7 +341,7 @@ namespace Assets.Scripts.Managers
         {
             if (this.CurrentRandomEvent == null || this.CurrentRandomEvent.Choices == null)
             {
-                return false;
+                return true;
             }
 
             return this.CurrentRandomEvent.Choices.Count >= number;

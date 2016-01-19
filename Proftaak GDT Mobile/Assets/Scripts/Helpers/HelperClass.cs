@@ -5,6 +5,7 @@ namespace Assets.Scripts
 {
     using System;
     using System.Globalization;
+    using System.Text;
     using Random = UnityEngine.Random;
 
     public static class HelperClass
@@ -31,6 +32,21 @@ namespace Assets.Scripts
                 list[k] = list[n];
                 list[n] = value;
             }
+        }
+
+        public static string ArrayToString(this object[] array)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (object o in array)
+                sb.Append(o + ";");
+            return sb.ToString().Trim(';');
+        }
+        public static string ArrayToString(this int[] array)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (int o in array)
+                sb.Append(o + ";");
+            return sb.ToString().Trim(';');
         }
 
         // int i = 1000; i.ToStringWithSeperators();

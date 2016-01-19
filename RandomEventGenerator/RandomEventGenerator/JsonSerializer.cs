@@ -76,7 +76,7 @@ namespace RandomEventGenerator
 
                 if (!string.IsNullOrWhiteSpace(json))
                 {
-                    return JsonSerializer.JsonToRandomEventsList(json);
+                    return JsonToRandomEventsList(json);
                 }
             }
 

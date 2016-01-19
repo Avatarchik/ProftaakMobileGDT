@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace Assets.Scripts.RandomEvents
 {
+    using System.Linq;
+
     [Serializable]
     public class RandomEvent
     {
@@ -29,6 +31,8 @@ namespace Assets.Scripts.RandomEvents
         // gebruikt voor JSON
         public RandomEvent() { }
 
+
+        [Serializable]
         public class Choice
         {
             public List<ChoiceAction> Actions;
@@ -39,19 +43,29 @@ namespace Assets.Scripts.RandomEvents
                 this.Text = text;
                 this.Actions = actions;
             }
-        }
 
+            public override string ToString()
+            {
+                return this.Text + this.Actions.Aggregate("", (lvCurrent, ca) => lvCurrent + ca.ToString());
+            }
+        }
+        [Serializable]
+    
         public class ChoiceAction
         {
             public enum ActionType { SkillIncrease, FollowerIncrease, Ok, NewLightbulbNear, VisitUrl, Tutorial }
 
             public ActionType Action;
-            public object[] Values;
+            public int[] Values;
 
-            public ChoiceAction(ActionType action, params object[] values)
+            public ChoiceAction(ActionType action, params int[] values)
             {
                 this.Action = action;
                 this.Values = values;
+            }
+            public override string ToString()
+            {
+                return this.Action + ": " + this.Values.ArrayToString();
             }
         }
     }

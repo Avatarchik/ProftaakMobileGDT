@@ -71,7 +71,7 @@
             foreach (FollowerGroup fg in this.FollowerGroups.Where(fg => Random.Range(0, 4) > 2))
             {
                 fg.Followers += Random.Range(5 + (knowledgeSkills * 2), 20 + (knowledgeSkills * 2))
-                    + (int)((fg.Followers * 0.05) + (fg.Followers * 0.01f * knowledgeSkills));
+                    + (int)((fg.Followers * 0.01) + (fg.Followers * 0.01f * knowledgeSkills));
             }
         }
 
