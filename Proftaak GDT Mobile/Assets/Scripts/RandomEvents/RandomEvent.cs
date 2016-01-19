@@ -15,6 +15,20 @@ namespace Assets.Scripts.RandomEvents
         public string Description;
         public string TedUrl;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:System.Object"/> class.
+        /// </summary>
+        public RandomEvent(RandomEventType type, List<Choice> choices, string title, string description)
+        {
+            this.Type = type;
+            this.Choices = choices;
+            this.Title = title;
+            this.Description = description;
+        }
+
+        // gebruikt voor JSON
+        public RandomEvent() { }
+
         public class Choice
         {
             public List<ChoiceAction> Actions;

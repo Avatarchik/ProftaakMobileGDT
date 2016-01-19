@@ -7,13 +7,12 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.Managers
 {
-    internal class RandomEventsManager : MonoBehaviour
+    public class RandomEventsManager : MonoBehaviour
     {
         public static RandomEventsManager Instance;
 
         [SerializeField]
         private GameObject _randomEventsCanvas;
-
         [SerializeField]
         private GameObject _temporaryTutorialCanvas;
 
@@ -22,53 +21,41 @@ namespace Assets.Scripts.Managers
 
         [SerializeField]
         private Button _button1;
-
         [SerializeField]
         private Text _button1Text;
-
         [SerializeField]
         private Button _button2;
-
         [SerializeField]
         private Text _button2Text;
-
         [SerializeField]
         private Button _button3;
-
         [SerializeField]
         private Text _button3Text;
-
         [SerializeField]
         private Button _button4;
-
         [SerializeField]
         private Text _button4Text;
 
         [SerializeField]
         private Text _randomEventTitleText;
-
         [SerializeField]
         private Text _randomEventDescText;
 
         [SerializeField]
         private GameObject _notificationPanel;
-
         [SerializeField]
         private Text _notificationTitle;
-
         [SerializeField]
         private Text _notificationDescription;
-
         [SerializeField]
         private Button _buttonOk;
-
         [SerializeField]
         private Text _buttonOkText;
 
         public RandomEvent CurrentRandomEvent { get; private set; }
-
         public RandomEvent CurrentNotification { get; private set; }
 
+        // ReSharper disable once UnusedMember.Local
         private void Awake()
         {
             if (Instance == null)
@@ -88,7 +75,7 @@ namespace Assets.Scripts.Managers
                     })
                 }
             };
-            
+
             List<RandomEvent> tempList = JsonSerializer.ReadFromFile("GeneratedJsonData").RandomEvents;
             this._randomEvents = tempList.GetRange(0, 4);
 
@@ -170,6 +157,12 @@ namespace Assets.Scripts.Managers
 
             if (this.CurrentRandomEvent == null)
             {
+                this.CurrentRandomEvent = new RandomEvent(RandomEvent.RandomEventType.Choice, new List<RandomEvent.Choice>()
+                    {
+                        new RandomEvent.Choice("Oke", new List<RandomEvent.ChoiceAction>() { new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.Ok) })
+                    }, "Helaas", "Je hebt er helaas te lang over gedaan om er te komen. Probeer het nogmaals");
+                this._button1.gameObject.SetActive(true);
+                this._button1Text.text = this.CurrentRandomEvent.Choices[0].Text;
                 return;
             }
 
@@ -279,6 +272,7 @@ namespace Assets.Scripts.Managers
             this.UpdateToGuiTopcurrentNotification();
             Time.timeScale = 0f;
         }
+        
 
         public void HideRandomEventsCanvas()
         {

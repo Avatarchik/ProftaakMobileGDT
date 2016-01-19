@@ -1,16 +1,19 @@
 ﻿namespace Assets.Scripts.Managers
 {
+    using System;
     using System.Collections.Generic;
     using Assets.Scripts.Followers;
     using Assets.Scripts.RandomEvents;
     using UnityEngine;
+    using Random = UnityEngine.Random;
 
     public class BalloonManager : MonoBehaviour
     {
         public static BalloonManager Instance;
 
-        public float RespawnRandomPosX = 15f;
-        public float RespawnRandomPosY = 15f;
+        public float OffsetPosX = 15f;
+        public float OffsetPosY = 15f;
+        public float DivideByScale = 0.03f;
 
         public IList<LightbulbBalloon> LightBulbBalloons { get; set; }
         public IList<RandomEventBalloon> RandomEventsBalloons { get; set; }
@@ -60,10 +63,47 @@
             Vector3 respawnPos = Vector3.zero;
             for (int i = 0; i < groups.Count; i++)
             {
-                if (i == groups.Count -1 || Random.Range(0, groups.Count) == 0)
-                    respawnPos = new Vector3(Random.Range(groups[i].transform.position.x - this.RespawnRandomPosX, groups[i].transform.position.x + this.RespawnRandomPosX),
-                        Random.Range(groups[i].transform.position.y - this.RespawnRandomPosY, groups[i].transform.position.y + this.RespawnRandomPosY), balloon.transform.position.z);
-
+                if (i == groups.Count - 1 || Random.Range(0, groups.Count) == 0)
+                {
+                    int randSide = Random.Range(1, 4);
+                    
+                    float minX, maxX, minY, maxY;
+                    randSide = 4;
+                    switch (randSide)
+                    {
+                        case 1: // left
+                            Debug.Log("Left side");
+                            minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
+                            maxX = groups[i].transform.position.x - groups[i].transform.localScale.x / this.DivideByScale;
+                            minY = groups[i].transform.position.y - this.OffsetPosY - groups[i].transform.localScale.x / this.DivideByScale;
+                            maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
+                            break;
+                        case 2: // right
+                            Debug.Log("right side");
+                            minX = groups[i].transform.position.x + groups[i].transform.localScale.x / this.DivideByScale;
+                            maxX = groups[i].transform.position.x + this.OffsetPosX+  groups[i].transform.localScale.x / this.DivideByScale;
+                            minY = groups[i].transform.position.y - this.OffsetPosY - groups[i].transform.localScale.x / this.DivideByScale;
+                            maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
+                            break;
+                        case 3: // up
+                            Debug.Log("top side");
+                            minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
+                            maxX = groups[i].transform.position.x + this.OffsetPosX + groups[i].transform.localScale.x / this.DivideByScale;
+                            minY = groups[i].transform.position.y + groups[i].transform.localScale.x / this.DivideByScale;
+                            maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
+                            break;
+                       default: // below
+                            Debug.Log("bottom side");
+                            minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
+                            maxX = groups[i].transform.position.x + this.OffsetPosX + groups[i].transform.localScale.x / this.DivideByScale;
+                            minY = groups[i].transform.position.y - this.OffsetPosY -groups[i].transform.localScale.x / this.DivideByScale;
+                            maxY = groups[i].transform.position.y - groups[i].transform.localScale.x / this.DivideByScale;
+                            break;
+                    }
+                    
+                    Debug.Log(string.Format("minX: {0} maxX: {1} minY: {2} maxY: {3}", minX, maxX, minY, maxY));
+                    respawnPos = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), balloon.transform.position.z);
+                }
             }
             balloon.transform.position = respawnPos;
             balloon.gameObject.SetActive(true);
