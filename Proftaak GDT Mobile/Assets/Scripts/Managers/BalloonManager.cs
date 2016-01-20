@@ -63,47 +63,44 @@
             Vector3 respawnPos = Vector3.zero;
             for (int i = 0; i < groups.Count; i++)
             {
-                if (i == groups.Count - 1 || Random.Range(0, groups.Count) == 0)
+                if (i != groups.Count - 1 && Random.Range(0, groups.Count) != 0) continue;
+                int randSide = Random.Range(1, 4);
+                    
+                float minX, maxX, minY, maxY;
+                switch (randSide)
                 {
-                    int randSide = Random.Range(1, 4);
-                    
-                    float minX, maxX, minY, maxY;
-                    randSide = 4;
-                    switch (randSide)
-                    {
-                        case 1: // left
-                            Debug.Log("Left side");
-                            minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
-                            maxX = groups[i].transform.position.x - groups[i].transform.localScale.x / this.DivideByScale;
-                            minY = groups[i].transform.position.y - this.OffsetPosY - groups[i].transform.localScale.x / this.DivideByScale;
-                            maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
-                            break;
-                        case 2: // right
-                            Debug.Log("right side");
-                            minX = groups[i].transform.position.x + groups[i].transform.localScale.x / this.DivideByScale;
-                            maxX = groups[i].transform.position.x + this.OffsetPosX+  groups[i].transform.localScale.x / this.DivideByScale;
-                            minY = groups[i].transform.position.y - this.OffsetPosY - groups[i].transform.localScale.x / this.DivideByScale;
-                            maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
-                            break;
-                        case 3: // down
-                            Debug.Log("bottom side");
-                            minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
-                            maxX = groups[i].transform.position.x + this.OffsetPosX + groups[i].transform.localScale.x / this.DivideByScale;
-                            minY = groups[i].transform.position.y - this.OffsetPosY - groups[i].transform.localScale.x / this.DivideByScale;
-                            maxY = groups[i].transform.position.y - groups[i].transform.localScale.x / this.DivideByScale;
-                            break;
-                       default: // top
-                            Debug.Log("top side");
-                            minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
-                            maxX = groups[i].transform.position.x + this.OffsetPosX + groups[i].transform.localScale.x / this.DivideByScale;
-                            minY = groups[i].transform.position.y + groups[i].transform.localScale.x / this.DivideByScale;
-                            maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
-                            break;
-                    }
-                    
-                    Debug.Log(string.Format("minX: {0} maxX: {1} minY: {2} maxY: {3}", minX, maxX, minY, maxY));
-                    respawnPos = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), balloon.transform.position.z);
+                    case 1: // left
+                        //Debug.Log("Left side");
+                        minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
+                        maxX = groups[i].transform.position.x - groups[i].transform.localScale.x / this.DivideByScale;
+                        minY = groups[i].transform.position.y - this.OffsetPosY - groups[i].transform.localScale.x / this.DivideByScale;
+                        maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
+                        break;
+                    case 2: // right
+                        //Debug.Log("right side");
+                        minX = groups[i].transform.position.x + groups[i].transform.localScale.x / this.DivideByScale;
+                        maxX = groups[i].transform.position.x + this.OffsetPosX+  groups[i].transform.localScale.x / this.DivideByScale;
+                        minY = groups[i].transform.position.y - this.OffsetPosY - groups[i].transform.localScale.x / this.DivideByScale;
+                        maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
+                        break;
+                    case 3: // down
+                        //Debug.Log("bottom side");
+                        minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
+                        maxX = groups[i].transform.position.x + this.OffsetPosX + groups[i].transform.localScale.x / this.DivideByScale;
+                        minY = groups[i].transform.position.y - this.OffsetPosY - groups[i].transform.localScale.x / this.DivideByScale;
+                        maxY = groups[i].transform.position.y - groups[i].transform.localScale.x / this.DivideByScale;
+                        break;
+                    default: // top
+                        //Debug.Log("top side");
+                        minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
+                        maxX = groups[i].transform.position.x + this.OffsetPosX + groups[i].transform.localScale.x / this.DivideByScale;
+                        minY = groups[i].transform.position.y + groups[i].transform.localScale.x / this.DivideByScale;
+                        maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
+                        break;
                 }
+                    
+                //Debug.Log(string.Format("minX: {0} maxX: {1} minY: {2} maxY: {3}", minX, maxX, minY, maxY));
+                respawnPos = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), balloon.transform.position.z);
             }
             balloon.transform.position = respawnPos;
             balloon.gameObject.SetActive(true);

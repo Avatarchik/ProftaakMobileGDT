@@ -251,7 +251,7 @@ public class TutorialManager : MonoBehaviour
     public void NextStep()
     {
         this.stepCounter++;
-        Debug.Log(this.stepCounter);
+        //Debug.Log(this.stepCounter);
     }
 
     public void PrevStep()

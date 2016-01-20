@@ -32,6 +32,8 @@ namespace RandomEventGenerator
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\School\Game Design\GPT - Proftaak\JSON Files";
             this._totalPath = Path.Combine(path, Filename);
             this._randomEvents = JsonSerializer.ReadFromFile(path, Filename).RandomEvents;
+            foreach (RandomEvent ra in this._randomEvents)
+                ra.SetChoiceActionValues();
             this.lbCurrentEventAmount.Text = this._randomEvents.Count + " events";
         }
 
@@ -153,11 +155,12 @@ namespace RandomEventGenerator
                 {
                     case RandomEvent.ChoiceAction.ActionType.SkillIncrease:
                         int number = Convert.ToInt32(values[0]);
-                        this._currentChoiceActions.Add(new RandomEvent.ChoiceAction(actionType, this.cbChoiceActionsValue.SelectedIndex, number));
+                        this._currentChoiceActions.Add(new RandomEvent.ChoiceAction(
+                            actionType, this.cbChoiceActionsValue.SelectedIndex + ";"+ values[0]));
                         break;
                     case RandomEvent.ChoiceAction.ActionType.FollowerIncrease:
                         int followers = Convert.ToInt32(values[0]);
-                        this._currentChoiceActions.Add(new RandomEvent.ChoiceAction(actionType, followers));
+                        this._currentChoiceActions.Add(new RandomEvent.ChoiceAction(actionType, values[0]));
                         break;
                     case RandomEvent.ChoiceAction.ActionType.Ok:
                         this._currentChoiceActions.Add(new RandomEvent.ChoiceAction(actionType));
@@ -166,7 +169,7 @@ namespace RandomEventGenerator
                         this._currentChoiceActions.Add(new RandomEvent.ChoiceAction(actionType));
                         break;
                     case RandomEvent.ChoiceAction.ActionType.VisitUrl:
-                        this._currentChoiceActions.Add(new RandomEvent.ChoiceAction(actionType, Convert.ToInt32(values[0])));
+                        this._currentChoiceActions.Add(new RandomEvent.ChoiceAction(actionType, values[0]));
                         break;
                     case RandomEvent.ChoiceAction.ActionType.Tutorial:
                         throw new Exception("Tutorial is geen keuze, sorry :)");

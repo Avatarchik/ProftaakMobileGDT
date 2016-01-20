@@ -4,25 +4,50 @@
 		"Choices": [{
 			"Actions": [{
 				"Action": 0,
-				"Values": [0, 10]
+				"JSONString": "0;2",
+				"Values": [0, 2]
+			}, {
+				"Action": 0,
+				"JSONString": "1;-2",
+				"Values": [1, -2]
 			}],
 			"Text": "Ja"
 		}, {
 			"Actions": [{
-				"Action": 0,
-				"Values": [0, -10]
+				"Action": 1,
+				"JSONString": "200",
+				"Values": [200]
 			}, {
-				"Action": 0,
-				"Values": [1, -10]
-			}, {
-				"Action": 0,
-				"Values": [2, -10]
+				"Action": 3,
+				"JSONString": null,
+				"Values": null
 			}],
 			"Text": "Nee"
 		}],
 		"FollowUpRandomEvents": null,
-		"Title": "Geertje?",
-		"Description": "Stem je voor Geert wilders?",
+		"Title": "test",
+		"Description": "tetestttett",
+		"TedUrl": null
+	}, {
+		"Type": 2,
+		"Choices": [{
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "1;-1",
+				"Values": null
+			}],
+			"Text": "Feiten"
+		}, {
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "1;1",
+				"Values": null
+			}],
+			"Text": "Verhaal"
+		}],
+		"FollowUpRandomEvents": null,
+		"Title": "Presentatie voorbereiding...",
+		"Description": "Je wil een presentatie gaan voorbereiden. Wil je je idee overbrengen door middel van een verhaal, of door een opsomming van feiten?",
 		"TedUrl": null
 	}]
 }
