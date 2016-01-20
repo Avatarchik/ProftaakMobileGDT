@@ -5,7 +5,7 @@ namespace RandomEventGenerator
 {
     using System.Linq;
 
-    public enum PlayerSkill { Knowledge, Presentation, Media }
+    public enum PlayerSkill { Knowledge = 0, Presentation = 1, Media = 2 }
 
     [Serializable]
     public class RandomEvent
@@ -36,10 +36,10 @@ namespace RandomEventGenerator
                 this.Text = text;
                 this.Actions = actions;
             }
-            
+
             public override string ToString()
             {
-                return this.Text + this.Actions.Aggregate(", ", (lvCurrent, ca) => lvCurrent + ca.ToString()).Remove(0,2);
+                return this.Text + this.Actions.Aggregate(", ", (lvCurrent, ca) => lvCurrent + ca.ToString()).Remove(0, 2);
             }
         }
 
@@ -47,18 +47,18 @@ namespace RandomEventGenerator
 
         public class ChoiceAction
         {
-            public enum ActionType { SkillIncrease, FollowerIncrease, Ok, NewLightbulbNear, VisitUrl, Tutorial }
+            public enum ActionType { SkillIncrease = 0, FollowerIncrease = 1, Ok = 2, NewLightbulbNear = 3, VisitUrl = 4, Tutorial = 5 }
 
             public ActionType Action;
 
-            public object[] Values {get; set; }
+            public object[] Values { get; set; }
 
             public string JSONString;
 
             // used for JSON
             public ChoiceAction()
             {
-                
+
             }
             public ChoiceAction(ActionType action, string JSONString)
             {
@@ -69,7 +69,7 @@ namespace RandomEventGenerator
             {
                 this.Action = action;
             }
-            
+
             public void SetValues()
             {
                 if (this.JSONString == null)
@@ -78,17 +78,43 @@ namespace RandomEventGenerator
                 switch (this.Action)
                 {
                     case ActionType.SkillIncrease:
+                        List<object> skillValues = new List<object>();
                         PlayerSkill skill = (PlayerSkill)Convert.ToInt32(values[0]);
                         int number = Convert.ToInt32(values[1]);
-                        this.Values = new object[] { skill, number };
+                        skillValues.Add(skill);
+                        skillValues.Add(number);
+                        if (values.Length > 3)
+                        {
+                            PlayerSkill skillFactor = (PlayerSkill)Convert.ToInt32(values[2]);
+                            skillValues.Add(skillFactor);
+                            int factorSkill = Convert.ToInt32(values[3]);
+                            skillValues.Add(factorSkill);
+                        }
+                        this.Values = skillValues.ToArray();
                         break;
                     case ActionType.FollowerIncrease:
+                        List<object> followerValues = new List<object>();
                         int followers = Convert.ToInt32(values[0]);
-                        this.Values = new object[] { followers };
+                        followerValues.Add(followers);
+                        if (values.Length > 2)
+                        {
+                            PlayerSkill playerSkill = (PlayerSkill)Convert.ToInt32(values[1]);
+                            followerValues.Add(playerSkill);
+                            int factor = Convert.ToInt32(values[2]);
+                            followerValues.Add(factor);
+                        }
+                        this.Values = followerValues.ToArray();
                         break;
                     case ActionType.Ok:
                         break;
                     case ActionType.NewLightbulbNear:
+                        bool shouldRespawn;
+                        int boolRespawn;
+                        if (int.TryParse(values[0], out boolRespawn))
+                            shouldRespawn = Convert.ToBoolean(boolRespawn);
+                        else
+                            shouldRespawn = Convert.ToBoolean(values[0]);
+                        this.Values = new object[] { shouldRespawn };
                         break;
                     case ActionType.VisitUrl:
                         this.Values = new object[] { values[0] };

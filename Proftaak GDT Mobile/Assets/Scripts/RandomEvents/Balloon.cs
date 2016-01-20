@@ -22,6 +22,7 @@
         private float _startSizeX, startSizeY;
         private bool _scalingUp;
 
+        public bool ShouldRespawn;
 
         // ReSharper disable once UnusedMember.Local
         private void OnEnable()
@@ -82,7 +83,8 @@
                 Debug.Log("Disabling balloon");
             this.transform.localScale = new Vector3(this._startSizeX, this.startSizeY, this.transform.localScale.z);
             this.gameObject.SetActive(false);
-            this.Invoke("Respawn", Random.Range(this.MinRespawnTime, this.MaxRespawnTime));
+            if (this.ShouldRespawn)
+                this.Invoke("Respawn", Random.Range(this.MinRespawnTime, this.MaxRespawnTime));
         }
 
         public abstract void OnButtonClicked();

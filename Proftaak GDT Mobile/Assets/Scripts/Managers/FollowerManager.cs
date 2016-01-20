@@ -66,12 +66,12 @@
         // ReSharper disable once UnusedMember.Local
         private void IncreaseFollowers()
         {
-            int knowledgeSkills = Player.Instance.KnowledgeSkills;
             // TODO: Fix magic numbers
-            foreach (FollowerGroup fg in this.FollowerGroups.Where(fg => Random.Range(0, 4) > 2))
+            int knowledgeSkills = Player.Instance.KnowledgeSkills;
+            foreach (FollowerGroup fg in this.FollowerGroups)
             {
-                fg.Followers += Random.Range(5 + (knowledgeSkills * 2), 20 + (knowledgeSkills * 2))
-                    + (int)((fg.Followers * 0.01) + (fg.Followers * 0.01f * knowledgeSkills));
+                fg.Followers += 1 + (knowledgeSkills * 2)
+                    + (int)((fg.Followers * 0.005f) + (fg.Followers * 0.005f * knowledgeSkills));
             }
         }
 

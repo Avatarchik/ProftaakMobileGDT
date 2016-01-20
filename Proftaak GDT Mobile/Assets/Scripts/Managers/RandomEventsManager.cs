@@ -370,14 +370,46 @@ namespace Assets.Scripts.Managers
                 {
                     case RandomEvent.ChoiceAction.ActionType.SkillIncrease:
                         {
-                            IncreasePlayerSkill((PlayerSkill)action.Values[0], (int)action.Values[1]);
-
+                            int increaseValue = (int)action.Values[1];
+                            if (action.Values.Length > 3)
+                                
+                                switch((PlayerSkill)action.Values[2])
+                                {
+                                    case PlayerSkill.Knowledge:
+                                        increaseValue += Player.Instance.KnowledgeSkills * (int)action.Values[3];
+                                        break;
+                                    case PlayerSkill.Presentation:
+                                        increaseValue += Player.Instance.PresentationSkills * (int)action.Values[3];
+                                        break;
+                                    case PlayerSkill.Media:
+                                        increaseValue += Player.Instance.MediaSkills * (int)action.Values[3];
+                                        break;
+                                    default:
+                                        throw new ArgumentOutOfRangeException();
+                                }
+                            IncreasePlayerSkill((PlayerSkill)action.Values[0], increaseValue);
                             break;
                         }
                     case RandomEvent.ChoiceAction.ActionType.FollowerIncrease:
                         {
-                            FollowerManager.Instance.TotalFollowers += (int)action.Values[0];
+                            int increaseValue = (int)action.Values[0];
+                            if (action.Values.Length > 2)
+                                switch ((PlayerSkill)action.Values[1])
+                                {
+                                    case PlayerSkill.Knowledge:
+                                        increaseValue += Player.Instance.KnowledgeSkills * (int)action.Values[2];
+                                        break;
+                                    case PlayerSkill.Presentation:
+                                        increaseValue += Player.Instance.PresentationSkills * (int)action.Values[2];
+                                        break;
+                                    case PlayerSkill.Media:
+                                        increaseValue += Player.Instance.MediaSkills * (int)action.Values[2];
+                                        break;
+                                    default:
+                                        throw new ArgumentOutOfRangeException();
+                                }
 
+                            FollowerManager.Instance.TotalFollowers += increaseValue;
                             break;
                         }
                     case RandomEvent.ChoiceAction.ActionType.Ok:
@@ -386,12 +418,13 @@ namespace Assets.Scripts.Managers
                         }
                     case RandomEvent.ChoiceAction.ActionType.NewLightbulbNear:
                         {
-                            IList<LightbulbBalloon> lightbulbs = BalloonManager.Instance.LightBulbBalloons;
-
-                            if (lightbulbs.Count > 0 && !lightbulbs[0].gameObject.activeInHierarchy)
-                            {
-                                lightbulbs[0].gameObject.SetActive(true);
-                            }
+                            bool respawn = (bool)action.Values[0];
+                            BalloonManager.Instance.SpawnLightbulb(respawn);
+                            //IList<LightbulbBalloon> lightbulbs = BalloonManager.Instance.LightBulbBalloons;
+                            //if (lightbulbs.Count > 0 && !lightbulbs[0].gameObject.activeInHierarchy)
+                            //{
+                            //    lightbulbs[0].gameObject.SetActive(true);
+                            //}
 
                             break;
                         }

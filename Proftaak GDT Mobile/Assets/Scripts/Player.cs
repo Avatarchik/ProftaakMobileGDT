@@ -4,9 +4,9 @@
 
     using Assets.Scripts.Enhancements;
 
-    public enum PlayerSkill { Knowledge, Presentation, Media };
+    public enum PlayerSkill { Knowledge = 0, Presentation = 1, Media = 2 };
 
-    public enum IdeaCategory {Technology, Design, Entertainment, Global_Issues, Education };
+    public enum IdeaCategory { Technology, Design, Entertainment, Global_Issues, Education };
 
     public class Player
     {

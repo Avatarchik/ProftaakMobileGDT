@@ -10,6 +10,10 @@
 				"Action": 0,
 				"JSONString": "1;-2",
 				"Values": [1, -2]
+			}, {
+				"Action": 3,
+				"JSONString": "true",
+				"Values": [true]
 			}],
 			"Text": "Ja"
 		}, {
@@ -19,8 +23,8 @@
 				"Values": [200]
 			}, {
 				"Action": 3,
-				"JSONString": null,
-				"Values": null
+				"JSONString": "true",
+				"Values": [true]
 			}],
 			"Text": "Nee"
 		}],
@@ -34,20 +38,97 @@
 			"Actions": [{
 				"Action": 0,
 				"JSONString": "1;-1",
-				"Values": null
+				"Values": [1, -1]
+			}, {
+				"Action": 3,
+				"JSONString": "true",
+				"Values": [true]
 			}],
 			"Text": "Feiten"
 		}, {
 			"Actions": [{
 				"Action": 0,
 				"JSONString": "1;1",
-				"Values": null
+				"Values": [1, 1]
+			}, {
+				"Action": 3,
+				"JSONString": "true",
+				"Values": [true]
 			}],
 			"Text": "Verhaal"
 		}],
 		"FollowUpRandomEvents": null,
 		"Title": "Presentatie voorbereiding...",
 		"Description": "Je wil een presentatie gaan voorbereiden. Wil je je idee overbrengen door middel van een verhaal, of door een opsomming van feiten?",
+		"TedUrl": null
+	}, {
+		"Type": 2,
+		"Choices": [{
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "0;10",
+				"Values": [0, 10]
+			}, {
+				"Action": 0,
+				"JSONString": "2;10",
+				"Values": [2, 10]
+			}, {
+				"Action": 1,
+				"JSONString": "10000",
+				"Values": [10000]
+			}, {
+				"Action": 3,
+				"JSONString": "false",
+				"Values": [false]
+			}],
+			"Text": "Ja"
+		}, {
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "0;-20",
+				"Values": [0, -20]
+			}, {
+				"Action": 3,
+				"JSONString": "false",
+				"Values": [false]
+			}],
+			"Text": "Nee"
+		}],
+		"FollowUpRandomEvents": null,
+		"Title": "Geertje?",
+		"Description": "Stem je voor Geert Wilders?",
+		"TedUrl": null
+	}, {
+		"Type": 2,
+		"Choices": [{
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "1;1;1;10",
+				"Values": [1, 1, 1, 10]
+			}, {
+				"Action": 0,
+				"JSONString": "1;1;1;10",
+				"Values": [1, 1, 1, 10]
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
+		"Title": "Presentatie",
+		"Description": "Je geeft een presentatie.",
+		"TedUrl": null
+	}, {
+		"Type": 2,
+		"Choices": [{
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "2;5;1;100",
+				"Values": null
+			}],
+			"Text": "Dank u wel"
+		}],
+		"FollowUpRandomEvents": null,
+		"Title": "Media skills erbij",
+		"Description": "gegeqgqegqe",
 		"TedUrl": null
 	}]
 }

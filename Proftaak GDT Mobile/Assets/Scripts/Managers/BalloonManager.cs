@@ -1,6 +1,5 @@
 ﻿namespace Assets.Scripts.Managers
 {
-    using System;
     using System.Collections.Generic;
     using Assets.Scripts.Followers;
     using Assets.Scripts.RandomEvents;
@@ -23,6 +22,13 @@
         [SerializeField]
         private RandomEventBalloon _firstRandomEventBalloon;
 
+        [SerializeField]
+        private LightbulbBalloon _lightbulbBalloonPrefab;
+        [SerializeField]
+        private RandomEventBalloon _randomEventBalloonPrefab;
+
+        [SerializeField]
+        private Canvas _balloonsCanvas;
 
         // ReSharper disable once UnusedMember.Local
         private void Awake()
@@ -57,7 +63,7 @@
             }
         }
 
-        public void Respawn(Balloon balloon)
+        public Vector3 NewPosition()
         {
             List<FollowerGroup> groups = FollowerManager.Instance.FollowerGroups;
             Vector3 respawnPos = Vector3.zero;
@@ -65,7 +71,7 @@
             {
                 if (i != groups.Count - 1 && Random.Range(0, groups.Count) != 0) continue;
                 int randSide = Random.Range(1, 4);
-                    
+
                 float minX, maxX, minY, maxY;
                 switch (randSide)
                 {
@@ -79,16 +85,25 @@
                     case 2: // right
                         //Debug.Log("right side");
                         minX = groups[i].transform.position.x + groups[i].transform.localScale.x / this.DivideByScale;
-                        maxX = groups[i].transform.position.x + this.OffsetPosX+  groups[i].transform.localScale.x / this.DivideByScale;
+                        maxX = groups[i].transform.position.x + this.OffsetPosX + groups[i].transform.localScale.x / this.DivideByScale;
                         minY = groups[i].transform.position.y - this.OffsetPosY - groups[i].transform.localScale.x / this.DivideByScale;
                         maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
                         break;
                     case 3: // down
                         //Debug.Log("bottom side");
+                        //minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
+                        //maxX = groups[i].transform.position.x + this.OffsetPosX + groups[i].transform.localScale.x / this.DivideByScale;
+                        //minY = groups[i].transform.position.y - this.OffsetPosY - groups[i].transform.localScale.x / this.DivideByScale;
+                        //maxY = groups[i].transform.position.y - groups[i].transform.localScale.x / this.DivideByScale;
+                        
+
+                        // we willen eigenlijk nooit shit beneden spawnen
+                        // top
+                        //Debug.Log("top side");
                         minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
                         maxX = groups[i].transform.position.x + this.OffsetPosX + groups[i].transform.localScale.x / this.DivideByScale;
-                        minY = groups[i].transform.position.y - this.OffsetPosY - groups[i].transform.localScale.x / this.DivideByScale;
-                        maxY = groups[i].transform.position.y - groups[i].transform.localScale.x / this.DivideByScale;
+                        minY = groups[i].transform.position.y + groups[i].transform.localScale.x / this.DivideByScale;
+                        maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
                         break;
                     default: // top
                         //Debug.Log("top side");
@@ -98,11 +113,16 @@
                         maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
                         break;
                 }
-                    
+
                 //Debug.Log(string.Format("minX: {0} maxX: {1} minY: {2} maxY: {3}", minX, maxX, minY, maxY));
-                respawnPos = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), balloon.transform.position.z);
+                respawnPos = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), -4.1f);
             }
-            balloon.transform.position = respawnPos;
+            return respawnPos;
+        }
+
+        public void Respawn(Balloon balloon)
+        {
+            balloon.transform.position = this.NewPosition();
             balloon.gameObject.SetActive(true);
         }
 
@@ -110,5 +130,25 @@
         {
             this._firstRandomEventBalloon.gameObject.SetActive(true);
         }
+
+        public void SpawnLightbulb(bool respawn)
+        {
+            Vector3 pos = this.NewPosition();
+            LightbulbBalloon go = (LightbulbBalloon) Instantiate(this._lightbulbBalloonPrefab, pos, Quaternion.identity);
+            go.ShouldRespawn = respawn;
+            go.transform.SetParent(this._balloonsCanvas.transform);
+            if (!go.gameObject.activeSelf)
+                go.gameObject.SetActive(true);
+        }
+        public void SpawnRandomEvent(bool respawn)
+        {
+            Vector3 pos = this.NewPosition();
+            RandomEventBalloon go = (RandomEventBalloon)Instantiate(this._randomEventBalloonPrefab, pos, Quaternion.identity);
+            go.ShouldRespawn = respawn;
+            go.transform.SetParent(this._balloonsCanvas.transform);
+            if (!go.gameObject.activeSelf)
+                go.gameObject.SetActive(true);
+        }
+
     }
 }
