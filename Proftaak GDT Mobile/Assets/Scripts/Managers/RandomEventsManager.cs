@@ -80,8 +80,7 @@ namespace Assets.Scripts.Managers
             this._randomEvents = tempList;
             foreach (RandomEvent ra in this._randomEvents)
                 ra.SetChoiceActionValues();
-
-            //this.SetupChoices();
+           
 
             this.CurrentRandomEvent = this._randomEvents[0];
 
@@ -217,7 +216,6 @@ namespace Assets.Scripts.Managers
                     }
                 }
         }
-
 
         private void UpdateToGuiTopcurrentNotification()
         {

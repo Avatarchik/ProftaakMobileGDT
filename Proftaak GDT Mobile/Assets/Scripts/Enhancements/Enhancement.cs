@@ -90,17 +90,19 @@
                 case EnhancementType.Houding:
                 case EnhancementType.Stem:
                 case EnhancementType.Handgebaren:
-                    Player.Instance.PresentationSkills++;
+                    // Houding = 1, Stem = 2, Handgebaren = 3
+                    Player.Instance.PresentationSkills += (int)this.Name + 1;
                     break;
                 case EnhancementType.Video:
                 case EnhancementType.Camera:
                 case EnhancementType.Microfoon:
-                    Player.Instance.MediaSkills++;
+                    // Video = 1, Camera = 2, Microfoon = 3
+                    Player.Instance.MediaSkills += (int)this.Name - (int)EnhancementType.Video + 1;
                     break;
                 case EnhancementType.Papieren:
                 case EnhancementType.Onderzoek:
                 case EnhancementType.Experiment:
-                    Player.Instance.KnowledgeSkills++;
+                    Player.Instance.KnowledgeSkills += (int)this.Name - (int)EnhancementType.Papieren + 1;
                     break;
                 case EnhancementType.TEDx:
                     Player.Instance.KnowledgeSkills += 5;
