@@ -62,7 +62,7 @@
             }
             if (ray.origin == Vector3.back && ray.direction == Vector3.down) return;
 
-            GameObject go = (GameObject)Instantiate(this._bubblePrefab, spawnPos, Quaternion.identity);
+            GameObject go = (GameObject)Instantiate(this._bubblePrefab, new Vector3(spawnPos.x,spawnPos.y,21), Quaternion.identity);
             go.transform.SetParent(this._balloonsCanvas.transform);
 
             RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, new Vector3(0, 0, 2000f));
