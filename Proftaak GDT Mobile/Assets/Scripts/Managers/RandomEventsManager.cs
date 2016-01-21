@@ -67,7 +67,7 @@ namespace Assets.Scripts.Managers
 
 
             List<RandomEvent> tempList = JsonSerializer.ReadFromFile("GeneratedJsonData").RandomEvents;
-            
+
             // TODO iets in deze richting voor Notifications.
             //List<RandomEvent> shuffleEvents = new List<RandomEvent>(tempList);
             //shuffleEvents.RemoveRange(0, 4);
@@ -317,8 +317,7 @@ namespace Assets.Scripts.Managers
             // float value = choice.Min == choice.Max ? choice.Max : UnityEngine.Random.Range(choice.Min, choice.Max);
 
             // Debug.Log("RandomEventsManager: value = " + value);
-            int increasevalue_1 = 0;
-            int increasevalue_2 = 0;
+            int totalActionValue = 0;
 
             foreach (RandomEvent.ChoiceAction action in choice.Actions)
             {
@@ -328,7 +327,6 @@ namespace Assets.Scripts.Managers
                         {
                             int increaseValue = (int)action.Values[1];
                             if (action.Values.Length > 3)
-
                                 switch ((PlayerSkill)action.Values[2])
                                 {
                                     case PlayerSkill.Knowledge:
@@ -343,9 +341,7 @@ namespace Assets.Scripts.Managers
                                     default:
                                         throw new ArgumentOutOfRangeException();
                                 }
-
-
-
+                            totalActionValue += increaseValue;
                             IncreasePlayerSkill((PlayerSkill)action.Values[0], increaseValue);
                             break;
                         }
@@ -368,6 +364,7 @@ namespace Assets.Scripts.Managers
                                         throw new ArgumentOutOfRangeException();
                                 }
 
+                            totalActionValue += increaseValue;
                             FollowerManager.Instance.TotalFollowers += increaseValue;
                             break;
                         }
@@ -379,25 +376,17 @@ namespace Assets.Scripts.Managers
                         {
                             bool respawn = (bool)action.Values[0];
                             BalloonManager.Instance.SpawnLightbulb(respawn);
-                            //IList<LightbulbBalloon> lightbulbs = BalloonManager.Instance.LightBulbBalloons;
-                            //if (lightbulbs.Count > 0 && !lightbulbs[0].gameObject.activeInHierarchy)
-                            //{
-                            //    lightbulbs[0].gameObject.SetActive(true);
-                            //}
-
                             break;
                         }
                     case RandomEvent.ChoiceAction.ActionType.VisitUrl:
                         {
                             Application.OpenURL(this.CurrentRandomEvent.TedUrl);
-
                             break;
                         }
                     case RandomEvent.ChoiceAction.ActionType.Tutorial:
                         {
                             this._notificationPanel.SetActive(false);
                             this._temporaryTutorialCanvas.SetActive(true);
-
                             break;
                         }
                     default:
@@ -411,15 +400,15 @@ namespace Assets.Scripts.Managers
             if (this.CurrentRandomEvent.FollowUpRandomEvents == null || this.CurrentRandomEvent.FollowUpRandomEvents[choice] == null)
             {
 
-                if (increasevalue_1 < 0 && increasevalue_2 < 0)
+                if (totalActionValue < 0)
                 {
                     AudioManager.Instance.PlayNegativeFeedback();
                 }
-                else if(increasevalue_1 > 0 && increasevalue_2 > 0)
+                else if (totalActionValue > 0)
                 {
                     AudioManager.Instance.PlayPositiveFeedback();
-
-                }else
+                }
+                else
                 {
                     //Play no sound.
                 }
@@ -441,19 +430,16 @@ namespace Assets.Scripts.Managers
                 case PlayerSkill.Knowledge:
                     {
                         Player.Instance.KnowledgeSkills += value;
-
                         break;
                     }
                 case PlayerSkill.Presentation:
                     {
                         Player.Instance.PresentationSkills += value;
-
                         break;
                     }
                 case PlayerSkill.Media:
                     {
                         Player.Instance.MediaSkills += value;
-
                         break;
                     }
                 default:
