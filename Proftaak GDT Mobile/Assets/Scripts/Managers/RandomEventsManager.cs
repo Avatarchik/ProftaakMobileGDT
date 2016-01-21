@@ -317,8 +317,8 @@ namespace Assets.Scripts.Managers
             // float value = choice.Min == choice.Max ? choice.Max : UnityEngine.Random.Range(choice.Min, choice.Max);
 
             // Debug.Log("RandomEventsManager: value = " + value);
-            int totalActionValue = 0;
-
+            int actionValueSkill = 0;
+            int actionValueFollowers = 0;
             foreach (RandomEvent.ChoiceAction action in choice.Actions)
             {
                 switch (action.Action)
@@ -341,7 +341,7 @@ namespace Assets.Scripts.Managers
                                     default:
                                         throw new ArgumentOutOfRangeException();
                                 }
-                            totalActionValue += increaseValue;
+                            actionValueSkill += increaseValue;
                             IncreasePlayerSkill((PlayerSkill)action.Values[0], increaseValue);
                             break;
                         }
@@ -364,7 +364,7 @@ namespace Assets.Scripts.Managers
                                         throw new ArgumentOutOfRangeException();
                                 }
 
-                            totalActionValue += increaseValue;
+                            actionValueFollowers += increaseValue;
                             FollowerManager.Instance.TotalFollowers += increaseValue;
                             break;
                         }
@@ -400,11 +400,11 @@ namespace Assets.Scripts.Managers
             if (this.CurrentRandomEvent.FollowUpRandomEvents == null || this.CurrentRandomEvent.FollowUpRandomEvents[choice] == null)
             {
 
-                if (totalActionValue < 0)
+                if (actionValueFollowers < 0 && actionValueSkill < 0)
                 {
                     AudioManager.Instance.PlayNegativeFeedback();
                 }
-                else if (totalActionValue > 0)
+                else if (actionValueFollowers > 0 && actionValueSkill > 0)
                 {
                     AudioManager.Instance.PlayPositiveFeedback();
                 }
