@@ -88,10 +88,10 @@
         {
             // TODO: Misschien niet in de Update?
             this.UpdateFollowersText();
-
             if (this.TotalFollowers > 17000000)
             {
-                Debug.Log("TotalTime: " + this._time);
+                
+                PlayerPrefs.SetFloat("TotalTime", this._time);
 
                 SceneManager.LoadScene("EndScreen");
             }
