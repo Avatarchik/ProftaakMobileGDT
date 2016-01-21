@@ -686,5 +686,5 @@
 		"Title": "What's your 200-year plan?",
 		"Description": "You might have a 5-year plan, but what about a 200-year plan? Artist Raghava KK has set his eyes on an ultra-long-term horizon; at TEDxSummit, he shows how it helps guide today's choices and tomorrow's goals — and encourages you to make your own 200-year plan too.",
 		"TedUrl": "https://www.ted.com/talks/raghava_kk_what_s_your_200_year_plan"
-	}}]
+	}]
 }
