@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
 public class EndScreenScript : MonoBehaviour
 {
 
     public Text text;
-
-	// Use this for initialization
-	void Start ()
+    
+    // ReSharper disable once UnusedMember.Local
+    private void Start ()
 	{
 
 	    float totalTime = PlayerPrefs.GetFloat("TotalTime");
@@ -19,8 +18,4 @@ public class EndScreenScript : MonoBehaviour
 
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

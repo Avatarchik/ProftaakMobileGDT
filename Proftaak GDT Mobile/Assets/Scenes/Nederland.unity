@@ -1832,7 +1832,7 @@ GameObject:
   - 222: {fileID: 452733357}
   - 114: {fileID: 452733356}
   m_Layer: 5
-  m_Name: Image
+  m_Name: TEDx Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6284,7 +6284,7 @@ GameObject:
   - 222: {fileID: 1650988263}
   - 114: {fileID: 1650988262}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Food4ThoughtLogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
