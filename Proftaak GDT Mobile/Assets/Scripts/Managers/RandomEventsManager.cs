@@ -14,7 +14,7 @@ namespace Assets.Scripts.Managers
         [SerializeField]
         private GameObject _randomEventsCanvas;
         [SerializeField]
-        private GameObject _temporaryTutorialCanvas;       
+        private GameObject _temporaryTutorialCanvas;
 
         [SerializeField]
         private List<RandomEvent> _randomEvents = new List<RandomEvent>();
@@ -71,7 +71,7 @@ namespace Assets.Scripts.Managers
             this._randomEvents = tempList;
 
             foreach (RandomEvent ra in this._randomEvents)
-                ra.SetChoiceActionValues();           
+                ra.SetChoiceActionValues();
 
             this.CurrentRandomEvent = this._randomEvents[0];
         }
@@ -94,7 +94,7 @@ namespace Assets.Scripts.Managers
 
             this.ShowNotificationCanvas(currentNotification);
         }
-        
+
         private void UpdateToGuiTopcurrentRandomEvent()
         {
 
@@ -310,6 +310,8 @@ namespace Assets.Scripts.Managers
             // float value = choice.Min == choice.Max ? choice.Max : UnityEngine.Random.Range(choice.Min, choice.Max);
 
             // Debug.Log("RandomEventsManager: value = " + value);
+            int increasevalue_1 = 0;
+            int increasevalue_2 = 0;
 
             foreach (RandomEvent.ChoiceAction action in choice.Actions)
             {
@@ -319,8 +321,8 @@ namespace Assets.Scripts.Managers
                         {
                             int increaseValue = (int)action.Values[1];
                             if (action.Values.Length > 3)
-                                
-                                switch((PlayerSkill)action.Values[2])
+
+                                switch ((PlayerSkill)action.Values[2])
                                 {
                                     case PlayerSkill.Knowledge:
                                         increaseValue += Player.Instance.KnowledgeSkills * (int)action.Values[3];
@@ -335,15 +337,7 @@ namespace Assets.Scripts.Managers
                                         throw new ArgumentOutOfRangeException();
                                 }
 
-                            if(increaseValue > 0)
-                            {
-                                AudioManager.Instance.PlayPositiveFeedback();
-                            }
-                            else
-                            {
-                                AudioManager.Instance.PlayNegativeFeedback();
 
-                            }
 
                             IncreasePlayerSkill((PlayerSkill)action.Values[0], increaseValue);
                             break;
@@ -366,17 +360,6 @@ namespace Assets.Scripts.Managers
                                     default:
                                         throw new ArgumentOutOfRangeException();
                                 }
-
-
-                            if (increaseValue > 0)
-                            {
-                                AudioManager.Instance.PlayPositiveFeedback();
-                            }
-                            else
-                            {
-                                AudioManager.Instance.PlayNegativeFeedback();
-
-                            }
 
                             FollowerManager.Instance.TotalFollowers += increaseValue;
                             break;
@@ -417,8 +400,22 @@ namespace Assets.Scripts.Managers
                 }
             }
 
+
             if (this.CurrentRandomEvent.FollowUpRandomEvents == null || this.CurrentRandomEvent.FollowUpRandomEvents[choice] == null)
             {
+
+                if (increasevalue_1 < 0 && increasevalue_2 < 0)
+                {
+                    AudioManager.Instance.PlayNegativeFeedback();
+                }
+                else if(increasevalue_1 > 0 && increasevalue_2 > 0)
+                {
+                    AudioManager.Instance.PlayPositiveFeedback();
+
+                }else
+                {
+                    //Play no sound.
+                }
                 this.HideRandomEventsCanvas();
                 this.NewRandomEvent();
                 this.UpdateToGuiTopcurrentRandomEvent();
