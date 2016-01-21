@@ -17,6 +17,9 @@ namespace Assets.Scripts.Managers
         private GameObject _temporaryTutorialCanvas;
 
         [SerializeField]
+        private AudioManager _AudioManager;
+
+        [SerializeField]
         private List<RandomEvent> _randomEvents = new List<RandomEvent>();
 
         [SerializeField]
@@ -153,6 +156,7 @@ namespace Assets.Scripts.Managers
 
         private void UpdateToGuiTopcurrentRandomEvent()
         {
+
             this._randomEventDescText.text = string.Empty;
             this.DeactivateAllButtons();
 
@@ -260,6 +264,7 @@ namespace Assets.Scripts.Managers
 
         public void ShowRandomEventsCanvas()
         {
+            this._AudioManager.PlayNotification();
             this._randomEventsCanvas.SetActive(true);
             this.UpdateToGuiTopcurrentRandomEvent();
             Time.timeScale = 0f;
@@ -275,6 +280,7 @@ namespace Assets.Scripts.Managers
         public void ShowNotificationCanvas(RandomEvent RE)
         {
             this.CurrentNotification = RE;
+            this._AudioManager.PlayNotification();
             this._notificationPanel.SetActive(true);
             this.UpdateToGuiTopcurrentNotification();
             Time.timeScale = 0f;
@@ -387,6 +393,17 @@ namespace Assets.Scripts.Managers
                                     default:
                                         throw new ArgumentOutOfRangeException();
                                 }
+
+                            if(increaseValue > 0)
+                            {
+                                _AudioManager.PlayPositiveFeedback();
+                            }
+                            else
+                            {
+                                _AudioManager.PlayNegativeFeedback();
+
+                            }
+
                             IncreasePlayerSkill((PlayerSkill)action.Values[0], increaseValue);
                             break;
                         }
@@ -408,6 +425,17 @@ namespace Assets.Scripts.Managers
                                     default:
                                         throw new ArgumentOutOfRangeException();
                                 }
+
+
+                            if (increaseValue > 0)
+                            {
+                                _AudioManager.PlayPositiveFeedback();
+                            }
+                            else
+                            {
+                                _AudioManager.PlayNegativeFeedback();
+
+                            }
 
                             FollowerManager.Instance.TotalFollowers += increaseValue;
                             break;
