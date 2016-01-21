@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class AudioManager : MonoBehaviour {
-
+public class AudioManager : MonoBehaviour
+{
+    public static AudioManager Instance;
 
     public AudioSource FeedbackAudioSource;
     public AudioSource NotificationAudioSource;
@@ -14,39 +14,47 @@ public class AudioManager : MonoBehaviour {
 
     public AudioClip ButtonSpawnSound;
 
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    [SerializeField]
+    private AudioClip _upgradeAvailableSound;
+    [SerializeField]
+    private AudioClip _upgradeDoneSound;
+    
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+    }
 
     public void PlayPositiveFeedback()
     {
-        FeedbackAudioSource.PlayOneShot(FeedbackPositiveSound);
+        this.FeedbackAudioSource.PlayOneShot(this.FeedbackPositiveSound);
     }
 
     public void PlayNegativeFeedback()
     {
-        FeedbackAudioSource.PlayOneShot(FeedbackNegativeSound);
+        this.FeedbackAudioSource.PlayOneShot(this.FeedbackNegativeSound);
     }
 
     public void PlayNotification()
     {
-        NotificationAudioSource.PlayOneShot(NotificationSound);
+        this.NotificationAudioSource.PlayOneShot(this.NotificationSound);
     }
 
     public void PlayButtonClick(AudioClip c)
     {
-        NotificationAudioSource.PlayOneShot(c);
+        this.NotificationAudioSource.PlayOneShot(c);
     }
 
-    public void PlaySpawnObject(){
-
-        NotificationAudioSource.PlayOneShot(ButtonSpawnSound);
+    public void PlaySpawnObject()
+    {
+        this.NotificationAudioSource.PlayOneShot(this.ButtonSpawnSound);
     }
-
+    public void PlayUpgradesAvailable()
+    {
+        this.NotificationAudioSource.PlayOneShot(this._upgradeAvailableSound);
+    }
+    public void PlayUpgradeDone()
+    {
+        this.NotificationAudioSource.PlayOneShot(this._upgradeDoneSound);
+    }
 }

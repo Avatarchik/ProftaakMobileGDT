@@ -14,10 +14,7 @@ namespace Assets.Scripts.Managers
         [SerializeField]
         private GameObject _randomEventsCanvas;
         [SerializeField]
-        private GameObject _temporaryTutorialCanvas;
-
-        [SerializeField]
-        private AudioManager _AudioManager;
+        private GameObject _temporaryTutorialCanvas;       
 
         [SerializeField]
         private List<RandomEvent> _randomEvents = new List<RandomEvent>();
@@ -66,6 +63,18 @@ namespace Assets.Scripts.Managers
                 Instance = this;
             }
 
+
+            List<RandomEvent> tempList = JsonSerializer.ReadFromFile("GeneratedJsonData").RandomEvents;
+            this._randomEvents = tempList;
+            foreach (RandomEvent ra in this._randomEvents)
+                ra.SetChoiceActionValues();           
+
+            this.CurrentRandomEvent = this._randomEvents[0];
+        }
+
+        // ReSharper disable once UnusedMember.Local
+        private void Start()
+        {
             RandomEvent currentNotification = new RandomEvent
             {
                 Title = string.Format("Welkom {0}!", Player.Instance.PlayerName),
@@ -78,15 +87,6 @@ namespace Assets.Scripts.Managers
                     })
                 }
             };
-
-            List<RandomEvent> tempList = JsonSerializer.ReadFromFile("GeneratedJsonData").RandomEvents;
-            this._randomEvents = tempList;
-            foreach (RandomEvent ra in this._randomEvents)
-                ra.SetChoiceActionValues();
-           
-
-            this.CurrentRandomEvent = this._randomEvents[0];
-
             this.ShowNotificationCanvas(currentNotification);
         }
 
@@ -264,7 +264,7 @@ namespace Assets.Scripts.Managers
 
         public void ShowRandomEventsCanvas()
         {
-            this._AudioManager.PlayNotification();
+            AudioManager.Instance.PlayNotification();
             this._randomEventsCanvas.SetActive(true);
             this.UpdateToGuiTopcurrentRandomEvent();
             Time.timeScale = 0f;
@@ -280,7 +280,7 @@ namespace Assets.Scripts.Managers
         public void ShowNotificationCanvas(RandomEvent RE)
         {
             this.CurrentNotification = RE;
-            this._AudioManager.PlayNotification();
+            AudioManager.Instance.PlayNotification();
             this._notificationPanel.SetActive(true);
             this.UpdateToGuiTopcurrentNotification();
             Time.timeScale = 0f;
@@ -396,11 +396,11 @@ namespace Assets.Scripts.Managers
 
                             if(increaseValue > 0)
                             {
-                                _AudioManager.PlayPositiveFeedback();
+                                AudioManager.Instance.PlayPositiveFeedback();
                             }
                             else
                             {
-                                _AudioManager.PlayNegativeFeedback();
+                                AudioManager.Instance.PlayNegativeFeedback();
 
                             }
 
@@ -429,11 +429,11 @@ namespace Assets.Scripts.Managers
 
                             if (increaseValue > 0)
                             {
-                                _AudioManager.PlayPositiveFeedback();
+                                AudioManager.Instance.PlayPositiveFeedback();
                             }
                             else
                             {
-                                _AudioManager.PlayNegativeFeedback();
+                                AudioManager.Instance.PlayNegativeFeedback();
 
                             }
 
