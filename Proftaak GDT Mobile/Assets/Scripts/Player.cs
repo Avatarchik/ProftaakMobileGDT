@@ -1,5 +1,6 @@
 ﻿namespace Assets.Scripts
 {
+    using System;
     using System.Collections.Generic;
 
     using Assets.Scripts.Enhancements;
@@ -27,6 +28,8 @@
             {
                 if (value < 0)
                     this._knowledgeSkills = 0;
+                else if (value >= Int32.MaxValue)
+                    this._knowledgeSkills = int.MaxValue;
                 else
                     this._knowledgeSkills = value;
             }
@@ -39,6 +42,8 @@
             {
                 if (value < 0)
                     this._presentationSkills = 0;
+                else if (value >= Int32.MaxValue)
+                    this._presentationSkills = int.MaxValue;
                 else
                     this._presentationSkills = value;
             }
@@ -51,6 +56,8 @@
             {
                 if (value < 0)
                     this._mediaSkills = 0;
+                else if (value >= Int32.MaxValue)
+                    this._mediaSkills = int.MaxValue;
                 else
                     this._mediaSkills = value;
             }

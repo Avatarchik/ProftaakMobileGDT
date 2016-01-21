@@ -1,5 +1,6 @@
 ﻿namespace Assets.Scripts.Managers
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Followers;
@@ -15,7 +16,21 @@
 
         public int TotalFollowers
         {
-            get { return this.FollowerGroups.IsNullOrEmpty() ? 0 : this.FollowerGroups.Select(x => x.Followers).Sum(); }
+            get
+            {
+                if (this.FollowerGroups.IsNullOrEmpty()) return 0;
+                int totalFollowers = 0;
+                foreach (FollowerGroup fg in this.FollowerGroups)
+                    if (fg.Followers >= Int32.MaxValue)
+                        return int.MaxValue;
+                    else
+                    {
+                        totalFollowers += fg.Followers;
+                        if (totalFollowers >= int.MaxValue)
+                            return int.MaxValue;
+                    }
+                return totalFollowers;
+            }
             set
             {
                 foreach (FollowerGroup fg in this.FollowerGroups)
@@ -52,7 +67,7 @@
         {
             this._followerEhancementThresholds = new List<int>
             {
-                500, 1500, 5000, 15000, 50000,150000, 500000,1500000, 5000000, 15000000
+                500, 1500, 5000, 15000, 50000,150000, 500000,1500000, 5000000
             };
         }
         public void StartFollowers()

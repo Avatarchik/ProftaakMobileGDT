@@ -2,6 +2,8 @@
 
 namespace Assets.Scripts.Followers
 {
+    using System;
+
     public class FollowerGroup : MonoBehaviour
     {
 
@@ -18,6 +20,8 @@ namespace Assets.Scripts.Followers
             {
                 if (value < 0)
                     this._followers = 0;
+                else if (value >= Int32.MaxValue)
+                    this._followers = int.MaxValue;
                 else
                     this._followers = value;
             }
