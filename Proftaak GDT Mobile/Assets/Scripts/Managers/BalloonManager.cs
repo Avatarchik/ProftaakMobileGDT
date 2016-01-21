@@ -1,8 +1,8 @@
 ﻿namespace Assets.Scripts.Managers
 {
     using System.Collections.Generic;
-    using Assets.Scripts.Followers;
-    using Assets.Scripts.RandomEvents;
+    using Followers;
+    using RandomEvents;
     using UnityEngine;
     using Random = UnityEngine.Random;
 
@@ -71,7 +71,6 @@
                     hit.transform.GetComponent<LightbulbBalloon>().OnButtonClicked();
                 else if (hit.transform.GetComponent<RandomEventBalloon>() != null)
                     hit.transform.GetComponent<RandomEventBalloon>().OnButtonClicked();
-
             }
         }
 

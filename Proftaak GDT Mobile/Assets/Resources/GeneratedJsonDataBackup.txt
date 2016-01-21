@@ -1,29 +1,128 @@
 {
 	"RandomEvents": [{
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 2,
+		"Choices": [{
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "0;1",
+				"Values": [0, 1]
+			}, {
+				"Action": 3,
+				"JSONString": "true",
+				"Values": [true]
+			}],
+			"Text": "Verdiepen"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}, {
+				"Action": 3,
+				"JSONString": "false",
+				"Values": [false]
+			}],
+			"Text": "Niet verdiepen"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "Er was eens...",
-		"Description": "Je verteld je fantastische idee aan je vrienden en familie. Het is een goed begin maar ze vinden dat je je meer in het onderwerp moet verdiepen.",
+		"Description": "Je vertelt je fantastische idee aan je vrienden en familie. Het is een goed begin, maar ze vinden dat je je meer in het onderwerp moet verdiepen.",
 		"TedUrl": null
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 2,
+		"Choices": [{
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "1;-1",
+				"Values": null
+			}, {
+				"Action": 1,
+				"JSONString": "100000",
+				"Values": null
+			}],
+			"Text": "Feiten"
+		}, {
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "1;1",
+				"Values": null
+			}, {
+				"Action": 1,
+				"JSONString": "500",
+				"Values": null
+			}],
+			"Text": "Verhaal"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "Een goede voorbereiding...",
 		"Description": "Je wil een presentatie gaan voorbereiden. Wil je je idee overbrengen door middel van een verhaal, of door een opsomming van feiten?",
 		"TedUrl": null
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 2,
+		"Choices": [{
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "1;-1",
+				"Values": null
+			}, {
+				"Action": 1,
+				"JSONString": "500",
+				"Values": null
+			}],
+			"Text": "10 minuten / 5 slides"
+		}, {
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "1;1",
+				"Values": null
+			}, {
+				"Action": 1,
+				"JSONString": "100000",
+				"Values": null
+			}],
+			"Text": "20 minutes / 10 slides"
+		}, {
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "1;-1",
+				"Values": null
+			}, {
+				"Action": 1,
+				"JSONString": "500",
+				"Values": null
+			}],
+			"Text": "30 minutes / 15 slides"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "Hoe langer, hoe beter? Of toch niet?",
-		"Description": "Je wil een presentatie gaan voorbereiden. Je moet een besluit nemen over de duur van de presentatie. Hoe lang wil je je presentatie laten duren?",
+		"Description": "Je moet een besluit nemen over de duur van de presentatie. Hoe lang wil je je presentatie laten duren?",
 		"TedUrl": null
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 2,
+		"Choices": [{
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "1;-1",
+				"Values": null
+			}, {
+				"Action": 1,
+				"JSONString": "500",
+				"Values": null
+			}],
+			"Text": "Beursgebouw"
+		}, {
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "1;1",
+				"Values": null
+			}, {
+				"Action": 1,
+				"JSONString": "100000",
+				"Values": null
+			}],
+			"Text": "Gemeentehuis"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "High risk, high reward? Of toch niet?",
 		"Description": "Je hebt je goed voorbereid en gaat nu de presentatie houden. Doe je dit voor 100 man in het gemeentehuis of voor 1000 man in het beursgebouw?",
 		"TedUrl": null

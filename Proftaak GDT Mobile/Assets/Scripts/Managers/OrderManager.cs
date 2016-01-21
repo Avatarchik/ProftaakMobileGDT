@@ -1,8 +1,8 @@
-﻿namespace Assets.Scripts
-{
-    using System.Collections.Generic;
-    using UnityEngine;    
+﻿using System.Collections.Generic;
+using UnityEngine;
 
+namespace Assets.Scripts.Managers
+{
     public class OrderManager : MonoBehaviour
     {
         public bool test = false;

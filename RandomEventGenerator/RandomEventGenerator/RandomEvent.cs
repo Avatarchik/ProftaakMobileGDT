@@ -21,6 +21,9 @@ namespace RandomEventGenerator
 
         public void SetChoiceActionValues()
         {
+            if (this.Choices == null)
+                return;
+
             foreach (ChoiceAction ca in this.Choices.SelectMany(c => c.Actions))
                 ca.SetValues();
         }
@@ -44,7 +47,6 @@ namespace RandomEventGenerator
         }
 
         [Serializable]
-
         public class ChoiceAction
         {
             public enum ActionType { SkillIncrease = 0, FollowerIncrease = 1, Ok = 2, NewLightbulbNear = 3, VisitUrl = 4, Tutorial = 5 }
@@ -60,11 +62,13 @@ namespace RandomEventGenerator
             {
 
             }
+
             public ChoiceAction(ActionType action, string JSONString)
             {
                 this.Action = action;
                 this.JSONString = JSONString;
             }
+
             public ChoiceAction(ActionType action)
             {
                 this.Action = action;
@@ -74,7 +78,9 @@ namespace RandomEventGenerator
             {
                 if (this.JSONString == null)
                     return;
+
                 string[] values = this.JSONString.Split(';');
+
                 switch (this.Action)
                 {
                     case ActionType.SkillIncrease:
