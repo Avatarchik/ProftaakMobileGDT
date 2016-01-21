@@ -34,22 +34,22 @@
 			"Actions": [{
 				"Action": 0,
 				"JSONString": "1;-1",
-				"Values": null
+				"Values": [1, -1]
 			}, {
 				"Action": 1,
 				"JSONString": "100000",
-				"Values": null
+				"Values": [100000]
 			}],
 			"Text": "Feiten"
 		}, {
 			"Actions": [{
 				"Action": 0,
 				"JSONString": "1;1",
-				"Values": null
+				"Values": [1, 1]
 			}, {
 				"Action": 1,
 				"JSONString": "500",
-				"Values": null
+				"Values": [500]
 			}],
 			"Text": "Verhaal"
 		}],
@@ -63,33 +63,33 @@
 			"Actions": [{
 				"Action": 0,
 				"JSONString": "1;-1",
-				"Values": null
+				"Values": [1, -1]
 			}, {
 				"Action": 1,
 				"JSONString": "500",
-				"Values": null
+				"Values": [500]
 			}],
 			"Text": "10 minuten / 5 slides"
 		}, {
 			"Actions": [{
 				"Action": 0,
 				"JSONString": "1;1",
-				"Values": null
+				"Values": [1, 1]
 			}, {
 				"Action": 1,
 				"JSONString": "100000",
-				"Values": null
+				"Values": [100000]
 			}],
 			"Text": "20 minutes / 10 slides"
 		}, {
 			"Actions": [{
 				"Action": 0,
 				"JSONString": "1;-1",
-				"Values": null
+				"Values": [1, -1]
 			}, {
 				"Action": 1,
 				"JSONString": "500",
-				"Values": null
+				"Values": [500]
 			}],
 			"Text": "30 minutes / 15 slides"
 		}],
@@ -103,22 +103,22 @@
 			"Actions": [{
 				"Action": 0,
 				"JSONString": "1;-1",
-				"Values": null
+				"Values": [1, -1]
 			}, {
 				"Action": 1,
 				"JSONString": "500",
-				"Values": null
+				"Values": [500]
 			}],
 			"Text": "Beursgebouw"
 		}, {
 			"Actions": [{
 				"Action": 0,
 				"JSONString": "1;1",
-				"Values": null
+				"Values": [1, 1]
 			}, {
 				"Action": 1,
 				"JSONString": "100000",
-				"Values": null
+				"Values": [100000]
 			}],
 			"Text": "Gemeentehuis"
 		}],
@@ -127,319 +127,564 @@
 		"Description": "Je hebt je goed voorbereid en gaat nu de presentatie houden. Doe je dit voor 100 man in het gemeentehuis of voor 1000 man in het beursgebouw?",
 		"TedUrl": null
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 1,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "Steve Jobs over presenteren",
 		"Description": "“People who know what they are talking about, don’t need powerpoint.” - Steve Jobs.",
 		"TedUrl": null
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 1,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "Albert Einstein quote",
 		"Description": "“If you can’t explain it simple, you don’t understand it well enough.” - Albert Einstein",
 		"TedUrl": null
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 1,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "Amy Cuddy quote",
 		"Description": "“Fake it ‘til you make it.” - Amy Cuddy",
 		"TedUrl": null
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 1,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "Pablo Picasso quote",
 		"Description": "“Good artists copy; great artists steal.” - Pablo Picasso",
 		"TedUrl": null
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 1,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "Wist je dat...",
 		"Description": "Zelfs een ervaren spreker als Steve Jobs nam dagen de tijd om zijn presentaties en talks voor te bereiden.",
 		"TedUrl": null
 	}, {
+		"Type": 2,
 		"Choices": null,
 		"FollowUpRandomEvents": null,
-		"Type": 2,
 		"Title": "Presentatie voorbereiden",
 		"Description": "Alcohol zorgt voor een vlottere babbel. De vorige keer had je wat gedronken voor presentatie. De presentatie ging toen heel goed. Wat doe je nu?",
 		"TedUrl": null
 	}, {
+		"Type": 2,
 		"Choices": null,
 		"FollowUpRandomEvents": null,
-		"Type": 2,
 		"Title": "Oh jee...",
 		"Description": "Tijdens je presentatie beginnen steeds meer mensen op hun mobiel te kijken. Wat doe je nu?",
 		"TedUrl": null
 	}, {
+		"Type": 2,
 		"Choices": null,
 		"FollowUpRandomEvents": null,
-		"Type": 2,
 		"Title": "Keuzes, keuzes...",
 		"Description": "Wil je je vrije tijd besteden om je presentatie te oefenen, of om een VLOG te maken?",
 		"TedUrl": null
 	}, {
+		"Type": 2,
 		"Choices": null,
 		"FollowUpRandomEvents": null,
-		"Type": 2,
 		"Title": "Hisk high reward",
 		"Description": "Je wil een presentatie gaan houden. Doe je dit voor 100 man in het gemeentehuis of voor 1000 man in het beursgebouw?",
 		"TedUrl": null
 	}, {
+		"Type": 2,
 		"Choices": null,
 		"FollowUpRandomEvents": null,
-		"Type": 2,
 		"Title": "Een goede voorbereiding...",
 		"Description": "Je gaat een presentatie voorbereiden, als je klaar bent ga je dan feedback vragen?",
 		"TedUrl": null
 	}, {
+		"Type": 2,
 		"Choices": null,
 		"FollowUpRandomEvents": null,
-		"Type": 2,
 		"Title": "Oh, oh...",
 		"Description": "De reactie is niet zo goed, wat ga je nu doen?",
 		"TedUrl": null
 	}, {
+		"Type": 2,
 		"Choices": null,
 		"FollowUpRandomEvents": null,
-		"Type": 2,
 		"Title": "Hou de aandacht erbij",
 		"Description": "Veel mensen pakken hun mobiel en letten niet meer op. Wat ga je doen om hun aandacht erbij te krijgen?",
 		"TedUrl": null
 	}, {
+		"Type": 2,
 		"Choices": null,
 		"FollowUpRandomEvents": null,
-		"Type": 2,
 		"Title": "Hoe langer, hoe beter?",
 		"Description": "Veel mensen beginnen te gapen en gaan onderuit gezakt zitten. Wat doe je om hun aandacht terug te krijgen?",
 		"TedUrl": null
 	}, {
+		"Type": 2,
 		"Choices": null,
 		"FollowUpRandomEvents": null,
-		"Type": 0,
 		"Title": "Goed bezig",
 		"Description": "Je kijkt rond in de zaal en je ziet verwondere en geïnterresseerde gezichten.",
 		"TedUrl": null
 	}, {
+		"Type": 2,
 		"Choices": null,
 		"FollowUpRandomEvents": null,
-		"Type": 0,
 		"Title": "Size DOES matter",
 		"Description": "Veel mensen zetten hun bril op of gaan met gespleten ogen kijken. Misschien de volgende keer een groter lettertype en groter plaatjes in de presentatie gebruiken.",
 		"TedUrl": null
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "How new technology helps blind people explore the world",
 		"Description": "How can technology help improve our quality of life? How can we navigate the world without using the sense of vision? Inventor and IBM Fellow Chieko Asakawa, who's been blind since the age of fourteen, is working on answering these questions. In a charming demo, she shows off some new technology that's helping blind people explore the world ever more independently ... because, she suggests, when we design for greater accessibility, everyone benefits.",
 		"TedUrl": "https://www.ted.com/talks/chieko_asakawa_how_new_technology_helps_blind_people_explore_the_world"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "Forget shopping. Soon you'll download your new clothes",
 		"Description": "Downloadable, printable clothing may be coming to a closet near you. What started as designer Danit Peleg's fashion school project turned into a collection of 3D-printed designs that have the strength and flexibility for everyday wear. Fashion is a very physical thing, she says. I wonder what our world will look like when our clothes will be digital.",
 		"TedUrl": "https://www.ted.com/talks/danit_peleg_forget_shopping_soon_you_ll_download_your_new_clothes"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "How I teach kids to love science",
 		"Description": "At the Harbour School in Hong Kong, TED Senior Fellow Cesar Harada teaches citizen science and invention to the next generation of environmentalists. He's moved his classroom into an industrial mega-space where imaginative kids work with wood, metal, chemistry, biology, optics and, occasionally, power tools to create solutions to the threats facing the world's oceans. There, he instills a universal lesson that his own parents taught him at a young age: You can make a mess, but you have to clean up after yourself.",
 		"TedUrl": "https://www.ted.com/talks/cesar_harada_how_i_teach_kids_to_love_science"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "The moral bias behind your search results",
 		"Description": "Search engines have become our most trusted sources of information and arbiters of truth. But can we ever get an unbiased search result? Swedish author and journalist Andreas Ekström argues that such a thing is a philosophical impossibility. In this thoughtful talk, he calls on us to strengthen the bonds between technology and the humanities, and he reminds us that behind every algorithm is a set of personal beliefs that no code can ever completely eradicate.",
 		"TedUrl": "https://www.ted.com/talks/andreas_ekstrom_the_moral_bias_behind_your_search_results"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "The future of flying robots",
 		"Description": "At his lab at the University of Pennsylvania, Vijay Kumar and his team have created autonomous aerial robots inspired by honeybees. Their latest breakthrough: Precision Farming, in which swarms of robots map, reconstruct and analyze every plant and piece of fruit in an orchard, providing vital information to farmers that can help improve yields and make water management smarter.",
 		"TedUrl": "https://www.ted.com/talks/vijay_kumar_the_future_of_flying_robots"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "An Internet without screens might look like this",
 		"Description": "Designer Tom Uglow is creating a future in which humanity's love for natural solutions and simple tools can coexist with our need for information and the devices that provide us with it. Reality is richer than screens, he says. We can have a happy place filled with the information we love that feels as natural as switching on lightbulb.",
 		"TedUrl": "https://www.ted.com/talks/tom_uglow_an_internet_without_screens_might_look_like_this"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "How to avoid surveillance ... with the phone in your pocket",
 		"Description": "Who is listening in on your phone calls? On a landline, it could be anyone, says privacy activist Christopher Soghoian, because surveillance backdoors are built into the phone system by default, to allow governments to listen in. But then again, so could a foreign intelligence service ... or a criminal. Which is why, says Soghoian, some tech companies are resisting governments' call to build the same backdoors into mobile phones and new messaging systems. From this TED Fellow, learn how some tech companies are working to keep your calls and messages private.",
 		"TedUrl": "https://www.ted.com/talks/christopher_soghoian_a_brief_history_of_phone_wiretapping_and_how_to_avoid_it"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "When online shaming spirals out of control",
 		"Description": "Twitter gives a voice to the voiceless, a way to speak up and hit back at perceived injustice. But sometimes, says Jon Ronson, things go too far. In a jaw-dropping story of how one un-funny tweet ruined a woman's life and career, Ronson shows how online commenters can end up behaving like a baying mob — and says it's time to rethink how we interact online.",
 		"TedUrl": "https://www.ted.com/talks/jon_ronson_what_happens_when_online_shaming_spirals_out_of_control"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "Design at the intersection of technology and biology",
 		"Description": "Designer and architect Neri Oxman is leading the search for ways in which digital fabrication technologies can interact with the biological world. Working at the intersection of computational design, additive manufacturing, materials engineering and synthetic biology, her lab is pioneering a new age of symbiosis between microorganisms, our bodies, our products and even our buildings.",
 		"TedUrl": "https://www.ted.com/talks/neri_oxman_design_at_the_intersection_of_technology_and_biology"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "These robots come to the rescue after a disaster",
 		"Description": "When disaster strikes, who's first on the scene? More and more, it’s a robot. In her lab, Robin Murphy builds robots that fly, tunnel, swim and crawl through disaster scenes, helping firefighters and rescue workers save more lives safely — and help communities return to normal up to three years faster.",
 		"TedUrl": "https://www.ted.com/talks/robin_murphy_these_robots_come_to_the_rescue_after_a_disaster"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "The single biggest reason why startups succeed",
 		"Description": "Bill Gross has founded a lot of startups, and incubated many others — and he got curious about why some succeeded and others failed. So he gathered data from hundreds of companies, his own and other people's, and ranked each company on five key factors. He found one factor that stands out from the others — and surprised even him.",
 		"TedUrl": "https://www.ted.com/talks/bill_gross_the_single_biggest_reason_why_startups_succeed"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "How a driverless car sees the road",
 		"Description": "Statistically, the least reliable part of the car is ... the driver. Chris Urmson heads up Google's driverless car program, one of several efforts to remove humans from the driver's seat. He talks about where his program is right now, and shares fascinating footage that shows how the car sees the road and makes autonomous decisions about what to do next.",
 		"TedUrl": "https://www.ted.com/talks/chris_urmson_how_a_driverless_car_sees_the_road"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "The first secret of design is ... noticing",
 		"Description": "As human beings, we get used to the way things are really fast. But for designers, the way things are is an opportunity ... Could things be better? How? In this funny, breezy talk, the man behind the iPod and the Nest thermostat shares some of his tips for noticing — and driving — change.",
 		"TedUrl": "https://www.ted.com/talks/tony_fadell_the_first_secret_of_design_is_noticing"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "This app knows how you feel — from the look on your face",
 		"Description": "Our emotions influence every aspect of our lives — how we learn, how we communicate, how we make decisions. Yet they’re absent from our digital lives; the devices and apps we interact with have no way of knowing how we feel. Scientist Rana el Kaliouby aims to change that. She demos a powerful new technology that reads your facial expressions and matches them to corresponding emotions. This “emotion engine” has big implications, she says, and could change not just how we interact with machines — but with each other.",
 		"TedUrl": "https://www.ted.com/talks/rana_el_kaliouby_this_app_knows_how_you_feel_from_the_look_on_your_face"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "Think your email's private? Think again",
 		"Description": "Sending an email message is like sending a postcard, says scientist Andy Yen in this thought-provoking talk: Anyone can read it. Yet encryption, the technology that protects the privacy of email communication, does exist. It's just that until now it has been difficult to install and a hassle to use. Showing a demo of an email program he designed with colleagues at CERN, Yen argues that encryption can be made simple to the point of becoming the default option, providing true email privacy to all.",
 		"TedUrl": "https://www.ted.com/talks/andy_yen_think_your_email_s_private_think_again"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "My simple invention, designed to keep my grandfather safe",
 		"Description": "60% of people with dementia wander off, an issue that can prove hugely stressful for both patients and caregivers. In this charming talk, hear how teen inventor Kenneth Shinozuka came up with a novel solution to help his night-wandering grandfather and the aunt who looks after him ... and how he hopes to help others with Alzheimer's.",
 		"TedUrl": "https://www.ted.com/talks/kenneth_shinozuka_my_simple_invention_designed_to_keep_my_grandfather_safe"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "The future of early cancer detection?",
 		"Description": "Along with a crew of technologists and scientists, Jorge Soto is developing a simple, noninvasive, open-source test that looks for early signs of multiple forms of cancer. Onstage at TEDGlobal 2014, he demonstrates a working prototype of the mobile platform for the first time.",
 		"TedUrl": "https://www.ted.com/talks/jorge_soto_the_future_of_early_cancer_detection"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "Don't like clickbait? Don't click",
 		"Description": "Doesn't it seem like a lot of online news sites have moved beyond reporting the news to openly inciting your outrage (and your page views)? News analyst Sally Kohn suggests — don't engage with news that looks like it just wants to make you mad. Instead, give your precious clicks to the news sites you truly trust.",
 		"TedUrl": "https://www.ted.com/talks/sally_kohn_don_t_like_clickbait_don_t_click"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "How giant websites design for you (and a billion others, too)",
 		"Description": "Facebook’s “like” and “share” buttons are seen 22 billion times a day, making them some of the most-viewed design elements ever created. Margaret Gould Stewart, Facebook’s director of product design, outlines three rules for design at such a massive scale—one so big that the tiniest of tweaks can cause global outrage, but also so large that the subtlest of improvements can positively impact the lives of many.",
 		"TedUrl": "https://www.ted.com/talks/margaret_gould_stewart_how_giant_websites_design_for_you_and_a_billion_others_too"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "What’s wrong with your pa$$w0rd?",
 		"Description": "Lorrie Faith Cranor studied thousands of real passwords to figure out the surprising, very common mistakes that users — and secured sites — make to compromise security. And how, you may ask, did she study thousands of real passwords without compromising the security of any users? That's a story in itself. It's secret data worth knowing, especially if your password is 123456 ...",
 		"TedUrl": "https://www.ted.com/talks/lorrie_faith_cranor_what_s_wrong_with_your_pa_w0rd"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "How the NSA betrayed the world's trust — time to act",
 		"Description": "Recent events have highlighted, underlined and bolded the fact that the United States is performing blanket surveillance on any foreigner whose data passes through an American entity — whether they are suspected of wrongdoing or not. This means that, essentially, every international user of the internet is being watched, says Mikko Hypponen. An important rant, wrapped with a plea: to find alternative solutions to using American companies for the world's information needs.",
 		"TedUrl": "https://www.ted.com/talks/mikko_hypponen_how_the_nsa_betrayed_the_world_s_trust_time_to_act"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "Can technology solve our big problems?",
 		"Description": "In 1969, Buzz Aldrin’s historical step onto the moon leapt mankind into an era of technological possibility. The awesome power of technology was to be used to solve all of our big problems. Fast forward to present day, and what's happened? Are mobile apps all we have to show for ourselves? Journalist Jason Pontin looks closely at the challenges we face to using technology effectively ... for problems that really matter.",
 		"TedUrl": "https://www.ted.com/talks/jason_pontin_can_technology_solve_our_big_problems"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "Are you human?",
 		"Description": "Have you ever wondered: Am I a human being? Ze Frank suggests a series of simple questions that will determine this. Please relax and follow the prompts. Let's begin ...",
 		"TedUrl": "https://www.ted.com/talks/ze_frank_are_you_human"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "Two nerdy obsessions meet — and it's magic",
 		"Description": "David Kwong is a magician who makes crossword puzzles — in other words, a pretty nerdy guy. And for his next trick ...",
 		"TedUrl": "https://www.ted.com/talks/david_kwong_two_nerdy_obsessions_meet_and_it_s_magic"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "The art of misdirection",
 		"Description": "Hailed as the greatest pickpocket in the world, Apollo Robbins studies the quirks of human behavior as he steals your watch. In a hilarious demonstration, Robbins samples the buffet of the TEDGlobal 2013 audience, showing how the flaws in our perception make it possible to swipe a wallet and leave it on its owner’s shoulder while they remain clueless.",
 		"TedUrl": "https://www.ted.com/talks/apollo_robbins_the_art_of_misdirection"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "Let’s try emotional correctness",
 		"Description": "It's time for liberals and conservatives to transcend their political differences and really listen to each other, says political pundit Sally Kohn. In this optimistic talk, Kohn shares what she learned as a progressive lesbian talking head on Fox News. It’s not about political correctness, she says, but rather, emotional correctness. (Contains profanity.)",
 		"TedUrl": "https://www.ted.com/talks/sally_kohn_let_s_try_emotional_correctness"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "I got 99 problems ... palsy is just one",
 		"Description": "I have cerebral palsy. I shake all the time, Maysoon Zayid announces at the beginning of this exhilarating, hilarious talk. (Really, it's hilarious.) I'm like Shakira meets Muhammad Ali. With grace and wit, the Arab-American comedian takes us on a whistle-stop tour of her adventures as an actress, stand-up comic, philanthropist and advocate for the disabled.",
 		"TedUrl": "https://www.ted.com/talks/maysoon_zayid_i_got_99_problems_palsy_is_just_one"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "Photos from a storm chaser",
 		"Description": "Photographer Camille Seaman has been chasing storms for 5 years. In this talk she shows stunning, surreal photos of the heavens in tumult.",
 		"TedUrl": "https://www.ted.com/talks/camille_seaman_photos_from_a_storm_chaser"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "What fear can teach us",
 		"Description": "Imagine you're a shipwrecked sailor adrift in the enormous Pacific. You can choose one of three directions and save yourself and your shipmates — but each choice comes with a fearful consequence too. How do you choose? In telling the story of the whaleship Essex, novelist Karen Thompson Walker shows how fear propels imagination, as it forces us to imagine the possible futures and how to cope with them.",
 		"TedUrl": "https://www.ted.com/talks/karen_thompson_walker_what_fear_can_teach_us"
 	}, {
-		"Choices": null,
-		"FollowUpRandomEvents": null,
 		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"FollowUpRandomEvents": null,
 		"Title": "What's your 200-year plan?",
 		"Description": "You might have a 5-year plan, but what about a 200-year plan? Artist Raghava KK has set his eyes on an ultra-long-term horizon; at TEDxSummit, he shows how it helps guide today's choices and tomorrow's goals — and encourages you to make your own 200-year plan too.",
 		"TedUrl": "https://www.ted.com/talks/raghava_kk_what_s_your_200_year_plan"
-	}]
+	}}]
 }
