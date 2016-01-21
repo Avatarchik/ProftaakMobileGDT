@@ -30,10 +30,13 @@ namespace RandomEventGenerator
         private void LoadRandomEvents()
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\School\Game Design\GPT - Proftaak\JSON Files";
+
             this._totalPath = Path.Combine(path, Filename);
             this._randomEvents = JsonSerializer.ReadFromFile(path, Filename).RandomEvents;
+
             foreach (RandomEvent ra in this._randomEvents)
                 ra.SetChoiceActionValues();
+
             this.lbCurrentEventAmount.Text = this._randomEvents.Count + " events";
         }
 
@@ -42,6 +45,7 @@ namespace RandomEventGenerator
             this.cmbEventType.DataSource = Enum.GetValues(typeof(RandomEvent.RandomEventType));
             this.cbActionType.DataSource = Enum.GetValues(typeof(RandomEvent.ChoiceAction.ActionType));
             this.cbChoiceActionsValue.DataSource = Enum.GetValues(typeof(PlayerSkill));
+            this.lbChoices.Items.Clear();
 
             foreach (Control c in this.Controls)
             {
@@ -129,20 +133,21 @@ namespace RandomEventGenerator
             }
         }
 
-
         #region Choices
-
-
         private void cbActionType_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.cbChoiceActionsValue.Visible = (RandomEvent.ChoiceAction.ActionType)this.cbActionType.SelectedItem == RandomEvent.ChoiceAction.ActionType.SkillIncrease;
         }
+
         private void btnAddChoiceAction_Click(object sender, EventArgs e)
         {
             if (!this.CreateChoiceAction())
                 return;
+
             this.tbChoicesValues.Clear();
+
             RandomEvent.ChoiceAction lastAction = this._currentChoiceActions[this._currentChoiceActions.Count - 1];
+
             this.lbChoiceActions.Items.Add(lastAction.ToString());
         }
 
@@ -151,37 +156,48 @@ namespace RandomEventGenerator
             try
             {
                 string[] values = this.tbChoicesValues.Text.Split(';');
+
                 RandomEvent.ChoiceAction.ActionType actionType = (RandomEvent.ChoiceAction.ActionType)this.cbActionType.SelectedItem;
+
                 switch (actionType)
                 {
                     case RandomEvent.ChoiceAction.ActionType.SkillIncrease:
                         int number = Convert.ToInt32(values[0]);
+
                         if (values.Length > 2)
                         {
                             var temp1 = (PlayerSkill)Convert.ToInt32(values[1]);
                             var temp2 = Convert.ToInt32(values[2]);
                         }
+
                         this._currentChoiceActions.Add(new RandomEvent.ChoiceAction(
                             actionType, (int)Enum.Parse(typeof(PlayerSkill),this.cbChoiceActionsValue.SelectedItem.ToString()) + ";"+ this.tbChoicesValues.Text));
+
                         break;
                     case RandomEvent.ChoiceAction.ActionType.FollowerIncrease:
                         int followers = Convert.ToInt32(values[0]);
+
                         if (values.Length > 2)
                         {
                             var temp1 = (PlayerSkill)Convert.ToInt32(values[1]);
                             var temp2 = Convert.ToInt32(values[2]);
                         }
+
                         this._currentChoiceActions.Add(new RandomEvent.ChoiceAction(actionType, this.tbChoicesValues.Text));
+
                         break;
                     case RandomEvent.ChoiceAction.ActionType.Ok:
                         this._currentChoiceActions.Add(new RandomEvent.ChoiceAction(actionType));
+
                         break;
                     case RandomEvent.ChoiceAction.ActionType.NewLightbulbNear:
                         bool shouldRespawn = Convert.ToBoolean(values[0]);
                         this._currentChoiceActions.Add(new RandomEvent.ChoiceAction(actionType, this.tbChoicesValues.Text));
+
                         break;
                     case RandomEvent.ChoiceAction.ActionType.VisitUrl:
                         this._currentChoiceActions.Add(new RandomEvent.ChoiceAction(actionType, this.tbChoicesValues.Text));
+
                         break;
                     case RandomEvent.ChoiceAction.ActionType.Tutorial:
                         throw new Exception("Tutorial is geen keuze, sorry :)");
@@ -193,6 +209,7 @@ namespace RandomEventGenerator
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+
                 return false;
             }
         }
@@ -202,6 +219,7 @@ namespace RandomEventGenerator
             if (!this.IsChoiceValid())
             {
                 MessageBox.Show("Niet alles is ingevuld");
+
                 return;
             }
 
@@ -213,6 +231,7 @@ namespace RandomEventGenerator
         {
             if (String.IsNullOrWhiteSpace(this.tbxChoicesText.Text))
                 return false;
+
             return this.lbChoiceActions.Items.Count != 0;
         }
 
@@ -229,26 +248,29 @@ namespace RandomEventGenerator
             this.tbChoicesValues.Clear();
             this.tbxChoicesText.Clear();
         }
-
         #endregion
     }
 
 
     public static class ExtensionMethods
     {
-
         public static string ArrayToString(this object[] array)
         {
             StringBuilder sb = new StringBuilder();
+
             foreach (object o in array)
                 sb.Append(o + ";");
+
             return sb.ToString().Remove(sb.ToString().Length - 1, 1);
         }
+
         public static string ArrayToString(this int[] array)
         {
             StringBuilder sb = new StringBuilder();
+
             foreach (int o in array)
                 sb.Append(o + ";");
+
             return sb.ToString().Remove(sb.ToString().Length - 1, 1);
         }
     }
