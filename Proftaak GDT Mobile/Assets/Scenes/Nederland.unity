@@ -7858,6 +7858,9 @@ MonoBehaviour:
     type: 3}
   NotificationSound: {fileID: 8300000, guid: c3897392cad10814589e49edcaa031cf, type: 3}
   ButtonSpawnSound: {fileID: 8300000, guid: 72048ec822689864a81de3da0a9120c5, type: 3}
+  _upgradeAvailableSound: {fileID: 8300000, guid: 1c0e26dc77d3b7b4984e4c99e1e0a31e,
+    type: 3}
+  _upgradeDoneSound: {fileID: 8300000, guid: f2f3d844fe6a9ee41bd55cd8b72da641, type: 3}
 --- !u!82 &2120963306
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7920,7 +7923,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -7994,7 +7997,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:

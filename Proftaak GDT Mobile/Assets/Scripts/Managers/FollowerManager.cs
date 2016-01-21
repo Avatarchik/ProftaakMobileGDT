@@ -5,7 +5,6 @@
     using Assets.Scripts.Followers;
     using UnityEngine;
     using UnityEngine.UI;
-    using Random = UnityEngine.Random;
 
     public class FollowerManager : MonoBehaviour
     {
@@ -38,14 +37,24 @@
         [SerializeField]
         private FollowerGroup _firstFollowerGroup;
 
+        private List<int> _followerEhancementThresholds;
+
         // ReSharper disable once UnusedMember.Local
         private void Awake()
         {
             if (Instance == null)
                 Instance = this;
+            this.SetupFollowerEnhancementTresholds();
             this.InvokeRepeating("IncreaseFollowers", 0f, 0.5f);
         }
 
+        private void SetupFollowerEnhancementTresholds()
+        {
+            this._followerEhancementThresholds = new List<int>
+            {
+                500, 1500, 5000, 15000, 50000,150000, 500000,1500000, 5000000, 15000000
+            };
+        }
         public void StartFollowers()
         {
             this._firstFollowerGroup.gameObject.SetActive(true);
@@ -73,6 +82,13 @@
                 fg.Followers += 1 + (knowledgeSkills * 2)
                     + (int)((fg.Followers * 0.005f) + (fg.Followers * 0.005f * knowledgeSkills));
             }
+            if (this._followerEhancementThresholds.Count > 0)
+                if (this.TotalFollowers >= this._followerEhancementThresholds[0])
+                {
+                    Player.Instance.UnusedSkillPoints++;
+                    AudioManager.Instance.PlayUpgradesAvailable();
+                    this._followerEhancementThresholds.RemoveAt(0);
+                }
         }
 
         public void CreateNewFollowerGroup(Vector2 pos, int startFollowers)
@@ -85,5 +101,6 @@
             this.FollowerGroups.Add(newGroup);
 
         }
+
     }
 }

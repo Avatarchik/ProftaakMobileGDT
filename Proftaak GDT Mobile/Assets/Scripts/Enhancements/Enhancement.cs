@@ -75,6 +75,7 @@
             this.RequiredPoints--;
             Player.Instance.UnusedSkillPoints--;
             if (this.RequiredPoints > 0) return;
+            AudioManager.Instance.PlayUpgradeDone();
             this.Unlocked = true;
             Player.Instance.UnlockedEnhancements.Add(this);
             this.UpdateStatus();

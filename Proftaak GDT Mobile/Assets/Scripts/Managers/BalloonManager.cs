@@ -9,9 +9,7 @@
     public class BalloonManager : MonoBehaviour
     {
         public static BalloonManager Instance;
-
-        public AudioManager audioM;
-
+        
         public float OffsetPosX = 15f;
         public float OffsetPosY = 15f;
         public float DivideByScale = 0.03f;
@@ -136,20 +134,20 @@
 
         public void Respawn(Balloon balloon)
         {
-            audioM.PlaySpawnObject();
+            AudioManager.Instance.PlaySpawnObject();
             balloon.transform.position = this.NewPosition();
             balloon.gameObject.SetActive(true);
         }
 
         public void StartBalloons()
         {
-            audioM.PlaySpawnObject();
+            AudioManager.Instance.PlaySpawnObject();
             this._firstRandomEventBalloon.gameObject.SetActive(true);
         }
 
         public void SpawnLightbulb(bool respawn)
         {
-            audioM.PlaySpawnObject();
+            AudioManager.Instance.PlaySpawnObject();
             Vector3 pos = this.NewPosition();
             LightbulbBalloon go = (LightbulbBalloon)Instantiate(this._lightbulbBalloonPrefab, pos, Quaternion.identity);
             go.ShouldRespawn = respawn;
@@ -159,7 +157,7 @@
         }
         public void SpawnRandomEvent(bool respawn)
         {
-            audioM.PlaySpawnObject();
+            AudioManager.Instance.PlaySpawnObject();
             Vector3 pos = this.NewPosition();
             RandomEventBalloon go = (RandomEventBalloon)Instantiate(this._randomEventBalloonPrefab, pos, Quaternion.identity);
             go.ShouldRespawn = respawn;
