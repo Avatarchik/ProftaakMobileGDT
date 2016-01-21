@@ -5,7 +5,7 @@
     using Followers;
     using UnityEngine;
     using UnityEngine.UI;
-
+    using UnityEngine.SceneManagement;
     public class FollowerManager : MonoBehaviour
     {
         public static FollowerManager Instance;
@@ -18,6 +18,8 @@
         private float _followersPerKnowledgeSkillPercentage = 0.001f;
 
         public List<FollowerGroup> FollowerGroups;
+
+        private float _time;
 
         public int TotalFollowers
         {
@@ -66,6 +68,7 @@
                 Instance = this;
             this.SetupFollowerEnhancementTresholds();
             this.InvokeRepeating("IncreaseFollowers", 0f, 0.5f);
+            this.InvokeRepeating("IncreaseTime", 0f, 1f);
         }
 
         private void SetupFollowerEnhancementTresholds()
@@ -85,6 +88,13 @@
         {
             // TODO: Misschien niet in de Update?
             this.UpdateFollowersText();
+
+            if (this.TotalFollowers > 17000000)
+            {
+                Debug.Log("TotalTime: " + this._time);
+
+                SceneManager.LoadScene("EndScreen");
+            }
         }
 
         public void UpdateFollowersText()
@@ -124,6 +134,10 @@
             newGroup.Followers = startFollowers;
             this.FollowerGroups.Add(newGroup);
 
+        }
+        public void IncreaseTime()
+        {
+            this._time += 1;
         }
 
     }
