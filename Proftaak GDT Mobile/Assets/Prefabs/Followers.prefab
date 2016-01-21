@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _followers: 10
-  DevideBy: 8000000
+  DevideBy: 16
   StartSize: 0.05
 --- !u!222 &22266378
 CanvasRenderer:

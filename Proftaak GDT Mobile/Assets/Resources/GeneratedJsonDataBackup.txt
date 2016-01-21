@@ -127,6 +127,69 @@
 		"Description": "Je hebt je goed voorbereid en gaat nu de presentatie houden. Doe je dit voor 100 man in het gemeentehuis of voor 1000 man in het beursgebouw?",
 		"TedUrl": null
 	}, {
+		"Type": 2,
+		"Choices": null,
+		"FollowUpRandomEvents": null,
+		"Title": "Presentatie voorbereiden",
+		"Description": "Alcohol zorgt voor een vlottere babbel. De vorige keer had je wat gedronken voor de presentatie. De presentatie ging toen heel goed. Wat doe je nu?",
+		"TedUrl": null
+	}, {
+		"Type": 2,
+		"Choices": null,
+		"FollowUpRandomEvents": null,
+		"Title": "Oh jee...",
+		"Description": "Tijdens je presentatie beginnen steeds meer mensen op hun mobiel te kijken. Wat doe je nu?",
+		"TedUrl": null
+	}, {
+		"Type": 2,
+		"Choices": null,
+		"FollowUpRandomEvents": null,
+		"Title": "Keuzes, keuzes...",
+		"Description": "Wil je je vrije tijd besteden om je presentatie te oefenen, of om een VLOG te maken?",
+		"TedUrl": null
+	}, {
+		"Type": 2,
+		"Choices": null,
+		"FollowUpRandomEvents": null,
+		"Title": "Een goede voorbereiding...",
+		"Description": "Je gaat een presentatie voorbereiden, als je klaar bent ga je dan feedback vragen?",
+		"TedUrl": null
+	}, {
+		"Type": 2,
+		"Choices": null,
+		"FollowUpRandomEvents": null,
+		"Title": "Oh, oh...",
+		"Description": "De reactie is niet zo goed, wat ga je nu doen?",
+		"TedUrl": null
+	}, {
+		"Type": 2,
+		"Choices": null,
+		"FollowUpRandomEvents": null,
+		"Title": "Hou de aandacht erbij",
+		"Description": "Veel mensen pakken hun mobiel en letten niet meer op. Wat ga je doen om hun aandacht erbij te krijgen?",
+		"TedUrl": null
+	}, {
+		"Type": 2,
+		"Choices": null,
+		"FollowUpRandomEvents": null,
+		"Title": "Hoe langer, hoe beter?",
+		"Description": "Veel mensen beginnen te gapen en gaan onderuit gezakt zitten. Wat doe je om hun aandacht terug te krijgen?",
+		"TedUrl": null
+	}, {
+		"Type": 2,
+		"Choices": null,
+		"FollowUpRandomEvents": null,
+		"Title": "Goed bezig",
+		"Description": "Je kijkt rond in de zaal en je ziet verwondere en geïnterresseerde gezichten.",
+		"TedUrl": null
+	}, {
+		"Type": 2,
+		"Choices": null,
+		"FollowUpRandomEvents": null,
+		"Title": "Size DOES matter",
+		"Description": "Veel mensen zetten hun bril op of gaan met gespleten ogen kijken. Misschien de volgende keer een groter lettertype en groter plaatjes in de presentatie gebruiken.",
+		"TedUrl": null
+	}, {
 		"Type": 1,
 		"Choices": [{
 			"Actions": [{
@@ -195,76 +258,6 @@
 		"FollowUpRandomEvents": null,
 		"Title": "Wist je dat...",
 		"Description": "Zelfs een ervaren spreker als Steve Jobs nam dagen de tijd om zijn presentaties en talks voor te bereiden.",
-		"TedUrl": null
-	}, {
-		"Type": 2,
-		"Choices": null,
-		"FollowUpRandomEvents": null,
-		"Title": "Presentatie voorbereiden",
-		"Description": "Alcohol zorgt voor een vlottere babbel. De vorige keer had je wat gedronken voor presentatie. De presentatie ging toen heel goed. Wat doe je nu?",
-		"TedUrl": null
-	}, {
-		"Type": 2,
-		"Choices": null,
-		"FollowUpRandomEvents": null,
-		"Title": "Oh jee...",
-		"Description": "Tijdens je presentatie beginnen steeds meer mensen op hun mobiel te kijken. Wat doe je nu?",
-		"TedUrl": null
-	}, {
-		"Type": 2,
-		"Choices": null,
-		"FollowUpRandomEvents": null,
-		"Title": "Keuzes, keuzes...",
-		"Description": "Wil je je vrije tijd besteden om je presentatie te oefenen, of om een VLOG te maken?",
-		"TedUrl": null
-	}, {
-		"Type": 2,
-		"Choices": null,
-		"FollowUpRandomEvents": null,
-		"Title": "Hisk high reward",
-		"Description": "Je wil een presentatie gaan houden. Doe je dit voor 100 man in het gemeentehuis of voor 1000 man in het beursgebouw?",
-		"TedUrl": null
-	}, {
-		"Type": 2,
-		"Choices": null,
-		"FollowUpRandomEvents": null,
-		"Title": "Een goede voorbereiding...",
-		"Description": "Je gaat een presentatie voorbereiden, als je klaar bent ga je dan feedback vragen?",
-		"TedUrl": null
-	}, {
-		"Type": 2,
-		"Choices": null,
-		"FollowUpRandomEvents": null,
-		"Title": "Oh, oh...",
-		"Description": "De reactie is niet zo goed, wat ga je nu doen?",
-		"TedUrl": null
-	}, {
-		"Type": 2,
-		"Choices": null,
-		"FollowUpRandomEvents": null,
-		"Title": "Hou de aandacht erbij",
-		"Description": "Veel mensen pakken hun mobiel en letten niet meer op. Wat ga je doen om hun aandacht erbij te krijgen?",
-		"TedUrl": null
-	}, {
-		"Type": 2,
-		"Choices": null,
-		"FollowUpRandomEvents": null,
-		"Title": "Hoe langer, hoe beter?",
-		"Description": "Veel mensen beginnen te gapen en gaan onderuit gezakt zitten. Wat doe je om hun aandacht terug te krijgen?",
-		"TedUrl": null
-	}, {
-		"Type": 2,
-		"Choices": null,
-		"FollowUpRandomEvents": null,
-		"Title": "Goed bezig",
-		"Description": "Je kijkt rond in de zaal en je ziet verwondere en geïnterresseerde gezichten.",
-		"TedUrl": null
-	}, {
-		"Type": 2,
-		"Choices": null,
-		"FollowUpRandomEvents": null,
-		"Title": "Size DOES matter",
-		"Description": "Veel mensen zetten hun bril op of gaan met gespleten ogen kijken. Misschien de volgende keer een groter lettertype en groter plaatjes in de presentatie gebruiken.",
 		"TedUrl": null
 	}, {
 		"Type": 3,

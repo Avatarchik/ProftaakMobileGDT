@@ -65,7 +65,6 @@ namespace Assets.Scripts.Managers
                 Instance = this;
             }
 
-
             List<RandomEvent> tempList = JsonSerializer.ReadFromFile("GeneratedJsonData").RandomEvents;
 
             // TODO iets in deze richting voor Notifications.
