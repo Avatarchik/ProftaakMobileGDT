@@ -1,4 +1,6 @@
-﻿namespace Assets.Scripts.IdeaScene
+﻿using UnityEngine.SceneManagement;
+
+namespace Assets.Scripts.IdeaScene
 {
     using System;
     using UnityEngine;
@@ -24,7 +26,7 @@
                 Player.Instance.PlayerName= this.SpelerNaamTb.text;
                 Player.Instance.IdeaName = this.IdeeNaamTb.text;
                 Player.Instance.Category = (IdeaCategory)Enum.Parse(typeof(IdeaCategory), this.CategorieDropDrown.captionText.text.Replace(" ","_"));
-                Application.LoadLevel("Nederland");
+                SceneManager.LoadScene("Nederland");
             }
             else
             {
@@ -35,7 +37,7 @@
 
         public void BackButtonClicked()
         {
-            Application.LoadLevel("MainMenu");
+            SceneManager.LoadScene("MainMenu");
         }
 
     }
