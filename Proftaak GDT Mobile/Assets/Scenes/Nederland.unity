@@ -7644,6 +7644,7 @@ MonoBehaviour:
     type: 2}
   _randomEventBalloonPrefab: {fileID: 11424886, guid: 4ad62a7c926a3e64d87db38803949ae3,
     type: 2}
+  _bubblePrefab: {fileID: 156500, guid: 343a91479564d7f4ba4bc3eaf6065b62, type: 2}
   _balloonsCanvas: {fileID: 690547435}
 --- !u!114 &2120963301
 MonoBehaviour:

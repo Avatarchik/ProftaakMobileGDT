@@ -58,7 +58,7 @@ namespace Assets.Scripts.RandomEvents
         [Serializable]
         public class ChoiceAction
         {
-            public enum ActionType { SkillIncrease = 0, FollowerIncrease = 1, Ok = 2, NewLightbulbNear = 3, VisitUrl = 4, Tutorial = 5}
+            public enum ActionType { SkillIncrease = 0, FollowerIncrease = 1, Ok = 2, NewLightbulbNear = 3, VisitUrl = 4, Tutorial = 5 }
 
             public ActionType Action;
             public object[] Values;
@@ -72,6 +72,14 @@ namespace Assets.Scripts.RandomEvents
             public ChoiceAction(ActionType action)
             {
                 this.Action = action;
+            }
+
+            public ChoiceAction(ActionType skillIncrease, params object[] values)
+            {
+
+                this.Action = skillIncrease;
+                this.Values = values;
+
             }
 
             public void SetValues()

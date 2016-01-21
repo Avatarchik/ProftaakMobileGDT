@@ -26,6 +26,8 @@
         private LightbulbBalloon _lightbulbBalloonPrefab;
         [SerializeField]
         private RandomEventBalloon _randomEventBalloonPrefab;
+        [SerializeField]
+        private GameObject _bubblePrefab;
 
         [SerializeField]
         private Canvas _balloonsCanvas;
@@ -45,11 +47,21 @@
         private void Update()
         {
             Ray ray = new Ray(Vector3.back, Vector3.down);
+            Vector3 spawnPos = Vector3.zero;
             if (Input.touchCount > 0)
+            {
                 ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+                spawnPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+            }
             else if (Input.GetMouseButtonDown(0))
+            {
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                spawnPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            }
             if (ray.origin == Vector3.back && ray.direction == Vector3.down) return;
+
+            GameObject go = (GameObject)Instantiate(this._bubblePrefab, spawnPos, Quaternion.identity);
+            go.transform.SetParent(this._balloonsCanvas.transform);
 
             RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, new Vector3(0, 0, 2000f));
             //Debug.DrawRay(ray.origin, new Vector3(0, 0, 1500f), Color.green, 3f);
@@ -90,12 +102,12 @@
                         maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
                         break;
                     case 3: // down
-                        //Debug.Log("bottom side");
-                        //minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
-                        //maxX = groups[i].transform.position.x + this.OffsetPosX + groups[i].transform.localScale.x / this.DivideByScale;
-                        //minY = groups[i].transform.position.y - this.OffsetPosY - groups[i].transform.localScale.x / this.DivideByScale;
-                        //maxY = groups[i].transform.position.y - groups[i].transform.localScale.x / this.DivideByScale;
-                        
+                            //Debug.Log("bottom side");
+                            //minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
+                            //maxX = groups[i].transform.position.x + this.OffsetPosX + groups[i].transform.localScale.x / this.DivideByScale;
+                            //minY = groups[i].transform.position.y - this.OffsetPosY - groups[i].transform.localScale.x / this.DivideByScale;
+                            //maxY = groups[i].transform.position.y - groups[i].transform.localScale.x / this.DivideByScale;
+
 
                         // we willen eigenlijk nooit shit beneden spawnen
                         // top
@@ -134,7 +146,7 @@
         public void SpawnLightbulb(bool respawn)
         {
             Vector3 pos = this.NewPosition();
-            LightbulbBalloon go = (LightbulbBalloon) Instantiate(this._lightbulbBalloonPrefab, pos, Quaternion.identity);
+            LightbulbBalloon go = (LightbulbBalloon)Instantiate(this._lightbulbBalloonPrefab, pos, Quaternion.identity);
             go.ShouldRespawn = respawn;
             go.transform.SetParent(this._balloonsCanvas.transform);
             if (!go.gameObject.activeSelf)

@@ -2,7 +2,8 @@
 
 namespace Assets.Scripts.Followers
 {
-    public class FollowerGroup : MonoBehaviour {
+    public class FollowerGroup : MonoBehaviour
+    {
 
 
 
@@ -10,7 +11,17 @@ namespace Assets.Scripts.Followers
 
         [SerializeField]
         private int _followers;
-        public int Followers { get { return this._followers; } set { this._followers = value; } }
+        public int Followers
+        {
+            get { return this._followers; }
+            set
+            {
+                if (value < 0)
+                    this._followers = 0;
+                else
+                    this._followers = value;
+            }
+        }
 
         public float DevideBy = 5000000f;
         public float StartSize = 1f;

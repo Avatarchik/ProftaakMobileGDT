@@ -12,6 +12,7 @@
         private Canvas _upgradeCanvas;
         [SerializeField]
         private Canvas _UICanvas;
+        public Canvas UICanvas { get { return this._UICanvas; } }
         //[SerializeField]
         //private Text _attributesText;
         
