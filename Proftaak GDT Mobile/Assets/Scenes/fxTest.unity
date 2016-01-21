@@ -206,11 +206,53 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1045105434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.43048596, y: 4.0367007, z: -1.3633194}
+  m_LocalPosition: {x: 6.35, y: 7.4, z: -6.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!1001 &1245014941
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 453024, guid: 343a91479564d7f4ba4bc3eaf6065b62, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 453024, guid: 343a91479564d7f4ba4bc3eaf6065b62, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 453024, guid: 343a91479564d7f4ba4bc3eaf6065b62, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 6.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 453024, guid: 343a91479564d7f4ba4bc3eaf6065b62, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 453024, guid: 343a91479564d7f4ba4bc3eaf6065b62, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453024, guid: 343a91479564d7f4ba4bc3eaf6065b62, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453024, guid: 343a91479564d7f4ba4bc3eaf6065b62, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 453024, guid: 343a91479564d7f4ba4bc3eaf6065b62, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 343a91479564d7f4ba4bc3eaf6065b62, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1359966804
 GameObject:
   m_ObjectHideFlags: 0
