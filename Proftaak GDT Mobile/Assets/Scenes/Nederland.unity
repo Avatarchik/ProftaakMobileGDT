@@ -7914,6 +7914,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb89a8b20a681f54d9009c7b77561286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _followersPerPercentage: 0.001
+  _followersPerKnowledgeSkill: 5
+  _followersPerKnowledgeSkillPercentage: 0.001
   FollowerGroups:
   - {fileID: 1075594558}
   _followersText: {fileID: 1042416207}

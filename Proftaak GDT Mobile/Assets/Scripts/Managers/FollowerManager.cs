@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using Followers;
     using UnityEngine;
     using UnityEngine.UI;
@@ -11,6 +10,12 @@
     {
         public static FollowerManager Instance;
 
+        [SerializeField]
+        private float _followersPerPercentage = 0.001f;
+        [SerializeField]
+        private float _followersPerKnowledgeSkill = 5;
+        [SerializeField]
+        private float _followersPerKnowledgeSkillPercentage = 0.001f;
 
         public List<FollowerGroup> FollowerGroups;
 
@@ -92,11 +97,15 @@
         {
             // TODO: Fix magic numbers
             int knowledgeSkills = Player.Instance.KnowledgeSkills;
+            int totalFromKnowledgeSkills = 0;
             foreach (FollowerGroup fg in this.FollowerGroups)
             {
-                fg.Followers += 1 + (knowledgeSkills * 2)
-                    + (int)((fg.Followers * 0.005f) + (fg.Followers * 0.005f * knowledgeSkills));
+                int followersFromKnowledgeSkills = (int)((knowledgeSkills * this._followersPerKnowledgeSkill) 
+                    + (fg.Followers * this._followersPerKnowledgeSkillPercentage * knowledgeSkills));
+                totalFromKnowledgeSkills += followersFromKnowledgeSkills;
+                fg.Followers += 1 + (int)((fg.Followers * this._followersPerPercentage) + followersFromKnowledgeSkills);
             }
+            Debug.Log("Total followers from knowledge: " + totalFromKnowledgeSkills);
             if (this._followerEhancementThresholds.Count > 0)
                 if (this.TotalFollowers >= this._followerEhancementThresholds[0])
                 {
