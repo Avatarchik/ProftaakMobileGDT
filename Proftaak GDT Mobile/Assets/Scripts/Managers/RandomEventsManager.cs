@@ -67,6 +67,13 @@ namespace Assets.Scripts.Managers
 
 
             List<RandomEvent> tempList = JsonSerializer.ReadFromFile("GeneratedJsonData").RandomEvents;
+            
+            // TODO iets in deze richting voor Notifications.
+            //List<RandomEvent> shuffleEvents = new List<RandomEvent>(tempList);
+            //shuffleEvents.RemoveRange(0, 4);
+            //shuffleEvents.Shuffle();
+            //this._randomEvents = new List<RandomEvent>(tempList.GetRange(0,4));
+            //this._randomEvents.AddRange(shuffleEvents);
 
             this._randomEvents = tempList;
 
