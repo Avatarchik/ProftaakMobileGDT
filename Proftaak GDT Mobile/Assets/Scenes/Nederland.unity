@@ -8029,11 +8029,7 @@ MonoBehaviour:
   _randomEventsCanvas: {fileID: 1437207876}
   _temporaryTutorialCanvas: {fileID: 1098680446}
   _UI: {fileID: 966643022}
-<<<<<<< HEAD
-  _feedBack: {fileID: 0}
-=======
   _feedBack: {fileID: 187152, guid: 408ed3c2e46e46149bcb74d1b181b029, type: 2}
->>>>>>> c4d6b765688f2cb8d9a229d6490f8675c2c47f50
   _randomEvents: []
   _button1: {fileID: 406042595}
   _button1Text: {fileID: 1131076004}
