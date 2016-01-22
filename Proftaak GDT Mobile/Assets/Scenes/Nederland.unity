@@ -8049,7 +8049,7 @@ MonoBehaviour:
   _randomEventsCanvas: {fileID: 1437207876}
   _temporaryTutorialCanvas: {fileID: 1098680446}
   _UI: {fileID: 966643022}
-  feedBack: {fileID: 187152, guid: 408ed3c2e46e46149bcb74d1b181b029, type: 2}
+  _feedBack: {fileID: 0}
   _randomEvents: []
   _button1: {fileID: 406042595}
   _button1Text: {fileID: 1131076004}
@@ -8160,6 +8160,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c73c9e1868df9ac428aa165be41ae3e6, type: 3}
   - {fileID: 0}
   - {fileID: 21300000, guid: 22e0a410bf3c93f48858bb17673d7884, type: 3}
+  - {fileID: 21300000, guid: 4d39ff5a1bdf6c349b0c0fb85a187a93, type: 3}
   _placeHolder: {fileID: 1995460400}
   _title: {fileID: 977269817}
   _description: {fileID: 75462537}
@@ -8180,7 +8181,7 @@ MonoBehaviour:
   FeedbackAudioSource: {fileID: 2120963307}
   NotificationAudioSource: {fileID: 2120963306}
   ButtonClickSound: {fileID: 8300000, guid: 72048ec822689864a81de3da0a9120c5, type: 3}
-  FeedbackPositiveSound: {fileID: 8300000, guid: 29b5a18246b7f6d41a3d9f1aa2968963,
+  FeedbackPositiveSound: {fileID: 8300000, guid: dc732e6217573cd47913da9fcf7cd144,
     type: 3}
   FeedbackNegativeSound: {fileID: 8300000, guid: fccce1d2d053b2745b98d7028a2277b6,
     type: 3}

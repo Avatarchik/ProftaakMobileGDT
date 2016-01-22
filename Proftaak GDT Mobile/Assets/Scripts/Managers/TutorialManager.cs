@@ -87,6 +87,24 @@ namespace Assets.Scripts.Managers
                         break;
                     }
                 case 2:
+                {
+                        this._currentStep = new Step("Volgers", "Je volgers worden weergegeven als het rode cirkeltje wat je hieronder ziet. Deze wordt steeds groter als je meer volgers krijgt.", this.Images[8]);
+
+                        this._title.text = this._currentStep.TitleStep;
+                        this._description.text = this._currentStep.DescriptionStep;
+
+                        if (this._currentStep.RequiresImage)
+                        {
+                            this._placeHolder.enabled = true;
+                            this._placeHolder.sprite = this._currentStep.PlaceHolder;
+                        }
+                        else
+                        {
+                            this._placeHolder.enabled = false;
+                        }
+                        break;
+                    }
+                case 3:
                     {
                         this._currentStep = new Step("Vaardigheden", "Onder aan het scherm zie je 3 icoontjes die je vaardigheden voorstellen. Deze vaardigheden hebben allemaal invloed op de random events die door het spel heen verschijnen, maar daar gaan we het later nog over hebben. Deze eerste staat voor je presentatie-vaardigheden.", this.Images[1]);
 
@@ -105,7 +123,7 @@ namespace Assets.Scripts.Managers
                         }
                         break;
                     }
-                case 3:
+                case 4:
                     {
                         this._currentStep = new Step("Vaardigheden", "Deze tweede staat voor hoe krachtig je social-media vaardigheden zijn.", this.Images[2]);
 
@@ -124,7 +142,7 @@ namespace Assets.Scripts.Managers
                         break;
                     }
 
-                case 4:
+                case 5:
                     {
                         this._currentStep = new Step("Vaardigheden", "En tot slot staat dit laatste icoon ervoor hoe groot je kennis over je idee is.", this.Images[3]);
 
@@ -142,7 +160,7 @@ namespace Assets.Scripts.Managers
                         }
                         break;
                     }
-                case 5:
+                case 6:
                     {
                         this._currentStep = new Step("Random Events", "Random events zijn events in het spel waarbij je bepaalde keuzes moet maken om je idee te verspreiden. Deze beïnvloeden de groei van je idee enorm.", null);
 
@@ -160,7 +178,7 @@ namespace Assets.Scripts.Managers
                         }
                         break;
                     }
-                case 6:
+                case 7:
                     {
                         this._currentStep = new Step("Random Events", "Als je dit symbool op de landkaart ziet verschijnen moet je er snel op drukken voor dat deze verdwijnt! Dit zal een random event starten.", this.Images[4]);
 
@@ -178,7 +196,7 @@ namespace Assets.Scripts.Managers
                         }
                         break;
                     }
-                case 7:
+                case 8:
                     {
                         this._currentStep = new Step("Random Events", "Ook als dit symbool verschijnt zal je deze snel moeten indrukken! Dit zijn potentiële volgers die je kan overhalen om je idee te steunen.", this.Images[5]);
 
@@ -196,9 +214,9 @@ namespace Assets.Scripts.Managers
                         }
                         break;
                     }
-                case 8:
+                case 9:
                     {
-                        this._currentStep = new Step("Verbeteringen", "Je kan natuurlijk aan jezelf en je idee werken. Onder aan het scherm zie je een rode knop met 'Vaardigheden'. Als je deze knop indrukt kun je verschillende vaardigheden bekijken en verbeteren!", this.Images[6]);
+                        this._currentStep = new Step("Verbeteringen", "Je kan natuurlijk aan jezelf en je idee werken. Onder aan het scherm zie je een rode knop met 'Vaardigheden' Als je deze knop indrukt kun je verschillende vaardigheden bekijken en verbeteren!", this.Images[6]);
 
                         this._title.text = this._currentStep.TitleStep;
                         this._description.text = this._currentStep.DescriptionStep;
@@ -214,7 +232,7 @@ namespace Assets.Scripts.Managers
                         }
                         break;
                     }
-                case 9:
+                case 10:
                     {
                         this._currentStep = new Step("Verbeteringen", "Om aan jezelf te werken heb je ervaringspunten nodig. Je kunt door verschillende random events en keuzes te maken deze punten verdienen!", this.Images[7]);
 
@@ -232,7 +250,7 @@ namespace Assets.Scripts.Managers
                         }
                         break;
                     }
-                case 10:
+                case 11:
                     {
                         this._currentStep = new Step("That's all folks!", "Je bent nu klaar om je idee te gaan verspreiden! \n Heel veel succes!", null);
 
