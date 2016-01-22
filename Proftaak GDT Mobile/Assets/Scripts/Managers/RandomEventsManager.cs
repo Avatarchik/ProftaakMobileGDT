@@ -367,7 +367,15 @@ namespace Assets.Scripts.Managers
                                     default:
                                         throw new ArgumentOutOfRangeException();
                                 }
-                            visualFeedBack("+ " + increaseValue.ToString()).GetComponent<Animator>().SetTrigger("SkillUp");
+                            if(increaseValue < 0)
+                            {
+                                visualFeedBack(increaseValue.ToString()).GetComponent<Animator>().SetTrigger("SkillUp");
+                            }
+                            else
+                            {
+                                visualFeedBack("+ " + increaseValue.ToString()).GetComponent<Animator>().SetTrigger("SkillUp");
+                            }
+                            
                             actionValueSkill += increaseValue;
                             IncreasePlayerSkill((PlayerSkill)action.Values[0], increaseValue);
                             break;
@@ -469,7 +477,7 @@ namespace Assets.Scripts.Managers
 
 
 
-        GameObject  visualFeedBack(string text)
+       public GameObject  visualFeedBack(string text)
         {
             GameObject temp = Instantiate(feedBack) as GameObject;
             RectTransform tempRect = temp.GetComponent<RectTransform>();
