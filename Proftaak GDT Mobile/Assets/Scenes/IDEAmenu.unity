@@ -880,9 +880,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Je hebt een idee en wilt dit verspreiden. Met genoeg volgers mag je op een
-    TED event spreken. Vul hier eerst je naam in. Daarna ook de naam en de categorie
-    van je idee.
+  m_Text: Je hebt een idee en je wil dit verspreiden. Met genoeg volgers mag je op
+    het TEDx Veghel evenement spreken. Je kunt hier je naam, de naam van je idee en
+    de categorie van je idee invullen.
 --- !u!114 &339363175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2988,6 +2988,8 @@ MonoBehaviour:
     - m_Text: Bedrijfszaken
       m_Image: {fileID: 0}
     - m_Text: Wetenschap
+      m_Image: {fileID: 0}
+    - m_Text: Entertainment
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
