@@ -77,6 +77,8 @@ namespace Assets.Scripts.Managers
             //this._randomEvents = new List<RandomEvent>(tempList.GetRange(0,4));
             //this._randomEvents.AddRange(shuffleEvents);
 
+            //List<RandomEvent> foundTedTalks = tempList.Where(x => x.Type == RandomEvent.RandomEventType.Link).ToList();
+            //List<RandomEvent> foundTedTalksThatMatchIdea = tempList.Where(x => x.Type == RandomEvent.RandomEventType.Link && x.IdeaCategory == Player.Instance.Category).ToList();
             tempList.RemoveAll(re => re.Type == RandomEvent.RandomEventType.Link && re.IdeaCategory != Player.Instance.Category);
 
 

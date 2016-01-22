@@ -1043,5 +1043,93 @@
 		"Title": "What's your 200-year plan?",
 		"Description": "You might have a 5-year plan, but what about a 200-year plan? Artist Raghava KK has set his eyes on an ultra-long-term horizon; at TEDxSummit, he shows how it helps guide today's choices and tomorrow's goals — and encourages you to make your own 200-year plan too.",
 		"TedUrl": "https://www.ted.com/talks/raghava_kk_what_s_your_200_year_plan"
+	}, {
+		"IdeaCategory": 2,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "Inside the Egyptian revolution",
+		"Description": "Wael Ghonim is the Google executive who helped jumpstart Egypt's democratic revolution ... with a Facebook page memorializing a victim of the regime's violence. Speaking at TEDxCairo, he tells the inside story of the past two months, when everyday Egyptians showed that \"the power of the people is stronger than the people in power.\"",
+		"TedUrl": "https://www.ted.com/talks/wael_ghonim_inside_the_egyptian_revolution"
+	}, {
+		"IdeaCategory": 3,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "Do schools kill creativity?",
+		"Description": "Sir Ken Robinson makes an entertaining and profoundly moving case for creating an education system that nurtures (rather than undermines) creativity.",
+		"TedUrl": "http://www.ted.com/talks/ken_robinson_says_schools_kill_creativity"
+	}, {
+		"IdeaCategory": 4,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "The happy secret to better work",
+		"Description": "We believe we should work hard in order to be happy, but could we be thinking about things backwards? In this fast-moving and very funny talk, psychologist Shawn Achor argues that, actually, happiness inspires us to be more productive.",
+		"TedUrl": "https://www.ted.com/talks/shawn_achor_the_happy_secret_to_better_work"
+	}, {
+		"IdeaCategory": 5,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "A roadmap to end aging",
+		"Description": "Cambridge researcher Aubrey de Grey argues that aging is merely a disease — and a curable one at that. Humans age in seven basic ways, he says, all of which can be averted.",
+		"TedUrl": "https://www.ted.com/talks/aubrey_de_grey_says_we_can_avoid_aging"
 	}]
 }
