@@ -849,18 +849,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 11482198, guid: 24993ad267dd21a499429398fb42952e, type: 2}
-      propertyPath: ShouldRespawn
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11482198, guid: 24993ad267dd21a499429398fb42952e, type: 2}
-      propertyPath: am
-      value: 
-      objectReference: {fileID: 2120963305}
-    - target: {fileID: 11482198, guid: 24993ad267dd21a499429398fb42952e, type: 2}
-      propertyPath: aC
-      value: 
-      objectReference: {fileID: 8300000, guid: 7f0b29ab54aa90c498a7822026426f37, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24993ad267dd21a499429398fb42952e, type: 2}
   m_IsPrefabParent: 0
@@ -2478,17 +2466,9 @@ Prefab:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 11424886, guid: 4ad62a7c926a3e64d87db38803949ae3, type: 2}
-      propertyPath: ShouldRespawn
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11424886, guid: 4ad62a7c926a3e64d87db38803949ae3, type: 2}
       propertyPath: am
       value: 
       objectReference: {fileID: 2120963305}
-    - target: {fileID: 11424886, guid: 4ad62a7c926a3e64d87db38803949ae3, type: 2}
-      propertyPath: aC
-      value: 
-      objectReference: {fileID: 8300000, guid: 7f0b29ab54aa90c498a7822026426f37, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ad62a7c926a3e64d87db38803949ae3, type: 2}
   m_IsPrefabParent: 0
@@ -8049,7 +8029,11 @@ MonoBehaviour:
   _randomEventsCanvas: {fileID: 1437207876}
   _temporaryTutorialCanvas: {fileID: 1098680446}
   _UI: {fileID: 966643022}
+<<<<<<< HEAD
   _feedBack: {fileID: 0}
+=======
+  _feedBack: {fileID: 187152, guid: 408ed3c2e46e46149bcb74d1b181b029, type: 2}
+>>>>>>> c4d6b765688f2cb8d9a229d6490f8675c2c47f50
   _randomEvents: []
   _button1: {fileID: 406042595}
   _button1Text: {fileID: 1131076004}
