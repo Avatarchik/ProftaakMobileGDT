@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts.Helpers;
 using Assets.Scripts.RandomEvents;
 using UnityEngine;
@@ -79,6 +80,7 @@ namespace Assets.Scripts.Managers
             //this._randomEvents.AddRange(shuffleEvents);
 
             this._randomEvents = tempList;
+            List<RandomEvent> urllist = this._randomEvents.Where(re => re.Type == RandomEvent.RandomEventType.Link && re.IdeaCategory == Player.Instance.Category).ToList();
 
             foreach (RandomEvent ra in this._randomEvents)
                 ra.SetChoiceActionValues();
@@ -113,18 +115,22 @@ namespace Assets.Scripts.Managers
 
             if (this.CurrentRandomEvent == null)
             {
-                this.CurrentRandomEvent = new RandomEvent(RandomEvent.RandomEventType.Choice, new List<RandomEvent.Choice>()
+                this.CurrentRandomEvent = new RandomEvent(RandomEvent.RandomEventType.Choice, new List<RandomEvent.Choice>
                     {
-                        new RandomEvent.Choice("Sluiten", new List<RandomEvent.ChoiceAction>() { new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.Ok) })
+                        new RandomEvent.Choice("Sluiten", new List<RandomEvent.ChoiceAction>
+                        {
+                            new RandomEvent.ChoiceAction(RandomEvent.ChoiceAction.ActionType.Ok)
+                        })
                     }, "Helaas", "Je hebt er helaas te lang over gedaan om er te komen. Probeer het nogmaals");
+
                 this._button1.gameObject.SetActive(true);
                 this._button1Text.text = this.CurrentRandomEvent.Choices[0].Text;
+
                 return;
             }
 
             this._randomEventTitleText.text = this.CurrentRandomEvent.Title;
             this._randomEventDescText.text = this.CurrentRandomEvent.Description;
-
 
             if (this.CurrentRandomEvent.Choices == null)
             {
@@ -198,7 +204,7 @@ namespace Assets.Scripts.Managers
             this._buttonOk.gameObject.SetActive(false);
         }
 
-        public bool NewRandomEvent()
+        public bool NewRandomEvent(RandomEvent.Choice choice)
         {
             if (this._randomEvents.Count == 0)
             {
@@ -207,8 +213,25 @@ namespace Assets.Scripts.Managers
                 return false;
             }
 
-            this.CurrentRandomEvent = this._randomEvents[0];
-            this._randomEvents.RemoveAt(0);
+            if (this.CurrentRandomEvent.HasFollowUpEvent && choice.Text == "Ja")
+            {
+                this.CurrentRandomEvent = this._randomEvents[0];
+                this._randomEvents.RemoveAt(0);
+            }
+            else
+            {
+                if (choice.Text == "Nee")
+                {
+                    this.CurrentRandomEvent = this._randomEvents[1];
+                    this._randomEvents.RemoveAt(0);
+                    this._randomEvents.RemoveAt(1);
+                }
+                else
+                {
+                    this.CurrentRandomEvent = this._randomEvents[0];
+                    this._randomEvents.RemoveAt(0);
+                }
+            }
 
             return true;
         }
@@ -401,31 +424,20 @@ namespace Assets.Scripts.Managers
                 }
             }
 
-
-            if (this.CurrentRandomEvent.FollowUpRandomEvents == null || this.CurrentRandomEvent.FollowUpRandomEvents[choice] == null)
+            if (actionValueFollowers < 0 && actionValueSkill < 0)
             {
-
-                if (actionValueFollowers < 0 && actionValueSkill < 0)
-                {
-                    AudioManager.Instance.PlayNegativeFeedback();
-                }
-                else if (actionValueFollowers > 0 && actionValueSkill > 0)
-                {
-                    AudioManager.Instance.PlayPositiveFeedback();
-                }
-                else
-                {
-                    //Play no sound.
-                }
-                this.HideRandomEventsCanvas();
-                this.NewRandomEvent();
-                this.UpdateToGuiTopcurrentRandomEvent();
-
-                return;
+                AudioManager.Instance.PlayNegativeFeedback();
+            }
+            else if (actionValueFollowers > 0 && actionValueSkill > 0)
+            {
+                AudioManager.Instance.PlayPositiveFeedback();
             }
 
-            this.CurrentRandomEvent = this.CurrentRandomEvent.FollowUpRandomEvents[choice];
+            this.HideRandomEventsCanvas();
+            this.NewRandomEvent(choice);
             this.UpdateToGuiTopcurrentRandomEvent();
+
+            return;
         }
 
         private static void IncreasePlayerSkill(PlayerSkill pSkill, int value)
