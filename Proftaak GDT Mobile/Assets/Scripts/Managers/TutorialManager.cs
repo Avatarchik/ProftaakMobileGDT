@@ -198,7 +198,7 @@ namespace Assets.Scripts.Managers
                     }
                 case 8:
                     {
-                        this._currentStep = new Step("Verbeteringen", "Je kan natuurlijk aan jezelf en je idee werken. Onder aan het scherm zie je een rode knop met 'Vaardigheden' Als je deze knop indrukt kun je verschillende vaardigheden bekijken en verbeteren!", this.Images[6]);
+                        this._currentStep = new Step("Verbeteringen", "Je kan natuurlijk aan jezelf en je idee werken. Onder aan het scherm zie je een rode knop met 'Vaardigheden'. Als je deze knop indrukt kun je verschillende vaardigheden bekijken en verbeteren!", this.Images[6]);
 
                         this._title.text = this._currentStep.TitleStep;
                         this._description.text = this._currentStep.DescriptionStep;

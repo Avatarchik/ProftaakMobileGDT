@@ -10,12 +10,17 @@ namespace Assets.Scripts.RandomEvents
     {
         public enum RandomEventType { Info, Fact, Choice, Link }
 
+        public IdeaCategory IdeaCategory;
         public RandomEventType Type;
         public List<Choice> Choices;
-        public Dictionary<Choice, RandomEvent> FollowUpRandomEvents;
+        public bool HasFollowUpEvent;
         public string Title;
         public string Description;
         public string TedUrl;
+
+        public RandomEvent()
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:RandomEvent"/> class.
@@ -28,11 +33,11 @@ namespace Assets.Scripts.RandomEvents
             this.Description = description;
         }
 
-        // gebruikt voor JSON
-        public RandomEvent() { }
-
         public void SetChoiceActionValues()
         {
+            if (this.Choices == null)
+                return;
+
             foreach (ChoiceAction ca in this.Choices.SelectMany(c => c.Actions))
                 ca.SetValues();
         }
@@ -64,11 +69,10 @@ namespace Assets.Scripts.RandomEvents
             public object[] Values;
             public string JSONString;
 
-            // used for JSON
             public ChoiceAction()
             {
-
             }
+
             public ChoiceAction(ActionType action)
             {
                 this.Action = action;
@@ -76,17 +80,17 @@ namespace Assets.Scripts.RandomEvents
 
             public ChoiceAction(ActionType skillIncrease, params object[] values)
             {
-
                 this.Action = skillIncrease;
                 this.Values = values;
-
             }
 
             public void SetValues()
             {
                 if (this.JSONString == null)
                     return;
+
                 string[] values = this.JSONString.Split(';');
+
                 switch (this.Action)
                 {
                     case ActionType.SkillIncrease:
@@ -146,7 +150,6 @@ namespace Assets.Scripts.RandomEvents
                     return this.Action + ": " + this.JSONString;
                 return this.Action.ToString();
             }
-
         }
     }
 }

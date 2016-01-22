@@ -48,12 +48,8 @@ namespace RandomEventGenerator
             this.lbChoices.Items.Clear();
 
             foreach (Control c in this.Controls)
-            {
                 if (c is TextBox)
-                {
                     c.Text = "";
-                }
-            }
         }
 
         private bool EventIsValid()
@@ -75,18 +71,14 @@ namespace RandomEventGenerator
         private void CreateEvent()
         {
             if (!this.EventIsValid())
-            {
                 return;
-            }
 
             this._currentRandomEvent.Type = (RandomEvent.RandomEventType)this.cmbEventType.SelectedItem;
             this._currentRandomEvent.Title = this.txtEventTitle.Text.Trim();
             this._currentRandomEvent.Description = this.txtEventDescription.Text.Trim();
 
             if (this.IsLinkEvent())
-            {
                 this._currentRandomEvent.TedUrl = this.txtUrl.Text.Trim();
-            }
 
             this._randomEvents.Add(this._currentRandomEvent);
 
@@ -101,7 +93,11 @@ namespace RandomEventGenerator
 
         private void NewRandomEvent()
         {
-            this._currentRandomEvent = new RandomEvent { Choices = new List<RandomEvent.Choice>() };
+            this._currentRandomEvent = new RandomEvent
+            {
+                Choices = new List<RandomEvent.Choice>()
+            };
+
             this._currentChoiceActions = new List<RandomEvent.ChoiceAction>();
         }
 
@@ -171,7 +167,7 @@ namespace RandomEventGenerator
                         }
 
                         this._currentChoiceActions.Add(new RandomEvent.ChoiceAction(
-                            actionType, (int)Enum.Parse(typeof(PlayerSkill),this.cbChoiceActionsValue.SelectedItem.ToString()) + ";"+ this.tbChoicesValues.Text));
+                            actionType, (int)Enum.Parse(typeof(PlayerSkill), this.cbChoiceActionsValue.SelectedItem.ToString()) + ";" + this.tbChoicesValues.Text));
 
                         break;
                     case RandomEvent.ChoiceAction.ActionType.FollowerIncrease:
@@ -204,6 +200,7 @@ namespace RandomEventGenerator
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
+
                 return true;
             }
             catch (Exception ex)
@@ -229,7 +226,7 @@ namespace RandomEventGenerator
 
         private bool IsChoiceValid()
         {
-            if (String.IsNullOrWhiteSpace(this.tbxChoicesText.Text))
+            if (string.IsNullOrWhiteSpace(this.tbxChoicesText.Text))
                 return false;
 
             return this.lbChoiceActions.Items.Count != 0;
@@ -239,7 +236,7 @@ namespace RandomEventGenerator
         {
             this._currentRandomEvent.Choices.Add(new RandomEvent.Choice(this.tbxChoicesText.Text, new List<RandomEvent.ChoiceAction>(this._currentChoiceActions)));
             this._currentChoiceActions.Clear();
-            this.lbChoices.Items.Add(this.tbxChoicesText.Text + ":" + this._currentRandomEvent.Choices[this._currentRandomEvent.Choices.Count -1].Actions.Aggregate(", ", (lvCurrent, ca) => lvCurrent + ca.ToString()).Remove(0, 2));
+            this.lbChoices.Items.Add(this.tbxChoicesText.Text + ":" + this._currentRandomEvent.Choices[this._currentRandomEvent.Choices.Count - 1].Actions.Aggregate(", ", (lvCurrent, ca) => lvCurrent + ca.ToString()).Remove(0, 2));
         }
 
         private void NewChoice()

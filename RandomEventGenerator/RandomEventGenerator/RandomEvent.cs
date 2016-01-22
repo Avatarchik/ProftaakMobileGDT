@@ -14,7 +14,7 @@ namespace RandomEventGenerator
 
         public RandomEventType Type { get; set; }
         public List<Choice> Choices { get; set; }
-        public Dictionary<Choice, RandomEvent> FollowUpRandomEvents { get; set; }
+        public bool HasFollowUpEvent { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string TedUrl { get; set; }
