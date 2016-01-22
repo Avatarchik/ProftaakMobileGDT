@@ -119,6 +119,7 @@
             if (this._followerEhancementThresholds.Count > 0)
                 if (this.TotalFollowers >= this._followerEhancementThresholds[0])
                 {
+                    
                     Player.Instance.UnusedSkillPoints++;
                     AudioManager.Instance.PlayUpgradesAvailable();
                     this._followerEhancementThresholds.RemoveAt(0);

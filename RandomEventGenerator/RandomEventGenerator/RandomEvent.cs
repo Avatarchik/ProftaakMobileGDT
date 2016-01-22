@@ -7,11 +7,14 @@ namespace RandomEventGenerator
 
     public enum PlayerSkill { Knowledge = 0, Presentation = 1, Media = 2 }
 
+    public enum IdeaCategory { Technologie, Design, Wereldwijde_Problemen, Educatie, Bedrijfszaken, Wetenschap, Entertainment }
+
     [Serializable]
     public class RandomEvent
     {
         public enum RandomEventType { Info, Fact, Choice, Link }
 
+        public IdeaCategory IdeaCategory { get; set; }
         public RandomEventType Type { get; set; }
         public List<Choice> Choices { get; set; }
         public bool HasFollowUpEvent { get; set; }
@@ -60,7 +63,6 @@ namespace RandomEventGenerator
             // used for JSON
             public ChoiceAction()
             {
-
             }
 
             public ChoiceAction(ActionType action, string JSONString)
