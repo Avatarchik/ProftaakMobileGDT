@@ -15,6 +15,10 @@ namespace Assets.Scripts.Managers
         private GameObject _randomEventsCanvas;
         [SerializeField]
         private GameObject _temporaryTutorialCanvas;
+        [SerializeField]
+        private GameObject _UI;
+        [SerializeField]
+        private GameObject feedBack;
 
         [SerializeField]
         private List<RandomEvent> _randomEvents = new List<RandomEvent>();
@@ -340,6 +344,7 @@ namespace Assets.Scripts.Managers
                                     default:
                                         throw new ArgumentOutOfRangeException();
                                 }
+                            visualFeedBack("+ " + increaseValue.ToString()).GetComponent<Animator>().SetTrigger("SkillUp");
                             actionValueSkill += increaseValue;
                             IncreasePlayerSkill((PlayerSkill)action.Values[0], increaseValue);
                             break;
@@ -363,6 +368,7 @@ namespace Assets.Scripts.Managers
                                         throw new ArgumentOutOfRangeException();
                                 }
 
+                            visualFeedBack("+ " + increaseValue.ToString()).GetComponent<Animator>().SetTrigger("FollowerUp");
                             actionValueFollowers += increaseValue;
                             FollowerManager.Instance.TotalFollowers += increaseValue;
                             break;
@@ -438,6 +444,7 @@ namespace Assets.Scripts.Managers
                     }
                 case PlayerSkill.Media:
                     {
+                        
                         Player.Instance.MediaSkills += value;
                         break;
                     }
@@ -446,6 +453,20 @@ namespace Assets.Scripts.Managers
                         throw new ArgumentOutOfRangeException();
                     }
             }
+        }
+
+
+
+        GameObject  visualFeedBack(string text)
+        {
+            GameObject temp = Instantiate(feedBack) as GameObject;
+            RectTransform tempRect = temp.GetComponent<RectTransform>();
+            temp.transform.SetParent(this._UI.transform);
+
+            temp.GetComponent<Text>().text = text;
+            Destroy(temp.gameObject,2);
+
+            return temp;
         }
     }
 }
