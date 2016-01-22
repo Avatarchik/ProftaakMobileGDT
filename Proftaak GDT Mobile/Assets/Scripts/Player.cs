@@ -7,7 +7,7 @@
 
     public enum PlayerSkill { Knowledge = 0, Presentation = 1, Media = 2 };
 
-    public enum IdeaCategory { Technology, Design, Entertainment, Global_Issues, Education };
+    public enum IdeaCategory { Technologie, Design, Wereldwijde_Problemen, Educatie, Bedrijfszaken, Wetenschap };
 
     public class Player
     {
