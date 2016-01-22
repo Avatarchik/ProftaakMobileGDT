@@ -52,7 +52,9 @@ MonoBehaviour:
   DoAnimation: 1
   MaxScale: 0.1
   ScaleStep: 0.1
-  ShouldRespawn: 0
+  ShouldRespawn: 1
+  am: {fileID: 0}
+  aC: {fileID: 8300000, guid: 7f0b29ab54aa90c498a7822026426f37, type: 3}
 --- !u!114 &11445260
 MonoBehaviour:
   m_ObjectHideFlags: 1
