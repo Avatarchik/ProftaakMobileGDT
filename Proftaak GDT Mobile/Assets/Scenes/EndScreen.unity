@@ -462,24 +462,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1383556080}
-        m_MethodName: Buttens
+      - m_Target: {fileID: 1383556078}
+        m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: PlayButtonClick
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: bac2cbfac6acaf7419bdd669ab7f5170,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -691,7 +679,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -33.1, y: 136.3}
+  m_AnchoredPosition: {x: 0, y: 142.8}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &853166379
@@ -720,13 +708,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 5
-  m_Text: GEFELICITEERD !!!!!!
+  m_Text: GEFELICITEERD
 --- !u!222 &853166380
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -942,8 +930,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: " \nNu weet je wat erbij komt kijken om voor een Tedx te moeten presenteren\n\nDe
-    volgende de stap is Internationaal gaan !!!"
+  m_Text: 'Nu weet je wat erbij komt kijken om voor een TEDx te moeten presenteren.
+
+
+    De volgende de stap is om je idee over de hele wereld te verspreiden.'
 --- !u!222 &1090898264
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -959,7 +949,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1383556079}
   - 114: {fileID: 1383556078}
-  - 114: {fileID: 1383556080}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -991,17 +980,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
---- !u!114 &1383556080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1383556077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19f8c016948304c40b3a923f0a551536, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1470251219
 GameObject:
   m_ObjectHideFlags: 0

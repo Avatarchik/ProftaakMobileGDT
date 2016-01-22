@@ -19,12 +19,10 @@ namespace Assets.Scripts.Managers
         [SerializeField]
         private GameObject _UI;
         [SerializeField]
-        private GameObject feedBack;
+        private GameObject _feedBack;
 
         [SerializeField]
         private List<RandomEvent> _randomEvents = new List<RandomEvent>();
-        private List<RandomEvent> _randomFacts = new List<RandomEvent>();
-        private List<RandomEvent> _randomInfo = new List<RandomEvent>();
 
         [SerializeField]
         private Button _button1;
@@ -79,8 +77,11 @@ namespace Assets.Scripts.Managers
             //this._randomEvents = new List<RandomEvent>(tempList.GetRange(0,4));
             //this._randomEvents.AddRange(shuffleEvents);
 
+            tempList.RemoveAll(re => re.Type == RandomEvent.RandomEventType.Link && re.IdeaCategory != Player.Instance.Category);
+
+
+
             this._randomEvents = tempList;
-            List<RandomEvent> urllist = this._randomEvents.Where(re => re.Type == RandomEvent.RandomEventType.Link && re.IdeaCategory == Player.Instance.Category).ToList();
 
             foreach (RandomEvent ra in this._randomEvents)
                 ra.SetChoiceActionValues();
@@ -367,15 +368,15 @@ namespace Assets.Scripts.Managers
                                     default:
                                         throw new ArgumentOutOfRangeException();
                                 }
-                            if(increaseValue < 0)
+                            if (increaseValue < 0)
                             {
-                                visualFeedBack(increaseValue.ToString()).GetComponent<Animator>().SetTrigger("SkillUp");
+                                this.VisualFeedBack(increaseValue.ToString()).GetComponent<Animator>().SetTrigger("SkillUp");
                             }
                             else
                             {
-                                visualFeedBack("+ " + increaseValue.ToString()).GetComponent<Animator>().SetTrigger("SkillUp");
+                                this.VisualFeedBack("+ " + increaseValue.ToString()).GetComponent<Animator>().SetTrigger("SkillUp");
                             }
-                            
+
                             actionValueSkill += increaseValue;
                             IncreasePlayerSkill((PlayerSkill)action.Values[0], increaseValue);
                             break;
@@ -399,7 +400,7 @@ namespace Assets.Scripts.Managers
                                         throw new ArgumentOutOfRangeException();
                                 }
 
-                            visualFeedBack("+ " + increaseValue.ToString()).GetComponent<Animator>().SetTrigger("FollowerUp");
+                            this.VisualFeedBack("+ " + increaseValue.ToString()).GetComponent<Animator>().SetTrigger("FollowerUp");
                             actionValueFollowers += increaseValue;
                             FollowerManager.Instance.TotalFollowers += increaseValue;
                             break;
@@ -417,6 +418,7 @@ namespace Assets.Scripts.Managers
                     case RandomEvent.ChoiceAction.ActionType.VisitUrl:
                         {
                             Application.OpenURL(this.CurrentRandomEvent.TedUrl);
+                            Player.Instance.KnowledgeSkills++;
                             break;
                         }
                     case RandomEvent.ChoiceAction.ActionType.Tutorial:
@@ -444,8 +446,6 @@ namespace Assets.Scripts.Managers
             this.HideRandomEventsCanvas();
             this.NewRandomEvent(choice);
             this.UpdateToGuiTopcurrentRandomEvent();
-
-            return;
         }
 
         private static void IncreasePlayerSkill(PlayerSkill pSkill, int value)
@@ -464,7 +464,7 @@ namespace Assets.Scripts.Managers
                     }
                 case PlayerSkill.Media:
                     {
-                        
+
                         Player.Instance.MediaSkills += value;
                         break;
                     }
@@ -474,17 +474,14 @@ namespace Assets.Scripts.Managers
                     }
             }
         }
-
-
-
-       public GameObject  visualFeedBack(string text)
+        public GameObject VisualFeedBack(string text)
         {
-            GameObject temp = Instantiate(feedBack) as GameObject;
+            GameObject temp = Instantiate(this._feedBack);
             RectTransform tempRect = temp.GetComponent<RectTransform>();
             temp.transform.SetParent(this._UI.transform);
 
             temp.GetComponent<Text>().text = text;
-            Destroy(temp.gameObject,2);
+            Destroy(temp.gameObject, 2);
 
             return temp;
         }
