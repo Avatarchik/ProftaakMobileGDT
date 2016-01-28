@@ -10,7 +10,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: TEDx Gaming
-  productName: 'TEDx Veghel: The Game V2.0'
+  productName: 'TEDx Veghel: The Game V3.0'
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1

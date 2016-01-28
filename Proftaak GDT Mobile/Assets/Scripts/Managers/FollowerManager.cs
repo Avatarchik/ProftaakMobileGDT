@@ -108,11 +108,11 @@
             int totalBase = 0;
             foreach (FollowerGroup fg in this.FollowerGroups)
             {
-                int followersFromKnowledgeSkills = (int)((knowledgeSkills * this._followersPerKnowledgeSkill));
-                    //+ (fg.Followers * this._followersPerKnowledgeSkillPercentage * knowledgeSkills));
+                totalBase += 3 + (int)(fg.Followers * this._followersPerPercentage);
+                int followersFromKnowledgeSkills = (int)((knowledgeSkills * this._followersPerKnowledgeSkill)
+                    + (fg.Followers * this._followersPerKnowledgeSkillPercentage * knowledgeSkills));
                 totalFromKnowledgeSkills += followersFromKnowledgeSkills;
-                totalBase += 1 + (int)(fg.Followers * this._followersPerPercentage);
-                fg.Followers += 1 + (int)(fg.Followers * this._followersPerPercentage + followersFromKnowledgeSkills);
+                fg.Followers += totalBase + followersFromKnowledgeSkills;
             }
             Debug.Log(string.Format("Base followers: {0} and from knowledge: {1}", totalBase, totalFromKnowledgeSkills));
             if (this._followerEhancementThresholds.Count > 0)

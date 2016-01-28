@@ -774,9 +774,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Categorie
-
-'
+  m_Text: Categorie *
 --- !u!222 &274198825
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2802,7 +2800,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Speler naam
+  m_Text: Speler naam *
 --- !u!222 &1440216060
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2890,7 +2888,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Idee naam
+  m_Text: Idee naam *
 --- !u!222 &1461218539
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3477,7 +3475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2043073702
 RectTransform:
   m_ObjectHideFlags: 0

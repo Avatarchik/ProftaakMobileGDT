@@ -162,7 +162,7 @@ namespace Assets.Scripts.Managers
                     }
                 case 6:
                     {
-                        this._currentStep = new Step("Random Events", "Random events zijn events in het spel waarbij je bepaalde keuzes moet maken om je idee te verspreiden. Deze beïnvloeden de groei van je idee enorm.", null);
+                        this._currentStep = new Step("Random Events", "Random events zijn events in het spel waarbij je bepaalde keuzes moet maken of geïnspireerd raakt om je idee te verspreiden. Keuzes beïnvloeden de groei van je idee enorm.", null);
 
                         this._title.text = this._currentStep.TitleStep;
                         this._description.text = this._currentStep.DescriptionStep;
@@ -234,10 +234,11 @@ namespace Assets.Scripts.Managers
                     }
                 case 10:
                     {
-                        this._currentStep = new Step("Verbeteringen", "Om aan jezelf te werken heb je ervaringspunten nodig. Je kunt door verschillende random events en keuzes te maken deze punten verdienen! Je krijgt ongebruikte verbeterings punten erbij aan de hand van het aantal volgers.", this.Images[6]);
+                        this._currentStep = new Step("Verbeteringen", "Om aan jezelf te werken heb je ervaringspunten nodig. Je kunt door verschillende random events en keuzes te maken deze punten verdienen! Je krijgt ongebruikte verbeterings punten erbij aan de hand van het aantal volgers dat je hebt.", this.Images[6]);
 
                         this._title.text = this._currentStep.TitleStep;
                         this._description.text = this._currentStep.DescriptionStep;
+                        this._nextButton.GetComponentInChildren<Text>().text = "Volgende";
 
                         if (this._currentStep.RequiresImage)
                         {
