@@ -70,7 +70,7 @@ namespace Assets.Scripts.Managers
                     }
                 case 1:
                     {
-                        this._currentStep = new Step("Volgers", "Links boven in het scherm zie je hetzelfde icoon als hieronder. Dit icoon wordt gevolgd door een getal wat je volgers vertegenwoordigd. De bedoeling is om zoveel mogelijk volgers te behouden door het spel heen, om uiteindelijk opgemerkt te worden door de organisatie van TEDx Veghel!", this.Images[0]);
+                        this._currentStep = new Step("Volgers", "Links boven in het scherm zie je hetzelfde icoon als hieronder. Dit icoon wordt gevolgd door een getal wat je volgers vertegenwoordigd. De bedoeling is om zoveel mogelijk volgers te behouden door het spel heen, om uiteindelijk opgemerkt te worden door de organisatie van TEDxVeghel!", this.Images[0]);
 
                         this._title.text = this._currentStep.TitleStep;
                         this._description.text = this._currentStep.DescriptionStep;
@@ -106,7 +106,7 @@ namespace Assets.Scripts.Managers
                     }
                 case 3:
                     {
-                        this._currentStep = new Step("Vaardigheden", "Onder aan het scherm zie je 3 icoontjes die je vaardigheden voorstellen. Deze vaardigheden hebben allemaal invloed op de random events die door het spel heen verschijnen, maar daar gaan we het later nog over hebben. Deze eerste staat voor je presentatie-vaardigheden.", this.Images[1]);
+                        this._currentStep = new Step("Vaardigheden", "Onder aan het scherm zie je 3 icoontjes die je vaardigheden voorstellen. Deze vaardigheden hebben allemaal invloed op het verloop van het spel. Dit icoontje hieronder staat voor je presentatie-vaardigheden.", this.Images[1]);
 
                         this._title.text = this._currentStep.TitleStep;
                         this._description.text = this._currentStep.DescriptionStep;
@@ -125,7 +125,7 @@ namespace Assets.Scripts.Managers
                     }
                 case 4:
                     {
-                        this._currentStep = new Step("Vaardigheden", "Deze tweede staat voor hoe krachtig je social-media vaardigheden zijn.", this.Images[2]);
+                        this._currentStep = new Step("Vaardigheden", "Dit tweede icoontje staat voor hoe krachtig je social-media vaardigheden zijn.", this.Images[2]);
 
                         this._title.text = this._currentStep.TitleStep;
                         this._description.text = this._currentStep.DescriptionStep;
@@ -144,7 +144,7 @@ namespace Assets.Scripts.Managers
 
                 case 5:
                     {
-                        this._currentStep = new Step("Vaardigheden", "En tot slot staat dit laatste icoon ervoor hoe groot je kennis over je idee is.", this.Images[3]);
+                        this._currentStep = new Step("Vaardigheden", "En tot slot staat dit laatste icoontje ervoor hoe groot je kennis over je idee is.", this.Images[3]);
 
                         this._title.text = this._currentStep.TitleStep;
                         this._description.text = this._currentStep.DescriptionStep;
@@ -216,7 +216,7 @@ namespace Assets.Scripts.Managers
                     }
                 case 9:
                     {
-                        this._currentStep = new Step("Verbeteringen", "Je kan natuurlijk aan jezelf en je idee werken. Onder aan het scherm zie je een rode knop met 'Vaardigheden' Als je deze knop indrukt kun je verschillende vaardigheden bekijken en verbeteren!", this.Images[6]);
+                        this._currentStep = new Step("Verbeteringen", "Je kan natuurlijk aan jezelf en je idee werken. Onder aan het scherm zie je een rode knop met 'Verbeteringen' Als je deze knop indrukt kun je verschillende vaardigheden bekijken en verbeteren!", this.Images[6]);
 
                         this._title.text = this._currentStep.TitleStep;
                         this._description.text = this._currentStep.DescriptionStep;

@@ -930,10 +930,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Nu weet je wat erbij komt kijken om voor een TEDx te moeten presenteren.
+  m_Text: 'Nu weet je wat erbij komt kijken om voor TEDxVeghel te moeten presenteren.
 
 
-    De volgende de stap is om je idee over de hele wereld te verspreiden.'
+    De volgende stap is om je idee over de hele wereld te verspreiden.'
 --- !u!222 &1090898264
 CanvasRenderer:
   m_ObjectHideFlags: 0
