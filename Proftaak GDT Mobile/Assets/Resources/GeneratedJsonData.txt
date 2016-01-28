@@ -57,7 +57,7 @@
 		}],
 		"HasFollowUpEvent": false,
 		"Title": "Bier of business?",
-		"Description": "Je wilt verder netwerken om je idee meer onder aandacht te brengen. Ga je naar een borrel van je werk of ga je naar een groot evenement binnen Veghel?",
+		"Description": "Je wilt verder netwerken om {idea} meer onder aandacht te brengen. Ga je naar een borrel van je werk of ga je naar een groot evenement binnen Veghel?",
 		"TedUrl": null
 	}, {
 		"IdeaCategory": 0,
@@ -113,7 +113,7 @@
 		}],
 		"HasFollowUpEvent": false,
 		"Title": "Een goede voorbereiding...",
-		"Description": "Je gaat de presentatie voorbereiden. Wil je je idee overbrengen door middel van een verhaal, of door een opsomming van feiten?",
+		"Description": "Je gaat de presentatie voorbereiden. Wil je {idea} overbrengen door middel van een verhaal, of door een opsomming van feiten?",
 		"TedUrl": null
 	}, {
 		"IdeaCategory": 0,
@@ -157,7 +157,7 @@
 		}],
 		"HasFollowUpEvent": false,
 		"Title": "Oh jee...",
-		"Description": "De reactie was niet zo goed. Wat ga je nu doen?",
+		"Description": "De reactie op {idea} was niet zo goed. Wat ga je nu doen?",
 		"TedUrl": null
 	}, {
 		"IdeaCategory": 0,
@@ -221,8 +221,8 @@
 				"Values": [1, 1]
 			}, {
 				"Action": 1,
-				"JSONString": "100000",
-				"Values": [100000]
+				"JSONString": "50",
+				"Values": [50]
 			}],
 			"Text": "Gemeentehuis"
 		}],

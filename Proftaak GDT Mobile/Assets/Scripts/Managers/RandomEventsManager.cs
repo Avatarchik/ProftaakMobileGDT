@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.Managers
 {
+    using System.Runtime.CompilerServices;
+
     public class RandomEventsManager : MonoBehaviour
     {
         public static RandomEventsManager Instance;
@@ -132,8 +134,12 @@ namespace Assets.Scripts.Managers
                 return;
             }
 
-            this._randomEventTitleText.text = this.CurrentRandomEvent.Title;
-            this._randomEventDescText.text = this.CurrentRandomEvent.Description;
+            string title = this.CurrentRandomEvent.Title.Replace("{player}", Player.Instance.PlayerName);
+            title = title.Replace("{idea}", Player.Instance.IdeaName);
+            this._randomEventTitleText.text = title;
+            string desc = this.CurrentRandomEvent.Description.Replace("{player}", Player.Instance.PlayerName);
+            desc = desc.Replace("{idea}", Player.Instance.IdeaName);
+            this._randomEventDescText.text = desc;
 
             if (this.CurrentRandomEvent.Choices == null)
             {
@@ -180,7 +186,6 @@ namespace Assets.Scripts.Managers
                     }
                 }
         }
-
         private void UpdateToGuiTopcurrentNotification()
         {
             this._notificationDescription.text = string.Empty;
@@ -190,9 +195,12 @@ namespace Assets.Scripts.Managers
             {
                 return;
             }
-
-            this._notificationTitle.text = this.CurrentNotification.Title;
-            this._notificationDescription.text = this.CurrentNotification.Description;
+            string title = this.CurrentNotification.Title.Replace("{player}", Player.Instance.PlayerName);
+            title = title.Replace("{idea}", Player.Instance.IdeaName);
+            this._notificationTitle.text = title;
+            string desc = this.CurrentNotification.Description.Replace("{player}", Player.Instance.PlayerName);
+            desc = desc.Replace("{idea}", Player.Instance.IdeaName);
+            this._notificationDescription.text = desc;
 
             this._buttonOk.gameObject.SetActive(true);
             this._buttonOkText.text = this.CurrentNotification.Choices[0].Text;

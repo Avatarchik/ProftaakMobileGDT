@@ -52,7 +52,7 @@ namespace Assets.Scripts.Managers
             {
                 case 0:
                     {
-                        this._currentStep = new Step("Er volg nu een korte uitleg over het spel!", "", null);
+                        this._currentStep = new Step("Er volgt nu een korte uitleg over het spel!", "", null);
 
                         this._title.text = this._currentStep.TitleStep;
                         this._description.text = this._currentStep.DescriptionStep;
@@ -234,7 +234,7 @@ namespace Assets.Scripts.Managers
                     }
                 case 10:
                     {
-                        this._currentStep = new Step("Verbeteringen", "Om aan jezelf te werken heb je ervaringspunten nodig. Je kunt door verschillende random events en keuzes te maken deze punten verdienen!", this.Images[7]);
+                        this._currentStep = new Step("Verbeteringen", "Om aan jezelf te werken heb je ervaringspunten nodig. Je kunt door verschillende random events en keuzes te maken deze punten verdienen! Je krijgt ongebruikte verbeterings punten erbij aan de hand van het aantal volgers.", this.Images[7]);
 
                         this._title.text = this._currentStep.TitleStep;
                         this._description.text = this._currentStep.DescriptionStep;
