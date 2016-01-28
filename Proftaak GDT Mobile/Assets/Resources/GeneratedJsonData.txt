@@ -254,15 +254,8 @@
 		"TedUrl": null
 	}, {
 		"IdeaCategory": 0,
-		"Type": 2,
-		"Choices": [{
-			"Actions": [{
-				"Action": 2,
-				"JSONString": null,
-				"Values": null
-			}],
-			"Text": "Sluiten"
-		}],
+		"Type": 1,
+		"Choices": null,
 		"HasFollowUpEvent": false,
 		"Title": "Goed bezig",
 		"Description": "Je kijkt rond in de zaal en je ziet verwondere en geïnterresseerde gezichten.",
@@ -296,31 +289,17 @@
 	}, {
 		"IdeaCategory": 0,
 		"Type": 1,
-		"Choices": [{
-			"Actions": [{
-				"Action": 2,
-				"JSONString": null,
-				"Values": null
-			}],
-			"Text": "Sluiten"
-		}],
+		"Choices": null,
 		"HasFollowUpEvent": false,
-		"Title": "Steve Jobs over presenteren",
+		"Title": "Inspirerende quote",
 		"Description": "“People who know what they are talking about, don’t need powerpoint.” - Steve Jobs.",
 		"TedUrl": null
 	}, {
 		"IdeaCategory": 0,
 		"Type": 1,
-		"Choices": [{
-			"Actions": [{
-				"Action": 2,
-				"JSONString": null,
-				"Values": null
-			}],
-			"Text": "Sluiten"
-		}],
+		"Choices": null,
 		"HasFollowUpEvent": false,
-		"Title": "Albert Einstein quote",
+		"Title": "Inspirerende quote",
 		"Description": "“If you can’t explain it simple, you don’t understand it well enough.” - Albert Einstein",
 		"TedUrl": null
 	}, {

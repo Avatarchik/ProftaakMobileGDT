@@ -65,24 +65,13 @@ namespace Assets.Scripts.Managers
         // ReSharper disable once UnusedMember.Local
         private void Awake()
         {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
+            Instance = this;
 
             List<RandomEvent> tempList = JsonSerializer.ReadFromFile("GeneratedJsonData").RandomEvents;
 
-            // TODO iets in deze richting voor Notifications.
-            //List<RandomEvent> shuffleEvents = new List<RandomEvent>(tempList);
-            //shuffleEvents.RemoveRange(0, 4);
-            //shuffleEvents.Shuffle();
-            //this._randomEvents = new List<RandomEvent>(tempList.GetRange(0,4));
-            //this._randomEvents.AddRange(shuffleEvents);
-
-            //List<RandomEvent> foundTedTalks = tempList.Where(x => x.Type == RandomEvent.RandomEventType.Link).ToList();
-            //List<RandomEvent> foundTedTalksThatMatchIdea = tempList.Where(x => x.Type == RandomEvent.RandomEventType.Link && x.IdeaCategory == Player.Instance.Category).ToList();
+            // Delete TED Links with other categories.
             tempList.RemoveAll(re => re.Type == RandomEvent.RandomEventType.Link && re.IdeaCategory != Player.Instance.Category);
-
+            tempList = this.ShuffleRandomEvents(tempList);
 
 
             this._randomEvents = tempList;
@@ -92,6 +81,17 @@ namespace Assets.Scripts.Managers
 
             this.CurrentRandomEvent = this._randomEvents[0];
         }
+
+        private List<RandomEvent> ShuffleRandomEvents(List<RandomEvent> events)
+        {
+            List<RandomEvent> choices = events.Where(x => x.Type == RandomEvent.RandomEventType.Choice).ToList();
+            List<RandomEvent> tedlinks = events.Where(x => x.Type == RandomEvent.RandomEventType.Link).ToList();
+            List <RandomEvent> info = events.Where(x => x.Type == RandomEvent.RandomEventType.Fact && x.Title != "Inspirerende quote").ToList();
+            List<RandomEvent> quotes = events.Where(x => x.Type == RandomEvent.RandomEventType.Fact && x.Title == "Inspirerende quote").ToList();
+            List<RandomEvent> shuffledList = new List<RandomEvent>();
+
+            return shuffledList;
+        } 
 
         // ReSharper disable once UnusedMember.Local
         private void Start()
@@ -114,7 +114,6 @@ namespace Assets.Scripts.Managers
 
         private void UpdateToGuiTopcurrentRandomEvent()
         {
-
             this._randomEventDescText.text = string.Empty;
             this.DeactivateAllButtons();
 

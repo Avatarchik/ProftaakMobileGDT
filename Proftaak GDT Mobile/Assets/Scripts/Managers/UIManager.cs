@@ -15,7 +15,7 @@
         public Canvas UICanvas { get { return this._UICanvas; } }
         //[SerializeField]
         //private Text _attributesText;
-        
+
         [SerializeField]
         private Text _presentationText;
         [SerializeField]
@@ -33,8 +33,7 @@
         // ReSharper disable once UnusedMember.Local
         private void Awake()
         {
-            if (Instance == null)
-                Instance = this;
+            Instance = this;
         }
 
 
