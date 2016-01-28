@@ -8,8 +8,6 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.Managers
 {
-    using System.Runtime.CompilerServices;
-
     public class RandomEventsManager : MonoBehaviour
     {
         public static RandomEventsManager Instance;
@@ -86,12 +84,62 @@ namespace Assets.Scripts.Managers
         {
             List<RandomEvent> choices = events.Where(x => x.Type == RandomEvent.RandomEventType.Choice).ToList();
             List<RandomEvent> tedlinks = events.Where(x => x.Type == RandomEvent.RandomEventType.Link).ToList();
-            List <RandomEvent> info = events.Where(x => x.Type == RandomEvent.RandomEventType.Fact && x.Title != "Inspirerende quote").ToList();
+            List<RandomEvent> info = events.Where(x => x.Type == RandomEvent.RandomEventType.Fact && x.Title != "Inspirerende quote").ToList();
             List<RandomEvent> quotes = events.Where(x => x.Type == RandomEvent.RandomEventType.Fact && x.Title == "Inspirerende quote").ToList();
-            List<RandomEvent> shuffledList = new List<RandomEvent>();
 
+            List<RandomEvent> shuffledList = new List<RandomEvent>();
+            int i = 0;
+            while (shuffledList.Count < events.Count)
+            {
+                if (i == 0)
+                {
+                    shuffledList.Add(choices[0]);
+                    choices.RemoveAt(0);
+                }
+                else if (i % 5 == 0 && tedlinks.Count > 0)
+                {
+                    shuffledList.Add(tedlinks[0]);
+                    tedlinks.RemoveAt(0);
+                }
+                else if (i % 4 == 0 && info.Count > 0)
+                {
+                    shuffledList.Add(info[0]);
+                    info.RemoveAt(0);
+                }
+                else if (i % 3 == 0 && quotes.Count > 0)
+                {
+                    shuffledList.Add(quotes[0]);
+                    quotes.RemoveAt(0);
+                }
+                else if (i % 2 == 0 && choices.Count > 0)
+                {
+                    shuffledList.Add(choices[0]);
+                    choices.RemoveAt(0);
+                }
+                else if (quotes.Count > 0)
+                {
+                    shuffledList.Add(quotes[0]);
+                    quotes.RemoveAt(0);
+                }
+                else if (info.Count > 0)
+                {
+                    shuffledList.Add(info[0]);
+                    info.RemoveAt(0);
+                }
+                else if (tedlinks.Count > 0)
+                {
+                    shuffledList.Add(tedlinks[0]);
+                    tedlinks.RemoveAt(0);
+                }
+                else if (choices.Count > 0)
+                {
+                    shuffledList.Add(choices[0]);
+                    choices.RemoveAt(0);
+                }
+                i++;
+            }
             return shuffledList;
-        } 
+        }
 
         // ReSharper disable once UnusedMember.Local
         private void Start()
@@ -140,7 +188,7 @@ namespace Assets.Scripts.Managers
             desc = desc.Replace("{idea}", Player.Instance.IdeaName);
             this._randomEventDescText.text = desc;
 
-            if (this.CurrentRandomEvent.Choices == null)
+            if (this.CurrentRandomEvent.Choices.IsNullOrEmpty())
             {
                 this._button1.gameObject.SetActive(true);
                 this._button1Text.text = "Sluiten";
@@ -190,10 +238,6 @@ namespace Assets.Scripts.Managers
             this._notificationDescription.text = string.Empty;
             this.DeactivateAllButtons();
 
-            if (this.CurrentNotification == null)
-            {
-                return;
-            }
             string title = this.CurrentNotification.Title.Replace("{player}", Player.Instance.PlayerName);
             title = title.Replace("{idea}", Player.Instance.IdeaName);
             this._notificationTitle.text = title;
@@ -202,7 +246,10 @@ namespace Assets.Scripts.Managers
             this._notificationDescription.text = desc;
 
             this._buttonOk.gameObject.SetActive(true);
-            this._buttonOkText.text = this.CurrentNotification.Choices[0].Text;
+            if (this.CurrentNotification.Choices.IsNullOrEmpty())
+                this._buttonOkText.text = "Sluiten";
+            else
+                this._buttonOkText.text = this.CurrentNotification.Choices[0].Text;
         }
 
         private void DeactivateAllButtons()
@@ -230,7 +277,7 @@ namespace Assets.Scripts.Managers
             }
             else
             {
-                if (choice.Text == "Nee")
+                if (choice != null && choice.Text == "Nee")
                 {
                     this.CurrentRandomEvent = this._randomEvents[1];
                     this._randomEvents.RemoveAt(0);
@@ -249,8 +296,15 @@ namespace Assets.Scripts.Managers
         public void ShowRandomEventsCanvas()
         {
             AudioManager.Instance.PlayNotification();
-            this._randomEventsCanvas.SetActive(true);
-            this.UpdateToGuiTopcurrentRandomEvent();
+            if (this.CurrentRandomEvent != null && this.CurrentRandomEvent.Choices.IsNullOrEmpty())
+            {
+                this.ShowNotificationCanvas(this.CurrentRandomEvent);
+            }
+            else
+            {
+                this._randomEventsCanvas.SetActive(true);
+                this.UpdateToGuiTopcurrentRandomEvent();
+            }
             Time.timeScale = 0f;
         }
 
@@ -279,74 +333,43 @@ namespace Assets.Scripts.Managers
 
         public void Button1Click()
         {
-            if (!this.CheckButtonClickIsValid(1))
+            if (this.CurrentRandomEvent.Choices.IsNullOrEmpty())
             {
-                return;
+                this.HideRandomEventsCanvas();
+                this.NewRandomEvent(null);
+                this.UpdateToGuiTopcurrentRandomEvent();
             }
-
-            this.DoChoice(this.CurrentRandomEvent.Choices[0]);
+            else
+                this.DoChoice(this.CurrentRandomEvent.Choices[0]);
         }
 
         public void Button2Click()
         {
-            if (!this.CheckButtonClickIsValid(2))
-            {
-                return;
-            }
-
             this.DoChoice(this.CurrentRandomEvent.Choices[1]);
         }
 
         public void Button3Click()
         {
-            if (!this.CheckButtonClickIsValid(3))
-            {
-                return;
-            }
-
             this.DoChoice(this.CurrentRandomEvent.Choices[2]);
         }
 
         public void Button4Click()
         {
-            if (!this.CheckButtonClickIsValid(4))
-            {
-                return;
-            }
-
             this.DoChoice(this.CurrentRandomEvent.Choices[3]);
         }
 
         public void ButtonConfirmClick()
         {
-            if (!this.CheckButtonClickIsValid2(1))
+            if (this.CurrentNotification.Choices.IsNullOrEmpty())
             {
-                return;
+                this.HideNotificationCanvas();
+                this.NewRandomEvent(null);
+                this.UpdateToGuiTopcurrentRandomEvent();
             }
-
-            this.DoChoice(this.CurrentNotification.Choices[0]);
+            else
+                this.DoChoice(this.CurrentNotification.Choices[0]);
         }
-
-        private bool CheckButtonClickIsValid(int number)
-        {
-            if (this.CurrentRandomEvent == null || this.CurrentRandomEvent.Choices == null)
-            {
-                return true;
-            }
-
-            return this.CurrentRandomEvent.Choices.Count >= number;
-        }
-
-        private bool CheckButtonClickIsValid2(int number)
-        {
-            if (this.CurrentNotification == null)
-            {
-                return false;
-            }
-
-            return this.CurrentNotification.Choices.Count >= number;
-        }
-
+        
         private void DoChoice(RandomEvent.Choice choice)
         {
             // ReSharper disable once CompareOfFloatsByEqualityOperator

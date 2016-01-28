@@ -86,13 +86,10 @@
         // ReSharper disable once UnusedMember.Local
         private void Update()
         {
-            // TODO: Misschien niet in de Update?
             this.UpdateFollowersText();
             if (this.TotalFollowers > 17000000)
             {
-                
                 PlayerPrefs.SetFloat("TotalTime", this._time);
-
                 SceneManager.LoadScene("EndScreen");
             }
         }
@@ -108,14 +105,16 @@
             // TODO: Fix magic numbers
             int knowledgeSkills = Player.Instance.KnowledgeSkills;
             int totalFromKnowledgeSkills = 0;
+            int totalBase = 0;
             foreach (FollowerGroup fg in this.FollowerGroups)
             {
-                int followersFromKnowledgeSkills = (int)((knowledgeSkills * this._followersPerKnowledgeSkill) 
-                    + (fg.Followers * this._followersPerKnowledgeSkillPercentage * knowledgeSkills));
+                int followersFromKnowledgeSkills = (int)((knowledgeSkills * this._followersPerKnowledgeSkill));
+                    //+ (fg.Followers * this._followersPerKnowledgeSkillPercentage * knowledgeSkills));
                 totalFromKnowledgeSkills += followersFromKnowledgeSkills;
-                fg.Followers += 1 + (int)((fg.Followers * this._followersPerPercentage) + followersFromKnowledgeSkills);
+                totalBase += 1 + (int)(fg.Followers * this._followersPerPercentage);
+                fg.Followers += 1 + (int)(fg.Followers * this._followersPerPercentage + followersFromKnowledgeSkills);
             }
-            Debug.Log("Total followers from knowledge: " + totalFromKnowledgeSkills);
+            Debug.Log(string.Format("Base followers: {0} and from knowledge: {1}", totalBase, totalFromKnowledgeSkills));
             if (this._followerEhancementThresholds.Count > 0)
                 if (this.TotalFollowers >= this._followerEhancementThresholds[0])
                 {

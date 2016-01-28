@@ -19,7 +19,7 @@
         public float MaxScale = 0.1f;
         public float ScaleStep = 0.1f;
 
-        private float _startSizeX, startSizeY;
+        private float _startSizeX, _startSizeY;
         private bool _scalingUp;
 
         public bool ShouldRespawn;
@@ -27,11 +27,11 @@
         // ReSharper disable once UnusedMember.Local
         private void OnEnable()
         {
-            this.Invoke("DisableBalloon", Random.Range(MinTimeToDestroy, MaxTimeToDestroy));
+            this.Invoke("DisableBalloon", Random.Range(this.MinTimeToDestroy, this.MaxTimeToDestroy));
             this.MinTimeToDestroy = 4f;
             this.MaxTimeToDestroy = 8f;
             this._startSizeX = this.transform.localScale.x;
-            this.startSizeY = this.transform.localScale.y;
+            this._startSizeY = this.transform.localScale.y;
             LightbulbBalloon asLightbulb = this as LightbulbBalloon;
             if (asLightbulb != null && BalloonManager.Instance.LightBulbBalloons.Contains(asLightbulb))
             {
@@ -81,7 +81,7 @@
             if (!this.gameObject.activeInHierarchy) return;
             if (_LOG)
                 Debug.Log("Disabling balloon");
-            this.transform.localScale = new Vector3(this._startSizeX, this.startSizeY, this.transform.localScale.z);
+            this.transform.localScale = new Vector3(this._startSizeX, this._startSizeY, this.transform.localScale.z);
             this.gameObject.SetActive(false);
             if (this.ShouldRespawn)
                 this.Invoke("Respawn", Random.Range(this.MinRespawnTime, this.MaxRespawnTime));
