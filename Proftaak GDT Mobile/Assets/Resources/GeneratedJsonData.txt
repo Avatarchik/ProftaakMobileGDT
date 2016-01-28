@@ -272,21 +272,6 @@
 		"Type": 2,
 		"Choices": [{
 			"Actions": [{
-				"Action": 2,
-				"JSONString": null,
-				"Values": null
-			}],
-			"Text": "Sluiten"
-		}],
-		"HasFollowUpEvent": false,
-		"Title": "Size DOES matter",
-		"Description": "Veel mensen zetten hun bril op of gaan met gespleten ogen kijken. Misschien de volgende keer een groter lettertype en groter plaatjes in de presentatie gebruiken.",
-		"TedUrl": null
-	}, {
-		"IdeaCategory": 0,
-		"Type": 2,
-		"Choices": [{
-			"Actions": [{
 				"Action": 1,
 				"JSONString": "10000",
 				"Values": [10000]
@@ -1131,5 +1116,104 @@
 		"Title": "A roadmap to end aging",
 		"Description": "Cambridge researcher Aubrey de Grey argues that aging is merely a disease — and a curable one at that. Humans age in seven basic ways, he says, all of which can be averted.",
 		"TedUrl": "https://www.ted.com/talks/aubrey_de_grey_says_we_can_avoid_aging"
+	}, {
+		"IdeaCategory": 0,
+		"Type": 2,
+		"Choices": [{
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "1;2",
+				"Values": null
+			}],
+			"Text": "Groter lettertype"
+		}, {
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "1;1",
+				"Values": null
+			}, {
+				"Action": 1,
+				"JSONString": "-1",
+				"Values": null
+			}],
+			"Text": "Groter sherm"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "Wat staat er?",
+		"Description": "Veel mensen zetten hun bril op of gaan met gespleten ogen kijken. Wat ga je volgende keer anders doen?",
+		"TedUrl": null
+	}, {
+		"IdeaCategory": 0,
+		"Type": 2,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Voorstellen"
+		}, {
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "1;2",
+				"Values": null
+			}],
+			"Text": "Met een grap"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "Hoe begin je je speech?",
+		"Description": "Met je voor te stellen of met een grap?",
+		"TedUrl": null
+	}, {
+		"IdeaCategory": 0,
+		"Type": 2,
+		"Choices": [{
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "1;-1",
+				"Values": null
+			}],
+			"Text": "Teksten"
+		}, {
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "1;1",
+				"Values": null
+			}],
+			"Text": "Beelden"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "Je presentatie?",
+		"Description": "Bestaat je presentatie vooral uit teksten of beelden?",
+		"TedUrl": null
+	}, {
+		"IdeaCategory": 0,
+		"Type": 2,
+		"Choices": [{
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Stilstaan"
+		}, {
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "1;-2",
+				"Values": null
+			}],
+			"Text": "Zittend"
+		}, {
+			"Actions": [{
+				"Action": 0,
+				"JSONString": "1;2",
+				"Values": null
+			}],
+			"Text": "Rondlopend"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "Wat is je presentatiestijl?",
+		"Description": "Hoe presenteer je je presentatie?",
+		"TedUrl": null
 	}]
 }
