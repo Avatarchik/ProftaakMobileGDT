@@ -99,7 +99,7 @@ namespace Assets.Scripts.Managers
             RandomEvent currentNotification = new RandomEvent
             {
                 Title = string.Format("Welkom {0}!", Player.Instance.PlayerName),
-                Description = string.Format("{0} is een super tof idee! Probeer dit door heel Nederland te verspreiden en uiteindelijk op TEDx Veghel te komen. Succes met je avontuur!", Player.Instance.IdeaName),
+                Description = string.Format("{0} is een super tof idee! Probeer dit door heel Nederland te verspreiden en uiteindelijk op TEDxVeghel te komen. Succes met je avontuur!", Player.Instance.IdeaName),
                 Choices = new List<RandomEvent.Choice>
                 {
                     new RandomEvent.Choice("Sluiten", new List<RandomEvent.ChoiceAction>

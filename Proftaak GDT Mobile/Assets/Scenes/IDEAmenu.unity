@@ -880,11 +880,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "TED is een Amerikaans bedrijf dat mensen een podium biedt met een prachtig
-    idee.\n\nTEDx is een TED event, ergens in de wereld, georganiseerd door vrijwilligers
-    met dezelfde doelstelling.\n\nTEDxVeghel heeft dus een licentie gekregen en mag
-    onder de TED brand een TED event organiseren waarbij mooie, goede, inspirerende
-    idee\xEBn een podium krijgen."
+  m_Text: "TED is een Amerikaans bedrijf dat mensen, met een prachtig idee, een podium
+    biedt.\n\nTEDx is een TED event, ergens in de wereld, georganiseerd door vrijwilligers
+    met dezelfde doelstelling.\n\nTEDxVeghel heeft een licentie gekregen en mag onder
+    de TED brand een TED event organiseren waarbij mooie, goede, inspirerende idee\xEBn
+    een podium krijgen."
 --- !u!114 &339363175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2980,6 +2980,10 @@ MonoBehaviour:
     - m_Text: Wetenschap
       m_Image: {fileID: 0}
     - m_Text: Entertainment
+      m_Image: {fileID: 0}
+    - m_Text: Sport
+      m_Image: {fileID: 0}
+    - m_Text: Cultuur
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:

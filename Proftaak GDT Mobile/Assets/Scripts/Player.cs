@@ -9,7 +9,8 @@
     public enum IdeaCategory
     {
         Technologie = 0, Design = 1, Wereldwijde_Problemen = 2,
-        Educatie = 3, Bedrijfszaken = 4, Wetenschap = 5, Entertainment = 6
+        Educatie = 3, Bedrijfszaken = 4, Wetenschap = 5, Entertainment = 6,
+		Sport = 7, Cultuur = 8
     }
 
     public class Player
