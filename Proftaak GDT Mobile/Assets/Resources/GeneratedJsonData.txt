@@ -744,6 +744,116 @@
 		"Title": "How giant websites design for you (and a billion others, too)",
 		"Description": "Facebook’s “like” and “share” buttons are seen 22 billion times a day, making them some of the most-viewed design elements ever created. Margaret Gould Stewart, Facebook’s director of product design, outlines three rules for design at such a massive scale—one so big that the tiniest of tweaks can cause global outrage, but also so large that the subtlest of improvements can positively impact the lives of many.",
 		"TedUrl": "https://www.youtube.com/watch?v=quJdL9ggETI"
+	},{
+		"IdeaCategory": 7,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "Are athletes really getting faster, better, stronger",
+		"Description": "When you look at sporting achievements over the last decades, it seems like humans have gotten faster, better and stronger in nearly every way. Yet as David Epstein points out in this delightfully counter-intuitive talk, we might want to lay off the self-congratulation. Many factors are at play in shattering athletic records, and the development of our natural talents is just one of them.",
+		"TedUrl": "https://www.youtube.com/watch?v=8COaMKbNrX0"
+	},{
+		"IdeaCategory": 7,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "The Math Behind Basketball's Wildest Moves",
+		"Description": "Basketball is a fast-moving game of improvisation, contact and, ahem, spatio-temporal pattern recognition. Rajiv Maheswaran and his colleagues are analyzing the movements behind the key plays of the game, to help coaches and players combine intuition with new data. Bonus: What they're learning could help us understand how humans move everywhere.",
+		"TedUrl": "https://www.youtube.com/watch?v=66ko_cWSHBU"
+	},{
+		"IdeaCategory": 7,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "How augmented reality will change sports ... and build empathy",
+		"Description": "Chris Kluwe wants to look into the future of sports and think about how technology will help not just players and coaches, but fans. Here the former NFL punter envisions a future in which augmented reality will help people experience sports as if they are directly on the field — and maybe even help them see others in a new light, too.",
+		"TedUrl": "https://www.youtube.com/watch?v=AgMOJC5R4F8"
+	},{
+		"IdeaCategory": 7,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "The difference between winning and succeeding",
+		"Description": "With profound simplicity, Coach John Wooden redefines success and urges us all to pursue the best in ourselves. In this inspiring talk he shares the advice he gave his players at UCLA, quotes poetry and remembers his father's wisdom.",
+		"TedUrl": "https://www.youtube.com/watch?v=0MM-psvqiG8"
+	},{
+		"IdeaCategory": 7,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "A shark-deterrent wetsuit (and it's not what you think)",
+		"Description": "Hamish Jolly, an ocean swimmer in Australia, wanted a wetsuit that would deter a curious shark from mistaking him for a potential source of nourishment. (Which, statistically, is rare, but certainly a fate worth avoiding.) Working with a team of scientists, he and his friends came up with a fresh approach — not a shark cage, not a suit of chain-mail, but a sleek suit that taps our growing understanding of shark vision.",
+		"TedUrl": "https://www.youtube.com/watch?v=DCIL2nvU4x8"
 	}, {
 		"IdeaCategory": 0,
 		"Type": 3,
@@ -1009,6 +1119,94 @@
 		"Description": "Wael Ghonim is the Google executive who helped jumpstart Egypt's democratic revolution ... with a Facebook page memorializing a victim of the regime's violence. Speaking at TEDxCairo, he tells the inside story of the past two months, when everyday Egyptians showed that \"the power of the people is stronger than the people in power.\"",
 		"TedUrl": "https://www.youtube.com/watch?v=SWvJxasiSZ8"
 	}, {
+		"IdeaCategory": 1,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "The Hilarious Art of Book Design",
+		"Description": "Chip Kidd doesn't judge books by their cover, he creates covers that embody the book -- and he does it with a wicked sense of humor. In one of the funniest talks from TED2012, he shows the art and deep thought of his cover designs. (From The Design Studio session at TED2012, guest curated by Chee Pearlman and David Rockwell.)",
+		"TedUrl": "https://www.youtube.com/watch?v=cC0KxNeLp1E"
+	},{
+		"IdeaCategory": 1,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "Use Art to Turn the World Inside Out",
+		"Description": "JR, a French street artist, uses his camera to show the world its true face. He makes his audacious TED Prize wish: to use art to turn the world inside out. A funny, moving talk about art and who we are. Learn more at insideoutproject.net.",
+		"TedUrl": "https://www.youtube.com/watch?v=0PAy1zBtTbw"
+	},{
+		"IdeaCategory": 2,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "Let’s Help Refugees Thrive, Not Just Survive",
+		"Description": "50 million people in the world today have been forcefully displaced from their home — a level not seen since WWII. Right now, more than 3 million Syrian refugees are seeking shelter in neighboring countries. In Lebanon, half of these refugees are children; only 20% are in school. Melissa Fleming of the UN's refugee agency calls on all of us to make sure that refugee camps are healing places where people can develop.",
+		"TedUrl": "https://www.youtube.com/watch?v=1bXAkbCyjpo"
+	}, {
+		"IdeaCategory": 2,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "How Not to Be Ignorant About the World",
+		"Description": "How much do you know about the world? Hans Rosling, with his famous charts of global population, health and income data (and an extra-extra-long pointer), demonstrates that you have a high statistical chance of being quite wrong about what you think you know. Play along with his audience quiz — then, from Hans’ son Ola, learn 4 ways to quickly get less ignorant.",
+		"TedUrl": "https://www.youtube.com/watch?v=Sm5xF-UYgdg"
+	},{
 		"IdeaCategory": 3,
 		"Type": 3,
 		"Choices": [{
@@ -1030,6 +1228,50 @@
 		"Title": "Do schools kill creativity?",
 		"Description": "Sir Ken Robinson makes an entertaining and profoundly moving case for creating an education system that nurtures (rather than undermines) creativity.",
 		"TedUrl": "https://www.youtube.com/watch?v=iG9CE55wbtY"
+	},{
+		"IdeaCategory": 3,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "Every kid needs a champion",
+		"Description": "Rita Pierson, a teacher for 40 years, once heard a colleague say, \"They don't pay me to like the kids.\" Her response: \"Kids don't learn from people they don't like.'\" A rousing call to educators to believe in their students and actually connect with them on a real, human, personal level.",
+		"TedUrl": "https://www.youtube.com/watch?v=SFnMTHhKdkw"
+	},{
+		"IdeaCategory": 3,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "Our failing schools. Enough is enough!",
+		"Description": "Why, why, why does our education system look so similar to the way it did 50 years ago? Millions of students were failing then, as they are now -- and it's because we're clinging to a business model that clearly doesn't work. Education advocate Geoffrey Canada dares the system to look at the data, think about the customers and make systematic shifts in order to help greater numbers of kids excel.",
+		"TedUrl": "https://www.youtube.com/watch?v=vY2l2xfDBcE"
 	}, {
 		"IdeaCategory": 4,
 		"Type": 3,
@@ -1052,6 +1294,72 @@
 		"Title": "The happy secret to better work",
 		"Description": "We believe we should work hard in order to be happy, but could we be thinking about things backwards? In this fast-moving and very funny talk, psychologist Shawn Achor argues that, actually, happiness inspires us to be more productive.",
 		"TedUrl": "https://www.youtube.com/watch?v=fLJsdqxnZb0"
+	},    {
+		"IdeaCategory": 4,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "How to get your ideas to spread",
+		"Description": "In a world of too many options and too little time, our obvious choice is to just ignore the ordinary stuff. Marketing guru Seth Godin spells out why, when it comes to getting our attention, bad or bizarre ideas are more successful than boring ones.",
+		"TedUrl": "https://www.youtube.com/watch?v=xBIVlM435Zg"
+	},  {
+		"IdeaCategory": 4,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "What it takes to be a great leader",
+		"Description": "There are many leadership programs available today, from 1-day workshops to corporate training programs. But chances are, these won't really help. In this clear, candid talk, Roselinde Torres describes 25 years observing truly great leaders at work, and shares the three simple but crucial questions would-be company chiefs need to ask to thrive in the future.",
+		"TedUrl": "https://www.youtube.com/watch?v=aUYSDEYdmzw"
+	},{
+		"IdeaCategory": 4,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "How great leaders inspire action",
+		"Description": "Simon Sinek presents a simple but powerful model for how leaders inspire action, starting with a golden circle and the question \"Why?\" His examples include Apple, Martin Luther King, and the Wright brothers -- and as a counterpoint Tivo, which (until a recent court victory that tripled its stock price) appeared to be struggling.",
+		"TedUrl": "https://www.youtube.com/watch?v=qp0HIF3SfI4"
 	}, {
 		"IdeaCategory": 5,
 		"Type": 3,
@@ -1074,6 +1382,50 @@
 		"Title": "A roadmap to end aging",
 		"Description": "Cambridge researcher Aubrey de Grey argues that aging is merely a disease — and a curable one at that. Humans age in seven basic ways, he says, all of which can be averted.",
 		"TedUrl": "https://www.youtube.com/watch?v=8iYpxRXlboQ"
+	},{
+		"IdeaCategory": 5,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "The Astounding Athletic Power of Quadcopters",
+		"Description": "In a robot lab at TEDGlobal, Raffaello D'Andrea demos his flying quadcopters: robots that think like athletes, solving physical problems with algorithms that help them learn. In a series of nifty demos, D'Andrea show drones that play catch, balance and make decisions together -- and watch out for an I-want-this-now demo of Kinect-controlled quads.",
+		"TedUrl": "https://www.youtube.com/watch?v=w2itwFJCgFQ"
+	},{
+		"IdeaCategory": 5,
+		"Type": 3,
+		"Choices": [{
+			"Actions": [{
+				"Action": 4,
+				"JSONString": "",
+				"Values": [""]
+			}],
+			"Text": "Bekijken"
+		}, {
+			"Actions": [{
+				"Action": 2,
+				"JSONString": null,
+				"Values": null
+			}],
+			"Text": "Sluiten"
+		}],
+		"HasFollowUpEvent": false,
+		"Title": "What If 3D Printing Was 100x Faster?",
+		"Description": "What we think of as 3D printing, says Joseph DeSimone, is really just 2D printing over and over ... slowly. Onstage at TED2015, he unveils a bold new technique — inspired, yes, by Terminator 2 — that's 25 to 100 times faster, and creates smooth, strong parts. Could it finally help to fulfill the tremendous promise of 3D printing?",
+		"TedUrl": "https://www.youtube.com/watch?v=ihR9SX7dgRo"
 	}, {
 		"IdeaCategory": 0,
 		"Type": 2,
