@@ -305,44 +305,23 @@
 	}, {
 		"IdeaCategory": 0,
 		"Type": 1,
-		"Choices": [{
-			"Actions": [{
-				"Action": 2,
-				"JSONString": null,
-				"Values": null
-			}],
-			"Text": "Sluiten"
-		}],
+		"Choices": null,
 		"HasFollowUpEvent": false,
-		"Title": "Amy Cuddy quote",
+		"Title": "Inspirerende quote",
 		"Description": "“Fake it ‘til you make it.” - Amy Cuddy",
 		"TedUrl": null
 	}, {
 		"IdeaCategory": 0,
 		"Type": 1,
-		"Choices": [{
-			"Actions": [{
-				"Action": 2,
-				"JSONString": null,
-				"Values": null
-			}],
-			"Text": "Sluiten"
-		}],
+		"Choices": null,
 		"HasFollowUpEvent": false,
-		"Title": "Pablo Picasso quote",
+		"Title": "Inspirerende quote",
 		"Description": "“Good artists copy; great artists steal.” - Pablo Picasso",
 		"TedUrl": null
 	}, {
 		"IdeaCategory": 0,
 		"Type": 1,
-		"Choices": [{
-			"Actions": [{
-				"Action": 2,
-				"JSONString": null,
-				"Values": null
-			}],
-			"Text": "Sluiten"
-		}],
+		"Choices": null,
 		"HasFollowUpEvent": false,
 		"Title": "Wist je dat...",
 		"Description": "Zelfs een ervaren spreker als Steve Jobs nam dagen de tijd om zijn presentaties en talks voor te bereiden.",
