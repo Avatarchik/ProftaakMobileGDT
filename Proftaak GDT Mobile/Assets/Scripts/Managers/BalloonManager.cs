@@ -1,4 +1,6 @@
-﻿namespace Assets.Scripts.Managers
+﻿using System.Collections;
+
+namespace Assets.Scripts.Managers
 {
     using System.Collections.Generic;
     using Followers;
@@ -29,12 +31,15 @@
         [SerializeField]
         private GameObject _bubblePrefab;
 
+        private bool _bubbleCooldown;
+
         [SerializeField]
         private Canvas _balloonsCanvas;
 
         // ReSharper disable once UnusedMember.Local
         private void Awake()
         {
+            this._bubbleCooldown = false;
             if (Instance == null)
                 Instance = this;
             this.LightBulbBalloons = new List<LightbulbBalloon>();
@@ -60,8 +65,13 @@
             }
             if (ray.origin == Vector3.back && ray.direction == Vector3.down) return;
 
-            GameObject go = (GameObject)Instantiate(this._bubblePrefab, new Vector3(spawnPos.x,spawnPos.y,21), Quaternion.identity);
-            go.transform.SetParent(this._balloonsCanvas.transform);
+            if (!_bubbleCooldown)
+            {
+                this._bubbleCooldown = true;
+                GameObject go = (GameObject)Instantiate(this._bubblePrefab, new Vector3(spawnPos.x, spawnPos.y, 21), Quaternion.identity);
+                go.transform.SetParent(this._balloonsCanvas.transform);
+                Invoke("ResetBubbleCooldown", 0.3f);
+            }
 
             RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, new Vector3(0, 0, 2000f));
             //Debug.DrawRay(ray.origin, new Vector3(0, 0, 1500f), Color.green, 3f);
@@ -163,6 +173,10 @@
             go.transform.SetParent(this._balloonsCanvas.transform);
             if (!go.gameObject.activeSelf)
                 go.gameObject.SetActive(true);
+        }
+        private void ResetBubbleCooldown()
+        {
+            this._bubbleCooldown = false;
         }
 
     }
