@@ -71,9 +71,6 @@
 
         public Player()
         {
-            this.KnowledgeSkills = 0;
-            this.PresentationSkills = 0;
-            this.MediaSkills = 0;
             this.UnlockedEnhancements = new List<Enhancement>();
             this.UnusedSkillPoints = 1;
         }

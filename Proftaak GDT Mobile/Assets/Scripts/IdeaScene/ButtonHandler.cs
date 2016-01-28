@@ -23,6 +23,7 @@ namespace Assets.Scripts.IdeaScene
 
             if(!this.SpelerNaamTb.text.IsNullEmptyOrWhitespace() && !this.IdeeNaamTb.text.IsNullEmptyOrWhitespace() && this.CategorieDropDrown.captionText.text != "Kies een categorie")
             {
+                Player.Instance = new Player();
                 Player.Instance.PlayerName= this.SpelerNaamTb.text;
                 Player.Instance.IdeaName = this.IdeeNaamTb.text;
                 Player.Instance.Category = (IdeaCategory)Enum.Parse(typeof(IdeaCategory), this.CategorieDropDrown.captionText.text.Replace(" ","_"));
