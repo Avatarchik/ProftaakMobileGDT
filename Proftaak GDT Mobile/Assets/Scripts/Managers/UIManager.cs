@@ -12,6 +12,8 @@
         private Canvas _upgradeCanvas;
         [SerializeField]
         private Canvas _UICanvas;
+        [SerializeField]
+        private Animator animator;
         public Canvas UICanvas { get { return this._UICanvas; } }
         //[SerializeField]
         //private Text _attributesText;
@@ -52,6 +54,13 @@
             this._mediaText.text = Player.Instance.MediaSkills.ToString();
             this._knowledgeText.text = Player.Instance.KnowledgeSkills.ToString();
 
+            if( Player.Instance.UnusedSkillPoints != 0)
+            {
+                animator.gameObject.GetComponent<Animator>();
+                animator.SetTrigger("Upgrade");
+            }
+
+           
             //this._attributesText.text = string.Format("Attributen:   <color=lime>P:{0}</color>/<color=aqua>M:{1}</color>/<color=orange>K:{2}</color>",
             //                Player.Instance.PresentationSkills, Player.Instance.MediaSkills, Player.Instance.KnowledgeSkills);
         }
@@ -73,6 +82,8 @@
             this._UICanvas.gameObject.SetActive(true);
             this._upgradeCanvas.gameObject.SetActive(false);
         }
+
+
 
 
     }
