@@ -450,7 +450,8 @@ namespace Assets.Scripts.Managers
                     case RandomEvent.ChoiceAction.ActionType.VisitUrl:
                         {
                             YoutubeVideo ytv = new YoutubeVideo();
-                            Handheld.PlayFullScreenMovie(ytv.RequestVideo(this.CurrentRandomEvent.TedUrl, 480));
+                            Handheld.PlayFullScreenMovie(ytv.RequestVideo(this.CurrentRandomEvent.TedUrl, 720));
+                            
                             //Application.OpenURL(this.CurrentRandomEvent.TedUrl);
                             Player.Instance.KnowledgeSkills++;
                             break;
