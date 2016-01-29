@@ -1,6 +1,4 @@
-﻿using System.Collections;
-
-namespace Assets.Scripts.Managers
+﻿namespace Assets.Scripts.Managers
 {
     using System.Collections.Generic;
     using Followers;
@@ -11,6 +9,14 @@ namespace Assets.Scripts.Managers
     public class BalloonManager : MonoBehaviour
     {
         public static BalloonManager Instance;
+
+        public int currentRadius;
+
+        public int growFactor;
+
+        public SpawnGrid spwnGrd;
+
+        public SpawnPoint startingPoint;
         
         public float OffsetPosX = 15f;
         public float OffsetPosY = 15f;
@@ -31,15 +37,12 @@ namespace Assets.Scripts.Managers
         [SerializeField]
         private GameObject _bubblePrefab;
 
-        private bool _bubbleCooldown;
-
         [SerializeField]
         private Canvas _balloonsCanvas;
 
         // ReSharper disable once UnusedMember.Local
         private void Awake()
         {
-            this._bubbleCooldown = false;
             if (Instance == null)
                 Instance = this;
             this.LightBulbBalloons = new List<LightbulbBalloon>();
@@ -65,13 +68,8 @@ namespace Assets.Scripts.Managers
             }
             if (ray.origin == Vector3.back && ray.direction == Vector3.down) return;
 
-            if (!_bubbleCooldown)
-            {
-                this._bubbleCooldown = true;
-                GameObject go = (GameObject)Instantiate(this._bubblePrefab, new Vector3(spawnPos.x, spawnPos.y, 21), Quaternion.identity);
-                go.transform.SetParent(this._balloonsCanvas.transform);
-                Invoke("ResetBubbleCooldown", 0.3f);
-            }
+            GameObject go = (GameObject)Instantiate(this._bubblePrefab, new Vector3(spawnPos.x,spawnPos.y,21), Quaternion.identity);
+            go.transform.SetParent(this._balloonsCanvas.transform);
 
             RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, new Vector3(0, 0, 2000f));
             //Debug.DrawRay(ray.origin, new Vector3(0, 0, 1500f), Color.green, 3f);
@@ -84,8 +82,17 @@ namespace Assets.Scripts.Managers
             }
         }
 
-        public Vector3 NewPosition()
+        public Vector3 NewPosition(bool setTaken)
         {
+            Vector2 pos = this.NewPosition(currentRadius, setTaken);
+            while (pos == Vector2.zero)
+            {
+                currentRadius += growFactor;
+                pos = this.NewPosition(currentRadius, setTaken);
+            }
+
+            return new Vector3(pos.x, pos.y, -4.1f);
+
             List<FollowerGroup> groups = FollowerManager.Instance.FollowerGroups;
             Vector3 respawnPos = Vector3.zero;
             for (int i = 0; i < groups.Count; i++)
@@ -141,10 +148,16 @@ namespace Assets.Scripts.Managers
             return respawnPos;
         }
 
+
+        public Vector2 NewPosition(int radius, bool setTaken)
+        {
+          return  spwnGrd.GetRandomLocation(setTaken, spwnGrd.GetLocationsClosestToCenter(radius, this.startingPoint.location, true), setTaken);
+        }
+
         public void Respawn(Balloon balloon)
         {
             AudioManager.Instance.PlaySpawnObject();
-            balloon.transform.position = this.NewPosition();
+            balloon.transform.position = this.NewPosition(balloon is LightbulbBalloon);
             balloon.gameObject.SetActive(true);
         }
 
@@ -157,7 +170,7 @@ namespace Assets.Scripts.Managers
         public void SpawnLightbulb(bool respawn)
         {
             AudioManager.Instance.PlaySpawnObject();
-            Vector3 pos = this.NewPosition();
+            Vector3 pos = this.NewPosition(true);
             LightbulbBalloon go = (LightbulbBalloon)Instantiate(this._lightbulbBalloonPrefab, pos, Quaternion.identity);
             go.ShouldRespawn = respawn;
             go.transform.SetParent(this._balloonsCanvas.transform);
@@ -167,16 +180,12 @@ namespace Assets.Scripts.Managers
         public void SpawnRandomEvent(bool respawn)
         {
             AudioManager.Instance.PlaySpawnObject();
-            Vector3 pos = this.NewPosition();
+            Vector3 pos = this.NewPosition(false);
             RandomEventBalloon go = (RandomEventBalloon)Instantiate(this._randomEventBalloonPrefab, pos, Quaternion.identity);
             go.ShouldRespawn = respawn;
             go.transform.SetParent(this._balloonsCanvas.transform);
             if (!go.gameObject.activeSelf)
                 go.gameObject.SetActive(true);
-        }
-        private void ResetBubbleCooldown()
-        {
-            this._bubbleCooldown = false;
         }
 
     }
