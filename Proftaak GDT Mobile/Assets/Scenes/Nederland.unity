@@ -3663,7 +3663,7 @@ RectTransform:
   m_RootOrder: 6
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -17.900002, y: 64.7}
+  m_AnchoredPosition: {x: -17.900002, y: 96.8}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &878643626
@@ -5029,7 +5029,7 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -96.600006, y: 64.7}
+  m_AnchoredPosition: {x: -96.600006, y: 96.8}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1157929386
@@ -7383,6 +7383,7 @@ GameObject:
   - 222: {fileID: 1868527822}
   - 114: {fileID: 1868527821}
   - 114: {fileID: 1868527820}
+  - 95: {fileID: 1868527823}
   m_Layer: 5
   m_Name: ButtonUpgrade
   m_TagString: Untagged
@@ -7506,6 +7507,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1868527818}
+--- !u!95 &1868527823
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1868527818}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4c4986d5b79a9774cb01926a548b528e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1899186248
 GameObject:
   m_ObjectHideFlags: 0
@@ -7766,7 +7784,7 @@ RectTransform:
   m_RootOrder: 7
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 65.350006, y: 64.7}
+  m_AnchoredPosition: {x: 65.350006, y: 96.8}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1982336360
@@ -8384,6 +8402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _upgradeCanvas: {fileID: 780162599}
   _UICanvas: {fileID: 966643026}
+  animator: {fileID: 1868527823}
   _presentationText: {fileID: 190925894}
   _mediaText: {fileID: 327821300}
   _knowledgeText: {fileID: 785992355}
