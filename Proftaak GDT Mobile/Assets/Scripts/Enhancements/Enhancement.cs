@@ -1,5 +1,6 @@
 ﻿namespace Assets.Scripts.Enhancements
 {
+    using Managers;
     using System;
     using System.Collections.Generic;
     using UnityEngine;
@@ -109,6 +110,7 @@
                     Player.Instance.KnowledgeSkills += 5;
                     Player.Instance.MediaSkills += 5;
                     Player.Instance.PresentationSkills += 5;
+                    FollowerManager.Instance.TotalFollowers = 17000000;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

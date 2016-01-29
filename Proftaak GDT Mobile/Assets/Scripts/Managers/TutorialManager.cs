@@ -253,6 +253,25 @@ namespace Assets.Scripts.Managers
                     }
                 case 11:
                     {
+                        this._currentStep = new Step("I made it!", "Als je uitgenodigd wil worden voor TEDxVeghel, zal je de laatste verbetering moet unlocken. Je herkent deze aan het TEDx logo!", this.Images[8]);
+
+                        this._title.text = this._currentStep.TitleStep;
+                        this._description.text = this._currentStep.DescriptionStep;
+                        this._nextButton.GetComponentInChildren<Text>().text = "Start";
+
+                        if (this._currentStep.RequiresImage)
+                        {
+                            this._placeHolder.enabled = true;
+                            this._placeHolder.sprite = this._currentStep.PlaceHolder;
+                        }
+                        else
+                        {
+                            this._placeHolder.enabled = false;
+                        }
+                        break;
+                    }
+                case 12:
+                    {
                         this._currentStep = new Step("That's all folks!", "Je bent nu klaar om je idee te gaan verspreiden! \n Heel veel succes!", null);
 
                         this._title.text = this._currentStep.TitleStep;
