@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+#if UNITY_EDITOR_64
 using UnityEditor;
 
 [CustomEditor(typeof(SpawnGrid))]
@@ -17,3 +18,4 @@ public class ObjectBuilderEditor : Editor
         //}
     }
 }
+#endif
