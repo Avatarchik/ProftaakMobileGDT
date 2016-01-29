@@ -449,7 +449,9 @@ namespace Assets.Scripts.Managers
                         }
                     case RandomEvent.ChoiceAction.ActionType.VisitUrl:
                         {
-                            Application.OpenURL(this.CurrentRandomEvent.TedUrl);
+                            YoutubeVideo ytv = new YoutubeVideo();
+                            Handheld.PlayFullScreenMovie(ytv.RequestVideo(this.CurrentRandomEvent.TedUrl, 480));
+                            //Application.OpenURL(this.CurrentRandomEvent.TedUrl);
                             Player.Instance.KnowledgeSkills++;
                             break;
                         }
