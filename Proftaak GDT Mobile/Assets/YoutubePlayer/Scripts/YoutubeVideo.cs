@@ -6,9 +6,10 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using YoutubeExtractor;
 using System.Net;
+#if (UNITY_WP8_1 || UNITY_WP8 || UNITY_WSA_8_1)
+
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
-
 public class YoutubeVideo : MonoBehaviour {
 
     public static YoutubeVideo Instance;
@@ -93,3 +94,4 @@ public class YoutubeVideo : MonoBehaviour {
 
 
 }
+#endif

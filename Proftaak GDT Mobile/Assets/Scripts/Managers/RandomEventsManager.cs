@@ -449,10 +449,14 @@ namespace Assets.Scripts.Managers
                         }
                     case RandomEvent.ChoiceAction.ActionType.VisitUrl:
                         {
+
+#if (UNITY_WP8_1 || UNITY_WP_8_1 || UNITY_WP8 || UNITY_WSA_8_1)
+
+                            Application.OpenURL(this.CurrentRandomEvent.TedUrl);
+#else
                             YoutubeVideo ytv = new YoutubeVideo();
-                            Handheld.PlayFullScreenMovie(ytv.RequestVideo(this.CurrentRandomEvent.TedUrl, 720));
-                            
-                            //Application.OpenURL(this.CurrentRandomEvent.TedUrl);
+                            Handheld.PlayFullScreenMovie(ytv.RequestVideo(this.CurrentRandomEvent.TedUrl, 720));                            
+#endif
                             Player.Instance.KnowledgeSkills++;
                             break;
                         }

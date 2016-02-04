@@ -52,14 +52,22 @@ namespace Assets.Scripts
         // int i = 1000; i.ToStringWithSeperators();
         public static string ToStringWithSeperators(this int i)
         {
+#if (!UNITY_WP8_1 && !UNITY_WP_8_1 && !UNITY_WP8 && !UNITY_WSA_8_1)
             CultureInfo dutchCulture = CultureInfo.CreateSpecificCulture("nl-NL");
             return String.Format(dutchCulture, "{0:n0}", i);
+#else
+            return i.ToString();
+#endif
         }
 
         public static string ValueToStringWithSeperators(object value)
         {
+#if (!UNITY_WP8_1 && !UNITY_WP_8_1 && !UNITY_WP8 && !UNITY_WSA_8_1)
             CultureInfo dutchCulture = CultureInfo.CreateSpecificCulture("nl-NL");
             return String.Format(dutchCulture, "{0:n0}", value);
+#else
+            return value.ToString();
+#endif
         }
 
         public static bool PauseGame()

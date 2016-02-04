@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using SimpleJSON;
 
 
 //AND DONT KNOW HOW TO ADD CONTACT ME: kelvinparkour@gmail.com 
 //TO HELP OTHER DEVELOPERS I ADDED A JSON BASED RESPONSE ON THIS VERSION (IN OLDER VERSION I USED A POOR XML STRUCTURE).
+#if (!UNITY_WP8_1 && !UNITY_WP_8_1 && !UNITY_WP8 && !UNITY_WSA_8_1)
 
+using SimpleJSON;
 public class vData {
 	public string title;
 	public string duration;
@@ -238,3 +239,4 @@ public class Search : MonoBehaviour {
 	}
 
 }
+#endif

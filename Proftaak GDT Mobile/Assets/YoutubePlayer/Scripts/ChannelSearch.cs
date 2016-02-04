@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+#if (!UNITY_WP8_1 && !UNITY_WP_8_1 && !UNITY_WP8 && !UNITY_WSA_8_1)
 using SimpleJSON;
 
 
@@ -314,3 +315,4 @@ public class ChannelSearch : MonoBehaviour {
         www.LoadImageIntoTexture(thumbs[idx]);
     }
 }
+#endif

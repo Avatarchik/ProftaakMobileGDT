@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
+#if (!UNITY_WP8_1 && !UNITY_WP_8_1 && !UNITY_WP8 && !UNITY_WSA_8_1)
 namespace SimpleJSON
 {
 	public enum JSONBinaryTag
@@ -24,7 +25,7 @@ namespace SimpleJSON
 	
 	public abstract class JSONNode
 	{
-		#region common interface
+#region common interface
 		
 		public virtual void Add (string aKey, JSONNode aItem)
 		{
@@ -86,9 +87,9 @@ namespace SimpleJSON
 		
 		public abstract string ToJSON (int prefix);
 		
-		#endregion common interface
+#endregion common interface
 		
-		#region typecasting properties
+#region typecasting properties
 		
 		public virtual JSONBinaryTag Tag { get; set; }
 		
@@ -165,9 +166,9 @@ namespace SimpleJSON
 		}
 		
 		
-		#endregion typecasting properties
+#endregion typecasting properties
 		
-		#region operators
+#region operators
 		
 		public static implicit operator JSONNode (string s)
 		{
@@ -202,7 +203,7 @@ namespace SimpleJSON
 		}
 		
 		
-		#endregion operators
+#endregion operators
 		
 		internal static string Escape (string aText)
 		{
@@ -457,7 +458,7 @@ namespace SimpleJSON
 			Serialize (W);
 		}
 		
-		#if USE_SharpZipLib
+#if USE_SharpZipLib
 		public void SaveToCompressedStream(System.IO.Stream aData)
 		{
 			using (var gzipOut = new ICSharpCode.SharpZipLib.BZip2.BZip2OutputStream(aData))
@@ -471,16 +472,16 @@ namespace SimpleJSON
 		public void SaveToCompressedFile(string aFileName)
 		{
 			
-			#if USE_FileIO
+#if USE_FileIO
 			System.IO.Directory.CreateDirectory((new System.IO.FileInfo(aFileName)).Directory.FullName);
 			using(var F = System.IO.File.OpenWrite(aFileName))
 			{
 				SaveToCompressedStream(F);
 			}
 			
-			#else
+#else
 			throw new Exception("Can't use File IO stuff in webplayer");
-			#endif
+#endif
 		}
 		public string SaveToCompressedBase64()
 		{
@@ -492,7 +493,7 @@ namespace SimpleJSON
 			}
 		}
 		
-		#else
+#else
 		public void SaveToCompressedStream (System.IO.Stream aData)
 		{
 			throw new Exception ("Can't use compressed functions. You need include the SharpZipLib and uncomment the define at the top of SimpleJSON");
@@ -507,18 +508,18 @@ namespace SimpleJSON
 		{
 			throw new Exception ("Can't use compressed functions. You need include the SharpZipLib and uncomment the define at the top of SimpleJSON");
 		}
-		#endif
+#endif
 		
 		public void SaveToFile (string aFileName)
 		{
-			#if USE_FileIO
+#if USE_FileIO
 			System.IO.Directory.CreateDirectory ((new System.IO.FileInfo (aFileName)).Directory.FullName);
 			using (var F = System.IO.File.OpenWrite (aFileName)) {
 				SaveToStream (F);
 			}
-			#else
+#else
 			throw new Exception ("Can't use File IO stuff in webplayer");
-			#endif
+#endif
 		}
 		
 		public string SaveToBase64 ()
@@ -581,7 +582,7 @@ namespace SimpleJSON
 			}
 		}
 		
-		#if USE_SharpZipLib
+#if USE_SharpZipLib
 		public static JSONNode LoadFromCompressedStream(System.IO.Stream aData)
 		{
 			var zin = new ICSharpCode.SharpZipLib.BZip2.BZip2InputStream(aData);
@@ -589,14 +590,14 @@ namespace SimpleJSON
 		}
 		public static JSONNode LoadFromCompressedFile(string aFileName)
 		{
-			#if USE_FileIO
+#if USE_FileIO
 			using(var F = System.IO.File.OpenRead(aFileName))
 			{
 				return LoadFromCompressedStream(F);
 			}
-			#else
+#else
 			throw new Exception("Can't use File IO stuff in webplayer");
-			#endif
+#endif
 		}
 		public static JSONNode LoadFromCompressedBase64(string aBase64)
 		{
@@ -605,7 +606,7 @@ namespace SimpleJSON
 			stream.Position = 0;
 			return LoadFromCompressedStream(stream);
 		}
-		#else
+#else
 		public static JSONNode LoadFromCompressedFile (string aFileName)
 		{
 			throw new Exception ("Can't use compressed functions. You need include the SharpZipLib and uncomment the define at the top of SimpleJSON");
@@ -620,7 +621,7 @@ namespace SimpleJSON
 		{
 			throw new Exception ("Can't use compressed functions. You need include the SharpZipLib and uncomment the define at the top of SimpleJSON");
 		}
-		#endif
+#endif
 		
 		public static JSONNode LoadFromStream (System.IO.Stream aData)
 		{
@@ -631,13 +632,13 @@ namespace SimpleJSON
 		
 		public static JSONNode LoadFromFile (string aFileName)
 		{
-			#if USE_FileIO
+#if USE_FileIO
 			using (var F = System.IO.File.OpenRead (aFileName)) {
 				return LoadFromStream (F);
 			}
-			#else
+#else
 			throw new Exception ("Can't use File IO stuff in webplayer");
-			#endif
+#endif
 		}
 		
 		public static JSONNode LoadFromBase64 (string aBase64)
@@ -1194,3 +1195,4 @@ namespace SimpleJSON
 		}
 	}
 }
+#endif

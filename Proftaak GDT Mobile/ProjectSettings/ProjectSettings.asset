@@ -331,8 +331,8 @@ PlayerSettings:
   psmSplashimage: {fileID: 0}
   spritePackerPolicy: 
   scriptingDefineSymbols: {}
-  metroPackageName: Proftaak GDT Mobile
-  metroPackageVersion: 
+  metroPackageName: ProftaakGDTMobile
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -340,7 +340,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Proftaak GDT Mobile
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: TEDxVeghel
   metroCommandLineArgsFile: 
   metroTileShowName: 0
   metroMediumTileShowName: 0
@@ -351,7 +351,31 @@ PlayerSettings:
   metroTileBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   metroSplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   metroSplashScreenUseBackgroundColor: 0
-  platformCapabilities: {}
+  platformCapabilities:
+    WindowsStoreApps:
+      AllJoyn: False
+      BlockedChatMessages: False
+      Bluetooth: False
+      Chat: False
+      CodeGeneration: False
+      EnterpriseAuthentication: False
+      HumanInterfaceDevice: False
+      InternetClient: False
+      InternetClientServer: False
+      Location: False
+      Microphone: False
+      MusicLibrary: False
+      Objects3D: False
+      PhoneCall: False
+      PicturesLibrary: False
+      PrivateNetworkClientServer: False
+      Proximity: False
+      RemovableStorage: False
+      SharedUserCertificates: False
+      UserAccountInformation: False
+      VideosLibrary: False
+      VoipCall: False
+      WebCam: False
   metroFTAName: 
   metroFTAFileTypes: []
   metroProtocolName: 
