@@ -369,7 +369,7 @@ namespace Assets.Scripts.Managers
             else
                 this.DoChoice(this.CurrentNotification.Choices[0]);
         }
-        
+
         private void DoChoice(RandomEvent.Choice choice)
         {
             // ReSharper disable once CompareOfFloatsByEqualityOperator
@@ -450,12 +450,11 @@ namespace Assets.Scripts.Managers
                     case RandomEvent.ChoiceAction.ActionType.VisitUrl:
                         {
 
-#if (UNITY_WP8_1 || UNITY_WP_8_1 || UNITY_WP8 || UNITY_WSA_8_1)
-
-                            Application.OpenURL(this.CurrentRandomEvent.TedUrl);
-#else
+#if (UNITY_IPHONE || UNITY_ANDROID)
                             YoutubeVideo ytv = new YoutubeVideo();
-                            UnityEngine.Handheld.PlayFullScreenMovie(ytv.RequestVideo(this.CurrentRandomEvent.TedUrl, 720));                            
+                            UnityEngine.Handheld.PlayFullScreenMovie(ytv.RequestVideo(this.CurrentRandomEvent.TedUrl, 720)); 
+#else    
+                            Application.OpenURL(this.CurrentRandomEvent.TedUrl);
 #endif
                             Player.Instance.KnowledgeSkills++;
                             break;
