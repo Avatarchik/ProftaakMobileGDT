@@ -455,7 +455,7 @@ namespace Assets.Scripts.Managers
                             Application.OpenURL(this.CurrentRandomEvent.TedUrl);
 #else
                             YoutubeVideo ytv = new YoutubeVideo();
-                            Handheld.PlayFullScreenMovie(ytv.RequestVideo(this.CurrentRandomEvent.TedUrl, 720));                            
+                            UnityEngine.Handheld.PlayFullScreenMovie(ytv.RequestVideo(this.CurrentRandomEvent.TedUrl, 720));                            
 #endif
                             Player.Instance.KnowledgeSkills++;
                             break;

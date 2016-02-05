@@ -91,61 +91,7 @@
                 pos = this.NewPosition(currentRadius, setTaken);
             }
 
-            return new Vector3(pos.x, pos.y, -4.1f);
-
-            List<FollowerGroup> groups = FollowerManager.Instance.FollowerGroups;
-            Vector3 respawnPos = Vector3.zero;
-            for (int i = 0; i < groups.Count; i++)
-            {
-                if (i != groups.Count - 1 && Random.Range(0, groups.Count) != 0) continue;
-                int randSide = Random.Range(1, 4);
-
-                float minX, maxX, minY, maxY;
-                switch (randSide)
-                {
-                    case 1: // left
-                        //Debug.Log("Left side");
-                        minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
-                        maxX = groups[i].transform.position.x - groups[i].transform.localScale.x / this.DivideByScale;
-                        minY = groups[i].transform.position.y - this.OffsetPosY - groups[i].transform.localScale.x / this.DivideByScale;
-                        maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
-                        break;
-                    case 2: // right
-                        //Debug.Log("right side");
-                        minX = groups[i].transform.position.x + groups[i].transform.localScale.x / this.DivideByScale;
-                        maxX = groups[i].transform.position.x + this.OffsetPosX + groups[i].transform.localScale.x / this.DivideByScale;
-                        minY = groups[i].transform.position.y - this.OffsetPosY - groups[i].transform.localScale.x / this.DivideByScale;
-                        maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
-                        break;
-                    case 3: // down
-                            //Debug.Log("bottom side");
-                            //minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
-                            //maxX = groups[i].transform.position.x + this.OffsetPosX + groups[i].transform.localScale.x / this.DivideByScale;
-                            //minY = groups[i].transform.position.y - this.OffsetPosY - groups[i].transform.localScale.x / this.DivideByScale;
-                            //maxY = groups[i].transform.position.y - groups[i].transform.localScale.x / this.DivideByScale;
-
-
-                        // we willen eigenlijk nooit shit beneden spawnen
-                        // top
-                        //Debug.Log("top side");
-                        minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
-                        maxX = groups[i].transform.position.x + this.OffsetPosX + groups[i].transform.localScale.x / this.DivideByScale;
-                        minY = groups[i].transform.position.y + groups[i].transform.localScale.x / this.DivideByScale;
-                        maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
-                        break;
-                    default: // top
-                        //Debug.Log("top side");
-                        minX = groups[i].transform.position.x - this.OffsetPosX - groups[i].transform.localScale.x / this.DivideByScale;
-                        maxX = groups[i].transform.position.x + this.OffsetPosX + groups[i].transform.localScale.x / this.DivideByScale;
-                        minY = groups[i].transform.position.y + groups[i].transform.localScale.x / this.DivideByScale;
-                        maxY = groups[i].transform.position.y + this.OffsetPosY + groups[i].transform.localScale.x / this.DivideByScale;
-                        break;
-                }
-
-                //Debug.Log(string.Format("minX: {0} maxX: {1} minY: {2} maxY: {3}", minX, maxX, minY, maxY));
-                respawnPos = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), -4.1f);
-            }
-            return respawnPos;
+            return new Vector3(pos.x, pos.y, -4.1f);            
         }
 
 
