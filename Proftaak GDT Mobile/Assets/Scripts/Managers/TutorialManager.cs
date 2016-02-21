@@ -253,7 +253,7 @@ namespace Assets.Scripts.Managers
                     }
                 case 11:
                     {
-                        this._currentStep = new Step("I made it!", "Als je uitgenodigd wil worden voor TEDxVeghel, zal je de laatste verbetering moet unlocken. Je herkent deze aan het TEDx logo!", this.Images[8]);
+                        this._currentStep = new Step("I made it!", "Je hebt gewonnen als je uitgenodigd wordt voor TEDxVeghel. Dit gebeurd zodra je 17 miljoen volgers hebt bereikt of de laatste verbetering hebt vrij gespeeld. Je herkent deze aan het TEDx logo!", this.Images[8]);
 
                         this._title.text = this._currentStep.TitleStep;
                         this._description.text = this._currentStep.DescriptionStep;
