@@ -95,8 +95,8 @@
 				"Values": [1, -1]
 			}, {
 				"Action": 1,
-				"JSONString": "100000",
-				"Values": [100000]
+				"JSONString": "500",
+				"Values": [500]
 			}],
 			"Text": "Feiten"
 		}, {
@@ -106,8 +106,8 @@
 				"Values": [1, 1]
 			}, {
 				"Action": 1,
-				"JSONString": "500",
-				"Values": [500]
+				"JSONString": "1500",
+				"Values": [1500]
 			}],
 			"Text": "Verhaal"
 		}],
@@ -134,7 +134,7 @@
 			"Text": "Nee"
 		}],
 		"HasFollowUpEvent": true,
-		"Title": "Een goede voorbereiding...",
+		"Title": "Na afloop van een presentatie",
 		"Description": "Je hebt je presentatie voorbereid, ga je feedback vragen?",
 		"TedUrl": null
 	}, {
@@ -292,7 +292,7 @@
 		"Choices": null,
 		"HasFollowUpEvent": false,
 		"Title": "Wist je dat...",
-		"Description": "Je het spel wint als je de TEDx verbetering hebt vrij gespeeld.",
+		"Description": "Je het spel wint als je de TEDx verbetering hebt vrij gespeeld of als je 17 miljoen volgers hebt?",
 		"TedUrl": null
 	}, {
 		"IdeaCategory": 0,

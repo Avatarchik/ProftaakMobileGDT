@@ -42,6 +42,11 @@ namespace Assets.Scripts.RandomEvents
                 ca.SetValues();
         }
 
+        public override string ToString()
+        {
+            return string.Format("{0}: {1}", this.Type, this.Title);
+        }
+
         [Serializable]
         public class Choice
         {

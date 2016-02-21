@@ -3,6 +3,7 @@
 namespace Assets.Scripts.IdeaScene
 {
     using System;
+    using Assets.Scripts.Helpers;
     using UnityEngine;
     using UnityEngine.UI;
 

@@ -10,7 +10,7 @@
         public override void OnButtonClicked()
         {
             AudioManager.Instance.PlayButtonClick(this.aC);
-            FollowerManager.Instance.CreateNewFollowerGroup(new Vector2(this.transform.position.x, this.transform.position.y), 100);
+            FollowerManager.Instance.CreateNewFollowerGroup(new Vector2(this.transform.position.x, this.transform.position.y));
             this.DisableBalloon();
         }
     }

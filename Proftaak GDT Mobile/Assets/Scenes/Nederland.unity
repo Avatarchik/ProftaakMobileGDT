@@ -5821,11 +5821,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 11494464, guid: 2cc71961788f3574490a58e47e3b4364, type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4d39ff5a1bdf6c349b0c0fb85a187a93,
-        type: 3}
+    - target: {fileID: 11496492, guid: 2cc71961788f3574490a58e47e3b4364, type: 2}
+      propertyPath: DevideBy
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2cc71961788f3574490a58e47e3b4364, type: 2}
   m_IsPrefabParent: 0
@@ -10548,9 +10547,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb89a8b20a681f54d9009c7b77561286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _followersPerPercentage: 0.005
+  _followersPerPercentage: 0.001
   _followersPerKnowledgeSkill: 5
-  _followersPerKnowledgeSkillPercentage: 0.0005
+  _followersPerKnowledgeSkillPercentage: 0.00025
   FollowerGroups:
   - {fileID: 1075594558}
   _followersText: {fileID: 1042416207}

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using Assets.Scripts.Helpers;
     using Followers;
     using UnityEngine;
     using UnityEngine.UI;
@@ -16,6 +17,14 @@
         private float _followersPerKnowledgeSkill = 5;
         [SerializeField]
         private float _followersPerKnowledgeSkillPercentage = 0.001f;
+
+        [SerializeField]
+        private int _startFollowersForBalloon = 100;
+        [SerializeField]
+        private int _followersStartPerPresentationSkill = 100;
+        [SerializeField]
+        private float _followersStartPerPresentationSkillPercentage = 0.002f;
+
 
         public List<FollowerGroup> FollowerGroups;
 
@@ -75,7 +84,7 @@
         {
             this._followerEhancementThresholds = new List<int>
             {
-                500, 1500, 5000, 15000, 50000,150000, 500000,1500000, 5000000
+                500, 1500, 5000, 15000, 50000,150000, 500000,1500000, 15000000
             };
         }
         public void StartFollowers()
@@ -102,7 +111,6 @@
         // ReSharper disable once UnusedMember.Local
         private void IncreaseFollowers()
         {
-            // TODO: Fix magic numbers
             int knowledgeSkills = Player.Instance.KnowledgeSkills;
             int totalFromKnowledgeSkills = 0;
             int totalBase = 0;
@@ -118,22 +126,22 @@
             if (this._followerEhancementThresholds.Count > 0)
                 if (this.TotalFollowers >= this._followerEhancementThresholds[0])
                 {
-                    
                     Player.Instance.UnusedSkillPoints++;
                     AudioManager.Instance.PlayUpgradesAvailable();
                     this._followerEhancementThresholds.RemoveAt(0);
                 }
         }
 
-        public void CreateNewFollowerGroup(Vector2 pos, int startFollowers)
+        public void CreateNewFollowerGroup(Vector2 pos)
         {
             FollowerGroup newGroup = GameObject.Instantiate(this._followerGroupPrefab);
             newGroup.transform.SetParent(this._followersCanvas.transform);
             //newGroup.GetComponent<RectTransform>().sizeDelta = new Vector2(100,100);
             newGroup.GetComponent<RectTransform>().position = pos;
-            newGroup.Followers = startFollowers;
+            newGroup.Followers = this._startFollowersForBalloon + (this._followersStartPerPresentationSkill * Player.Instance.PresentationSkills)
+                + (int)(this._followersStartPerPresentationSkillPercentage * Player.Instance.PresentationSkills * this.TotalFollowers);
+            LogHelper.Log(typeof(FollowerManager), "start followers: " + newGroup.Followers);
             this.FollowerGroups.Add(newGroup);
-
         }
         public void IncreaseTime()
         {

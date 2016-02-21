@@ -96,22 +96,32 @@ namespace Assets.Scripts.Managers
                     shuffledList.Add(choices[0]);
                     choices.RemoveAt(0);
                 }
-                else if (i % 5 == 0 && tedlinks.Count > 0)
+                else if ((i % 6 == 0 /*|| i % 7 == 0  || i % 9 == 0*/ ) && choices.Count > 0)
                 {
-                    shuffledList.Add(tedlinks[0]);
-                    tedlinks.RemoveAt(0);
+                    shuffledList.Add(choices[0]);
+                    choices.RemoveAt(0);
                 }
-                else if (i % 4 == 0 && info.Count > 0)
+                else if (i % 5 == 0 && info.Count > 0)
                 {
                     shuffledList.Add(info[0]);
                     info.RemoveAt(0);
                 }
-                else if (i % 3 == 0 && quotes.Count > 0)
+                else if (i % 4 == 0 && quotes.Count > 0)
                 {
                     shuffledList.Add(quotes[0]);
                     quotes.RemoveAt(0);
                 }
+                else if (i % 3 == 0 && tedlinks.Count > 0)
+                {
+                    shuffledList.Add(tedlinks[0]);
+                    tedlinks.RemoveAt(0);
+                }
                 else if (i % 2 == 0 && choices.Count > 0)
+                {
+                    shuffledList.Add(choices[0]);
+                    choices.RemoveAt(0);
+                }
+                else if (choices.Count > 0)
                 {
                     shuffledList.Add(choices[0]);
                     choices.RemoveAt(0);
@@ -130,11 +140,6 @@ namespace Assets.Scripts.Managers
                 {
                     shuffledList.Add(tedlinks[0]);
                     tedlinks.RemoveAt(0);
-                }
-                else if (choices.Count > 0)
-                {
-                    shuffledList.Add(choices[0]);
-                    choices.RemoveAt(0);
                 }
                 i++;
             }
@@ -372,10 +377,6 @@ namespace Assets.Scripts.Managers
 
         private void DoChoice(RandomEvent.Choice choice)
         {
-            // ReSharper disable once CompareOfFloatsByEqualityOperator
-            // float value = choice.Min == choice.Max ? choice.Max : UnityEngine.Random.Range(choice.Min, choice.Max);
-
-            // Debug.Log("RandomEventsManager: value = " + value);
             int actionValueSkill = 0;
             int actionValueFollowers = 0;
             foreach (RandomEvent.ChoiceAction action in choice.Actions)
@@ -471,7 +472,6 @@ namespace Assets.Scripts.Managers
                         }
                 }
             }
-
             if (actionValueFollowers < 0 && actionValueSkill < 0)
             {
                 AudioManager.Instance.PlayNegativeFeedback();

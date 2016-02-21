@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _followers: 10
-  DevideBy: 16
+  DevideBy: 0.5
   StartSize: 0.05
 --- !u!222 &22266378
 CanvasRenderer:
@@ -79,7 +79,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 29.9, y: -18.5}
+  m_AnchoredPosition: {x: 24.1, y: -18.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &100100000
