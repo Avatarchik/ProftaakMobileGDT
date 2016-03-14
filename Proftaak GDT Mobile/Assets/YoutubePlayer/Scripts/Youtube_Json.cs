@@ -1,4 +1,7 @@
-﻿//#define USE_SharpZipLib
+﻿#if (UNITY_IPHONE || UNITY_ANDROID )
+
+
+//#define USE_SharpZipLib
 #if !UNITY_WEBPLAYER
 #define USE_FileIO
 #endif
@@ -1195,4 +1198,5 @@ namespace SimpleJSON
 		}
 	}
 }
+#endif
 #endif

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#if (UNITY_IPHONE || UNITY_ANDROID )
+using UnityEngine;
 using System.Collections;
 
 public class YoutubeEasyMovieTexture : MonoBehaviour
@@ -17,3 +18,4 @@ public class YoutubeEasyMovieTexture : MonoBehaviour
         
     }
 }
+#endif

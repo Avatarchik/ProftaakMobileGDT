@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#if (UNITY_IPHONE || UNITY_ANDROID )
+using UnityEngine;
 using System.Collections;
 
 public class SceneControl : MonoBehaviour {
@@ -15,3 +16,4 @@ public class SceneControl : MonoBehaviour {
         }
     }
 }
+#endif
