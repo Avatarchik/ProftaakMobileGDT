@@ -10550,6 +10550,9 @@ MonoBehaviour:
   _followersPerPercentage: 0.001
   _followersPerKnowledgeSkill: 5
   _followersPerKnowledgeSkillPercentage: 0.00025
+  _startFollowersForBalloon: 100
+  _followersStartPerPresentationSkill: 100
+  _followersStartPerPresentationSkillPercentage: 0.002
   FollowerGroups:
   - {fileID: 1075594558}
   _followersText: {fileID: 1042416207}
